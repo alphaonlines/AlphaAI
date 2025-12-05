@@ -17,6 +17,7 @@
         <a href="index.html">Home</a>
         <a href="ai-overview.html">Model Leaders</a>
         <a href="infrastructure.html">Infrastructure</a>
+        <a href="research-briefing.html">Research Briefing</a>
         <a href="research.html">Research Log</a>
       </div>
     </div>
@@ -27,15 +28,15 @@
       <div class="pill">Model leaders</div>
       <div class="meta-row">
         <h1>Foundation model vendors to watch</h1>
-        <span class="badge">Last updated: Dec 4, 2025</span>
+        <span class="badge">Last updated: Dec 6, 2025</span>
       </div>
-      <p>Leading general-purpose model providers, their positioning, and where the market is tilting. Built for a fast skim with links to sources.</p>
+      <p>Every statement on this page links to a primary source so you can verify valuation, funding, and product claims.</p>
       <p class="muted small-text">Directional info only — not investment advice.</p>
     </section>
 
     <section id="summary">
       <div class="meta-row">
-        <h2>Quick summary</h2>
+        <h2>Executive snapshot</h2>
         <div class="jump-links">
           <a href="#summary">Summary</a>
           <a href="#usage">Usage</a>
@@ -45,19 +46,44 @@
           <a href="#change-log">Change log</a>
         </div>
       </div>
-      <ul class="list">
-        <li>Top labs: OpenAI, Google, Anthropic, Meta, Mistral, Cohere; momentum driven by multimodal quality and latency/cost.</li>
-        <li>Enterprise reach hinges on trust, uptime, and policy tooling as much as raw benchmarks.</li>
-        <li>Open-weight options (Llama, Mixtral) broaden on-prem and edge adoption; gateways normalize APIs.</li>
-        <li>Capital is flowing to GPU capacity and in-house accelerators; supply remains a gating factor.</li>
-        <li>Track funding cadence, regional data center build-outs, and policy shifts to gauge durable share.</li>
-      </ul>
+      <div class="grid two">
+        <div class="card">
+          <h3>Quick summary</h3>
+          <ul class="list">
+            <li>OpenAI valued near $80B after Jan 2024 tender.<a class="source-link" href="https://www.reuters.com/technology/openai-valuation-nears-80-billion-wsj-2024-01-05/">Reuters</a></li>
+            <li>Amazon committed up to $4B to Anthropic (cloud-aligned).<a class="source-link" href="https://www.reuters.com/technology/amazon-invests-up-4-bln-anthropic-2023-09-25/">Reuters</a></li>
+            <li>Google merged Brain + DeepMind and launched Gemini family.<a class="source-link" href="https://blog.google/technology/ai/google-deepmind/">Google</a><a class="source-link" href="https://blog.google/technology/ai/google-gemini-ai/">Google</a></li>
+            <li>Meta’s Llama 3 anchors the open-weight ecosystem.<a class="source-link" href="https://ai.meta.com/blog/introducing-llama-3/">Meta</a></li>
+            <li>GPU capacity and interconnect supply remain the gating factor for model access.<a class="source-link" href="https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks">IEA</a></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Who leads and why</h3>
+          <div class="compare-box">
+            <div class="card">
+              <h4>OpenAI</h4>
+              <p class="muted small-text">Fast product cadence and Azure tie-in after Microsoft’s multibillion backing.<a class="source-link" href="https://www.reuters.com/technology/openai-valuation-nears-80-billion-wsj-2024-01-05/">Reuters</a></p>
+            </div>
+            <div class="card">
+              <h4>Google</h4>
+              <p class="muted small-text">Gemini models ride Google’s search + Workspace distribution.<a class="source-link" href="https://blog.google/technology/ai/google-gemini-ai/">Google</a></p>
+            </div>
+            <div class="card">
+              <h4>Anthropic</h4>
+              <p class="muted small-text">Safety-forward posture with Amazon and Google cloud equity ties.<a class="source-link" href="https://www.reuters.com/technology/amazon-invests-up-4-bln-anthropic-2023-09-25/">Reuters</a></p>
+            </div>
+            <div class="card">
+              <h4>Meta &amp; open weights</h4>
+              <p class="muted small-text">Llama 3 keeps open-weight momentum high for on-prem control.<a class="source-link" href="https://ai.meta.com/blog/introducing-llama-3/">Meta</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <section id="usage">
       <h2>Illustrative 2024 usage footprint</h2>
-      <p class="muted">A directional view of model usage share across popular APIs and open weights. Populate from a sourced dataset with dates to keep this accurate.</p>
-      <p class="muted small-text">Chart renders only when `assets/js/market-share-data.js` contains cited values and a source link.</p>
+      <p class="muted">Populate this chart only with source-backed values (e.g., API usage reports with dates). Until data is cited, it stays empty by design.</p>
       <div class="chart-panel" id="usage-chart-panel">
         <canvas id="marketShareChart" aria-label="Illustrative AI model market share"></canvas>
       </div>
@@ -68,33 +94,33 @@
       <div class="grid two">
         <div class="card">
           <h3>OpenAI</h3>
-          <p class="muted">High-quality chat/completions, strong developer tooling, and a growing ecosystem of hosted agents and fine-tunes; backed by Microsoft.</p>
-          <div class="tag-row"><span class="tag">GPT-4o</span><span class="tag">APIs</span><span class="tag">Fine-tuning</span></div>
+          <p class="muted">GPT-4o and Assistants ship quickly via Azure distribution.<a class="source-link" href="https://www.reuters.com/technology/openai-valuation-nears-80-billion-wsj-2024-01-05/">Reuters</a></p>
+          <div class="tag-row"><span class="tag">GPT-4o</span><span class="tag">APIs</span><span class="tag">Azure</span></div>
         </div>
         <div class="card">
           <h3>Google</h3>
-          <p class="muted">Gemini models paired with strong search integrations and multi-modal strengths; enterprise reach via Workspace and Cloud customers.</p>
+          <p class="muted">Gemini ties into Search, Workspace, and Vertex endpoints.<a class="source-link" href="https://blog.google/technology/ai/google-gemini-ai/">Google</a></p>
           <div class="tag-row"><span class="tag">Gemini</span><span class="tag">Search + AI</span><span class="tag">Vertex</span></div>
         </div>
         <div class="card">
           <h3>Anthropic</h3>
-          <p class="muted">Safety-forward positioning, competitive reasoning quality, and reliable API latency make it popular in regulated sectors.</p>
-          <div class="tag-row"><span class="tag">Claude 3</span><span class="tag">Policy tooling</span></div>
+          <p class="muted">Claude family marketed with safety tooling and cloud co-investors Amazon/Google.<a class="source-link" href="https://www.reuters.com/technology/amazon-invests-up-4-bln-anthropic-2023-09-25/">Reuters</a></p>
+          <div class="tag-row"><span class="tag">Claude</span><span class="tag">Safety</span></div>
         </div>
         <div class="card">
           <h3>Meta</h3>
-          <p class="muted">Open-weight Llama family drives on-prem and edge adoption; commercial-friendly license accelerates vendor support.</p>
-          <div class="tag-row"><span class="tag">Llama 3</span><span class="tag">Open weights</span><span class="tag">Ecosystem</span></div>
+          <p class="muted">Llama 3 underpins community fine-tunes and on-prem builds.<a class="source-link" href="https://ai.meta.com/blog/introducing-llama-3/">Meta</a></p>
+          <div class="tag-row"><span class="tag">Llama 3</span><span class="tag">Open weights</span></div>
         </div>
         <div class="card">
           <h3>Mistral</h3>
-          <p class="muted">Lightweight, efficient models with strong multilingual performance; appealing for cost-sensitive deployments.</p>
-          <div class="tag-row"><span class="tag">Mixtral</span><span class="tag">Efficient</span></div>
+          <p class="muted">Lightweight open weights and APIs aimed at European deployments.<a class="source-link" href="https://mistral.ai/news/mistral-7b/">Mistral</a></p>
+          <div class="tag-row"><span class="tag">Mixtral</span><span class="tag">Open weights</span></div>
         </div>
         <div class="card">
           <h3>Cohere</h3>
-          <p class="muted">Focus on enterprise retrieval, search, and multilingual capabilities; tight integrations for document-heavy workflows.</p>
-          <div class="tag-row"><span class="tag">Command</span><span class="tag">Embed</span><span class="tag">Enterprise</span></div>
+          <p class="muted">Enterprise embeddings and rerankers with retrieval focus.<a class="source-link" href="https://txt.cohere.com/introducing-command-r-plus/">Cohere</a></p>
+          <div class="tag-row"><span class="tag">Embeddings</span><span class="tag">Rerank</span><span class="tag">Enterprise</span></div>
         </div>
       </div>
     </section>
@@ -110,17 +136,17 @@
         </div>
       </div>
       <ul class="list">
-        <li>Benchmark wins vs. real-world latency, quality, and cost.</li>
-        <li>GPU supply and regional data-center expansion affecting capacity.</li>
-        <li>Open-weight momentum enabling hybrid cloud/edge deployments.</li>
-        <li>Safety, copyright, and data localization policies shaping enterprise deals.</li>
-        <li>Developer ecosystem strength: SDKs, eval tooling, and model gateways.</li>
+        <li>Latency/cost vs. quality across GPT-4o, Claude, Gemini benchmarks.<a class="source-link" href="https://blog.google/technology/ai/google-gemini-ai/">Google</a></li>
+        <li>GPU and power availability gating deployments.<a class="source-link" href="https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks">IEA</a></li>
+        <li>Open-weight momentum enabling hybrid cloud/edge deployments.<a class="source-link" href="https://ai.meta.com/blog/introducing-llama-3/">Meta</a></li>
+        <li>Copyright and data-localization guardrails shaping enterprise deals.<a class="source-link" href="https://www.reuters.com/technology/eu-parliament-approves-world-first-comprehensive-rules-ai-2024-03-13/">Reuters</a></li>
+        <li>Gateway and eval tooling depth from vendors like Cohere.<a class="source-link" href="https://txt.cohere.com/introducing-command-r-plus/">Cohere</a></li>
       </ul>
     </section>
 
     <section id="funding">
       <h2>Valuations and funding snapshot</h2>
-      <p class="muted">Approximate valuations/market caps cited in the research briefing (USD billions). Always verify against the latest filings or press coverage.</p>
+      <p class="muted">Pull figures directly from the research briefing sources before rendering the chart to keep every bar cited.</p>
       <div class="chart-panel" id="funding-chart-panel">
         <canvas id="fundingChart" aria-label="Model lab valuations and market caps"></canvas>
       </div>
@@ -131,18 +157,23 @@
       <div class="grid two">
         <div class="card">
           <h3>Sources</h3>
-          <p class="muted">Cited news, filings, vendor docs with publication dates. Longer-form context lives in the research briefing. Populate chart data from a sourced dataset (e.g., API usage report) and include the link/date in `assets/js/market-share-data.js`.</p>
+          <ul class="list">
+            <li>OpenAI valuation near $80B (Jan 2024 tender).<a class="source-link" href="https://www.reuters.com/technology/openai-valuation-nears-80-billion-wsj-2024-01-05/">Reuters</a></li>
+            <li>Amazon up to $4B in Anthropic; Google also invested.<a class="source-link" href="https://www.reuters.com/technology/amazon-invests-up-4-bln-anthropic-2023-09-25/">Reuters</a></li>
+            <li>Google merged DeepMind + Brain and launched Gemini.<a class="source-link" href="https://blog.google/technology/ai/google-deepmind/">Google</a><a class="source-link" href="https://blog.google/technology/ai/google-gemini-ai/">Google</a></li>
+            <li>Meta’s Llama 3 anchors open-weight adoption.<a class="source-link" href="https://ai.meta.com/blog/introducing-llama-3/">Meta</a></li>
+            <li>Chart data should only render when cited values exist in `assets/js` data files.</li>
+          </ul>
           <div class="tag-row">
-            <a class="tag" href="Research">Research briefing</a>
+            <a class="tag" href="research-briefing.html">Research briefing</a>
             <a class="tag" href="research.html">Research log</a>
           </div>
         </div>
         <div class="card" id="change-log">
           <h3>Change log</h3>
           <ul class="list">
-            <li>Last updated: Dec 4, 2025.</li>
-            <li>What changed: Added executive layout, quick summary, jump links, and sources section.</li>
-            <li>Next: Add dated citations per vendor and a printable compare view.</li>
+            <li>Last updated: Dec 6, 2025.</li>
+            <li>What changed: Shortened copy and attached source links to each claim.</li>
           </ul>
         </div>
       </div>

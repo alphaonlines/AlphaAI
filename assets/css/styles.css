@@ -34,6 +34,18 @@ a {
   font-weight: 600;
 }
 
+.source-link {
+  font-weight: 600;
+  color: var(--accent-2);
+  margin-left: 6px;
+}
+
+.source-link::after {
+  content: '↗';
+  margin-left: 4px;
+  font-size: 12px;
+}
+
 a:hover {
   color: var(--accent-2);
 }
@@ -143,6 +155,17 @@ section {
   border-radius: 14px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--border);
+}
+
+.compare-box {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+
+.compare-box .card {
+  background: rgba(255, 255, 255, 0.06);
 }
 
 .stat-card {
@@ -360,6 +383,38 @@ footer {
 .back-to-top a {
   color: var(--accent);
   font-weight: 700;
+}
+
+@media print {
+  :root {
+    --bg: #ffffff;
+    --bg-alt: #ffffff;
+    --text: #0c0f1d;
+    --muted: #333;
+    --panel: #ffffff;
+    --panel-strong: #f4f4f4;
+    --border: #ccc;
+  }
+
+  body {
+    background: #ffffff;
+    color: #0c0f1d;
+  }
+
+  header, .back-to-top, footer {
+    display: none;
+  }
+
+  section {
+    box-shadow: none;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  a {
+    color: #0c0f1d;
+    text-decoration: underline;
+  }
 }
 
 @media (max-width: 640px) {
