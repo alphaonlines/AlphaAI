@@ -36,43 +36,27 @@
     </section>
 
     <section id="data-visuals">
-      <h2>Real-world signals</h2>
-      <p class="muted">Quick visuals anchored to reported numbers and source links you can audit.</p>
-      <div class="grid two">
-        <div class="card stat-card">
-          <div class="pill">Earnings signal</div>
-          <h3>NVIDIA data center run-rate</h3>
-          <p class="stat-value">$30.8B</p>
-          <p class="muted">Q3 FY2025 data center revenue, up 112% year-over-year.</p>
-          <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2025" aria-label="NVIDIA Q3 FY2025 earnings release">Source: NVIDIA press release</a>
-        </div>
-        <div class="card stat-card">
-          <div class="pill">Infrastructure footprint</div>
-          <h3>U.S. data center density</h3>
-          <p class="stat-value">5,381 sites</p>
-          <p class="muted">Highest count globally as of March 2024; demand expected to double to 35 GW by 2030.</p>
-          <a href="https://en.wikipedia.org/wiki/Data_center#Energy_consumption" aria-label="Wikipedia data center energy consumption section">Source: Data center overview (citing McKinsey & IEA)</a>
+      <div class="meta-row">
+        <h2>Real-world data snapshots</h2>
+        <div class="tag-row">
+          <span class="tag">Energy demand</span>
+          <span class="tag">Chip supply</span>
+          <span class="tag">Grounded in sources</span>
         </div>
       </div>
-      <div class="card chart-card">
-        <div class="pill">Power demand trend</div>
-        <h3>Electricity pull from AI-heavy data centers</h3>
-        <div class="bar-chart">
-          <div class="bar-row">
-            <span class="bar-label">2024 actual</span>
-            <div class="bar" style="width: 41.5%">
-              <span class="bar-value">415 TWh</span>
-            </div>
-          </div>
-          <div class="bar-row">
-            <span class="bar-label">2030 projection</span>
-            <div class="bar" style="width: 83%">
-              <span class="bar-value">~830 TWh</span>
-            </div>
-          </div>
+      <div class="grid two">
+        <div class="card">
+          <h3>Data center electricity use</h3>
+          <p class="muted">IEA expects global data center and AI electricity demand to climb from ~460 TWh in 2022 to ~800 TWh by 2026 as AI workloads scale.</p>
+          <canvas id="energyChart" aria-label="Chart showing data center electricity demand growth" role="img"></canvas>
+          <p class="small-text muted">Source: <a href="https://www.iea.org/news/data-centres-and-ai-electricity-consumption-to-double-by-2026" target="_blank" rel="noopener">International Energy Agency (Feb 2024)</a></p>
         </div>
-        <p class="muted small-text">IEA projects data center electricity demand could double by 2030 from ~415 TWh in 2024, driven by AI workloads.</p>
-        <a href="https://en.wikipedia.org/wiki/Data_center#Energy_consumption" aria-label="Data center electricity consumption source">Source: IEA outlook summarized via Wikipedia</a>
+        <div class="card">
+          <h3>AI accelerator market share (2024)</h3>
+          <p class="muted">TrendForce estimates NVIDIA will command ~80% of AI accelerator shipments in 2024, with AMD and Intel splitting most of the remainder.</p>
+          <canvas id="gpuChart" aria-label="Bar chart showing 2024 AI accelerator market share" role="img"></canvas>
+          <p class="small-text muted">Source: <a href="https://www.trendforce.com/presscenter/news/20240402-11751.html" target="_blank" rel="noopener">TrendForce (Apr 2024)</a></p>
+        </div>
       </div>
     </section>
 
@@ -211,6 +195,60 @@
       <a href="#top">Back to top</a>
     </div>
   </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    const energyCtx = document.getElementById('energyChart');
+    if (energyCtx) {
+      new Chart(energyCtx, {
+        type: 'line',
+        data: {
+          labels: ['2022', '2026'],
+          datasets: [{
+            label: 'TWh per year',
+            data: [460, 800],
+            borderColor: '#77f3c6',
+            backgroundColor: 'rgba(119, 243, 198, 0.15)',
+            tension: 0.35,
+            borderWidth: 3,
+            fill: true
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.08)' } },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    const gpuCtx = document.getElementById('gpuChart');
+    if (gpuCtx) {
+      new Chart(gpuCtx, {
+        type: 'bar',
+        data: {
+          labels: ['NVIDIA', 'AMD', 'Intel', 'Other'],
+          datasets: [{
+            label: '2024 market share (%)',
+            data: [80, 10, 6, 4],
+            backgroundColor: ['#77f3c6', '#ffb454', '#9aa4c3', 'rgba(255,255,255,0.3)'],
+            borderColor: 'rgba(255,255,255,0.2)',
+            borderWidth: 1.5,
+            borderRadius: 6
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.08)' } },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+  </script>
 
   <footer>
     Illustrative content only. Not investment advice.
