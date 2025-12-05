@@ -36,27 +36,43 @@
     </section>
 
     <section id="data-visuals">
-      <div class="meta-row">
-        <h2>Real-world data snapshots</h2>
-        <div class="tag-row">
-          <span class="tag">Energy demand</span>
-          <span class="tag">Chip supply</span>
-          <span class="tag">Grounded in sources</span>
+      <h2>Real-world signals</h2>
+      <p class="muted">Quick visuals anchored to reported numbers and source links you can audit.</p>
+      <div class="grid two">
+        <div class="card stat-card">
+          <div class="pill">Earnings signal</div>
+          <h3>NVIDIA data center run-rate</h3>
+          <p class="stat-value">$30.8B</p>
+          <p class="muted">Q3 FY2025 data center revenue, up 112% year-over-year.</p>
+          <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2025" aria-label="NVIDIA Q3 FY2025 earnings release">Source: NVIDIA press release</a>
+        </div>
+        <div class="card stat-card">
+          <div class="pill">Infrastructure footprint</div>
+          <h3>U.S. data center density</h3>
+          <p class="stat-value">5,381 sites</p>
+          <p class="muted">Highest count globally as of March 2024; demand expected to double to 35 GW by 2030.</p>
+          <a href="https://en.wikipedia.org/wiki/Data_center#Energy_consumption" aria-label="Wikipedia data center energy consumption section">Source: Data center overview (citing McKinsey & IEA)</a>
         </div>
       </div>
-      <div class="grid two">
-        <div class="card">
-          <h3>Data center electricity use</h3>
-          <p class="muted">IEA expects global data center and AI electricity demand to climb from ~460 TWh in 2022 to ~800 TWh by 2026 as AI workloads scale.</p>
-          <canvas id="energyChart" aria-label="Chart showing data center electricity demand growth" role="img"></canvas>
-          <p class="small-text muted">Source: <a href="https://www.iea.org/news/data-centres-and-ai-electricity-consumption-to-double-by-2026" target="_blank" rel="noopener">International Energy Agency (Feb 2024)</a></p>
+      <div class="card chart-card">
+        <div class="pill">Power demand trend</div>
+        <h3>Electricity pull from AI-heavy data centers</h3>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <span class="bar-label">2024 actual</span>
+            <div class="bar" style="width: 41.5%">
+              <span class="bar-value">415 TWh</span>
+            </div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">2030 projection</span>
+            <div class="bar" style="width: 83%">
+              <span class="bar-value">~830 TWh</span>
+            </div>
+          </div>
         </div>
-        <div class="card">
-          <h3>AI accelerator market share (2024)</h3>
-          <p class="muted">TrendForce estimates NVIDIA will command ~80% of AI accelerator shipments in 2024, with AMD and Intel splitting most of the remainder.</p>
-          <canvas id="gpuChart" aria-label="Bar chart showing 2024 AI accelerator market share" role="img"></canvas>
-          <p class="small-text muted">Source: <a href="https://www.trendforce.com/presscenter/news/20240402-11751.html" target="_blank" rel="noopener">TrendForce (Apr 2024)</a></p>
-        </div>
+        <p class="muted small-text">IEA projects data center electricity demand could double by 2030 from ~415 TWh in 2024, driven by AI workloads.</p>
+        <a href="https://en.wikipedia.org/wiki/Data_center#Energy_consumption" aria-label="Data center electricity consumption source">Source: IEA outlook summarized via Wikipedia</a>
       </div>
     </section>
 
@@ -83,6 +99,7 @@
         <div class="card">
           <h3>Jump links</h3>
           <div class="jump-links">
+            <a href="#data-visuals">Data visuals</a>
             <a href="#timeline">Timeline</a>
             <a href="#latest">What changed</a>
             <a href="#how-to-use">How to use this site</a>
@@ -183,7 +200,7 @@
           <h3>Update hygiene</h3>
           <ul class="list">
             <li>Last updated: Dec 4, 2025.</li>
-            <li>What changed: refreshed home layout; added reader paths and timeline anchors.</li>
+            <li>What changed: refreshed home layout; added reader paths, data visuals, and timeline anchors.</li>
             <li>Ensured the home page lives at the site root (`index.html`) for direct entry.</li>
             <li>Next: align other pages to the executive template and backfill sources.</li>
           </ul>
