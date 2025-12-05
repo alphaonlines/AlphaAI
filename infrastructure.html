@@ -14,20 +14,76 @@
         <a href="index.html">Home</a>
         <a href="ai-overview.html">Model Leaders</a>
         <a href="infrastructure.html">Infrastructure</a>
+        <a href="research-briefing.html">Research Briefing</a>
         <a href="research.html">Research Log</a>
       </div>
     </div>
   </header>
 
   <main class="container">
-    <section class="hero">
-      <div class="pill">AI & robotics stack</div>
-      <h1>Who powers AI training, inference, and robots</h1>
+    <section class="hero" id="top">
+      <div class="pill">AI &amp; robotics stack</div>
+      <div class="meta-row">
+        <h1>Who powers AI training, inference, and robots</h1>
+        <span class="badge">Last updated: Dec 5, 2025</span>
+      </div>
       <p>Hardware, cloud, networking, and robotics platforms that turn models into production systems. Use this as a starting point for diligence.</p>
+      <div class="jump-links">
+        <a href="#snapshot">Summary</a>
+        <a href="#compute">Compute</a>
+        <a href="#robotics">Robotics</a>
+        <a href="#reference">Quick reference</a>
+        <a href="#sources">Sources</a>
+        <a href="#change-log">Change log</a>
+      </div>
     </section>
 
-    <section>
-      <h2>Compute & accelerators</h2>
+    <section id="snapshot">
+      <div class="meta-row">
+        <h2>Executive snapshot</h2>
+        <div class="tag-row">
+          <span class="tag">Capacity</span>
+          <span class="tag">Networking</span>
+          <span class="tag">Robotics</span>
+        </div>
+      </div>
+      <div class="grid two">
+        <div class="card">
+          <h3>Quick summary</h3>
+          <ul class="list">
+            <li>GPU supply (H100/Blackwell, MI300) and interconnect density are pacing AI capacity.</li>
+            <li>Hyperscalers differentiate through model access (OpenAI, Gemini, Anthropic) and data services.</li>
+            <li>Robotics/autonomy rides the same compute wave, with simulation and safety stacks as gatekeepers.</li>
+            <li>Edge/on-prem builds rise as enterprises seek latency control and data-locality guarantees.</li>
+            <li>Watch power availability: U.S. data center demand could double by 2030.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Who leads and why</h3>
+          <div class="compare-box">
+            <div class="card">
+              <h4>NVIDIA</h4>
+              <p class="muted small-text">Dominant in training GPUs and networking (InfiniBand); CUDA ecosystem is a moat.</p>
+            </div>
+            <div class="card">
+              <h4>AMD &amp; Intel</h4>
+              <p class="muted small-text">Challengers with MI300 and Gaudi lines; competitive on price/performance where supply is tight.</p>
+            </div>
+            <div class="card">
+              <h4>Hyperscalers</h4>
+              <p class="muted small-text">AWS, Azure, Google pair custom silicon (Trainium, Maia, TPU) with top model access and global regions.</p>
+            </div>
+            <div class="card">
+              <h4>Robotics builders</h4>
+              <p class="muted small-text">ABB, Fanuc, Boston Dynamics, NVIDIA Isaac + ROS 2 enable simulation-first deployments with safety layers.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="compute">
+      <h2>Compute &amp; accelerators</h2>
       <div class="grid two">
         <div class="card">
           <h3>GPUs & AI silicon</h3>
@@ -52,8 +108,8 @@
       </div>
     </section>
 
-    <section>
-      <h2>Robotics & autonomy enablers</h2>
+    <section id="robotics">
+      <h2>Robotics &amp; autonomy enablers</h2>
       <div class="grid two">
         <div class="card">
           <h3>Platforms & SDKs</h3>
@@ -78,7 +134,7 @@
       </div>
     </section>
 
-    <section>
+    <section id="reference">
       <h2>Quick reference</h2>
       <table class="table">
         <thead>
@@ -117,6 +173,34 @@
         </tbody>
       </table>
     </section>
+
+    <section id="sources">
+      <h2>Sources and trust signals</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Sources</h3>
+          <ul class="list">
+            <li>NVIDIA data center revenue run-rate ~$30.8B (Q3 FY2025). Source: NVIDIA earnings release, Nov 2025.</li>
+            <li>IEA: Data center electricity demand could double from ~415 TWh (2024) to ~830 TWh by 2030. Source: IEA outlook 2024.</li>
+            <li>Amazon to invest up to $4B in Anthropic; AWS Bedrock anchors model access. Source: TechCrunch, Sep 2023.</li>
+            <li>Maia (Microsoft), Trainium/Inferentia (AWS), TPU v5 (Google) announced 2023–2024 to ease GPU constraints. Source: vendor releases.</li>
+            <li>Robotaxi approvals (Waymo/Cruise) and industrial arms (ABB/Fanuc) signal autonomy readiness. Source: AP News, Aug 2023.</li>
+          </ul>
+        </div>
+        <div class="card" id="change-log">
+          <h3>Change log</h3>
+          <ul class="list">
+            <li>Last updated: Dec 5, 2025.</li>
+            <li>What changed: Added executive snapshot, dated sources, robotics prominence, and print styling.</li>
+            <li>Next: Layer in energy-availability map and pricing benchmarks with citations.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="back-to-top">
+      <a href="#top">Back to top</a>
+    </div>
   </main>
 
   <footer>
