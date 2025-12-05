@@ -35,6 +35,47 @@
       <p class="muted small-text">Directional info only — not investment advice.</p>
     </section>
 
+    <section id="data-visuals">
+      <h2>Real-world signals</h2>
+      <p class="muted">Quick visuals anchored to reported numbers and source links you can audit.</p>
+      <div class="grid two">
+        <div class="card stat-card">
+          <div class="pill">Earnings signal</div>
+          <h3>NVIDIA data center run-rate</h3>
+          <p class="stat-value">$30.8B</p>
+          <p class="muted">Q3 FY2025 data center revenue, up 112% year-over-year.</p>
+          <a href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2025" aria-label="NVIDIA Q3 FY2025 earnings release">Source: NVIDIA press release</a>
+        </div>
+        <div class="card stat-card">
+          <div class="pill">Infrastructure footprint</div>
+          <h3>U.S. data center density</h3>
+          <p class="stat-value">5,381 sites</p>
+          <p class="muted">Highest count globally as of March 2024; demand expected to double to 35 GW by 2030.</p>
+          <a href="https://en.wikipedia.org/wiki/Data_center#Energy_consumption" aria-label="Wikipedia data center energy consumption section">Source: Data center overview (citing McKinsey & IEA)</a>
+        </div>
+      </div>
+      <div class="card chart-card">
+        <div class="pill">Power demand trend</div>
+        <h3>Electricity pull from AI-heavy data centers</h3>
+        <div class="bar-chart">
+          <div class="bar-row">
+            <span class="bar-label">2024 actual</span>
+            <div class="bar" style="width: 41.5%">
+              <span class="bar-value">415 TWh</span>
+            </div>
+          </div>
+          <div class="bar-row">
+            <span class="bar-label">2030 projection</span>
+            <div class="bar" style="width: 83%">
+              <span class="bar-value">~830 TWh</span>
+            </div>
+          </div>
+        </div>
+        <p class="muted small-text">IEA projects data center electricity demand could double by 2030 from ~415 TWh in 2024, driven by AI workloads.</p>
+        <a href="https://en.wikipedia.org/wiki/Data_center#Energy_consumption" aria-label="Data center electricity consumption source">Source: IEA outlook summarized via Wikipedia</a>
+      </div>
+    </section>
+
     <section>
       <div class="meta-row">
         <h2>Reader paths</h2>
@@ -159,6 +200,7 @@
           <ul class="list">
             <li>Last updated: Dec 4, 2025.</li>
             <li>What changed: refreshed home layout; added reader paths and timeline anchors.</li>
+            <li>Ensured the home page lives at the site root (`index.html`) for direct entry.</li>
             <li>Next: align other pages to the executive template and backfill sources.</li>
           </ul>
         </div>
