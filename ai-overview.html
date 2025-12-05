@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Model Leaders | AI Landscape</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="assets/js/market-share-data.js"></script>
+  <script src="assets/js/funding-data.js"></script>
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><span class="dot"></span>AI Landscape</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-overview.html">Model Leaders</a>
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="research.html">Research Log</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero" id="top">
+      <div class="pill">Model leaders</div>
+      <div class="meta-row">
+        <h1>Foundation model vendors to watch</h1>
+        <span class="badge">Last updated: Dec 4, 2025</span>
+      </div>
+      <p>Leading general-purpose model providers, their positioning, and where the market is tilting. Built for a fast skim with links to sources.</p>
+      <p class="muted small-text">Directional info only — not investment advice.</p>
+    </section>
+
+    <section id="summary">
+      <div class="meta-row">
+        <h2>Quick summary</h2>
+        <div class="jump-links">
+          <a href="#summary">Summary</a>
+          <a href="#usage">Usage</a>
+          <a href="#leaders">Leaders</a>
+          <a href="#signals">Signals</a>
+          <a href="#sources">Sources</a>
+          <a href="#change-log">Change log</a>
+        </div>
+      </div>
+      <ul class="list">
+        <li>Top labs: OpenAI, Google, Anthropic, Meta, Mistral, Cohere; momentum driven by multimodal quality and latency/cost.</li>
+        <li>Enterprise reach hinges on trust, uptime, and policy tooling as much as raw benchmarks.</li>
+        <li>Open-weight options (Llama, Mixtral) broaden on-prem and edge adoption; gateways normalize APIs.</li>
+        <li>Capital is flowing to GPU capacity and in-house accelerators; supply remains a gating factor.</li>
+        <li>Track funding cadence, regional data center build-outs, and policy shifts to gauge durable share.</li>
+      </ul>
+    </section>
+
+    <section id="usage">
+      <h2>Illustrative 2024 usage footprint</h2>
+      <p class="muted">A directional view of model usage share across popular APIs and open weights. Populate from a sourced dataset with dates to keep this accurate.</p>
+      <p class="muted small-text">Chart renders only when `assets/js/market-share-data.js` contains cited values and a source link.</p>
+      <div class="chart-panel" id="usage-chart-panel">
+        <canvas id="marketShareChart" aria-label="Illustrative AI model market share"></canvas>
+      </div>
+    </section>
+
+    <section id="leaders">
+      <h2>Who’s leading and why it matters</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>OpenAI</h3>
+          <p class="muted">High-quality chat/completions, strong developer tooling, and a growing ecosystem of hosted agents and fine-tunes; backed by Microsoft.</p>
+          <div class="tag-row"><span class="tag">GPT-4o</span><span class="tag">APIs</span><span class="tag">Fine-tuning</span></div>
+        </div>
+        <div class="card">
+          <h3>Google</h3>
+          <p class="muted">Gemini models paired with strong search integrations and multi-modal strengths; enterprise reach via Workspace and Cloud customers.</p>
+          <div class="tag-row"><span class="tag">Gemini</span><span class="tag">Search + AI</span><span class="tag">Vertex</span></div>
+        </div>
+        <div class="card">
+          <h3>Anthropic</h3>
+          <p class="muted">Safety-forward positioning, competitive reasoning quality, and reliable API latency make it popular in regulated sectors.</p>
+          <div class="tag-row"><span class="tag">Claude 3</span><span class="tag">Policy tooling</span></div>
+        </div>
+        <div class="card">
+          <h3>Meta</h3>
+          <p class="muted">Open-weight Llama family drives on-prem and edge adoption; commercial-friendly license accelerates vendor support.</p>
+          <div class="tag-row"><span class="tag">Llama 3</span><span class="tag">Open weights</span><span class="tag">Ecosystem</span></div>
+        </div>
+        <div class="card">
+          <h3>Mistral</h3>
+          <p class="muted">Lightweight, efficient models with strong multilingual performance; appealing for cost-sensitive deployments.</p>
+          <div class="tag-row"><span class="tag">Mixtral</span><span class="tag">Efficient</span></div>
+        </div>
+        <div class="card">
+          <h3>Cohere</h3>
+          <p class="muted">Focus on enterprise retrieval, search, and multilingual capabilities; tight integrations for document-heavy workflows.</p>
+          <div class="tag-row"><span class="tag">Command</span><span class="tag">Embed</span><span class="tag">Enterprise</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="signals">
+      <div class="meta-row">
+        <h2>Signals to monitor</h2>
+        <div class="tag-row">
+          <span class="tag">Performance</span>
+          <span class="tag">Supply</span>
+          <span class="tag">Open weights</span>
+          <span class="tag">Policy</span>
+        </div>
+      </div>
+      <ul class="list">
+        <li>Benchmark wins vs. real-world latency, quality, and cost.</li>
+        <li>GPU supply and regional data-center expansion affecting capacity.</li>
+        <li>Open-weight momentum enabling hybrid cloud/edge deployments.</li>
+        <li>Safety, copyright, and data localization policies shaping enterprise deals.</li>
+        <li>Developer ecosystem strength: SDKs, eval tooling, and model gateways.</li>
+      </ul>
+    </section>
+
+    <section id="funding">
+      <h2>Valuations and funding snapshot</h2>
+      <p class="muted">Approximate valuations/market caps cited in the research briefing (USD billions). Always verify against the latest filings or press coverage.</p>
+      <div class="chart-panel" id="funding-chart-panel">
+        <canvas id="fundingChart" aria-label="Model lab valuations and market caps"></canvas>
+      </div>
+    </section>
+
+    <section id="sources">
+      <h2>Sources and trust signals</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Sources</h3>
+          <p class="muted">Cited news, filings, vendor docs with publication dates. Longer-form context lives in the research briefing. Populate chart data from a sourced dataset (e.g., API usage report) and include the link/date in `assets/js/market-share-data.js`.</p>
+          <div class="tag-row">
+            <a class="tag" href="Research">Research briefing</a>
+            <a class="tag" href="research.html">Research log</a>
+          </div>
+        </div>
+        <div class="card" id="change-log">
+          <h3>Change log</h3>
+          <ul class="list">
+            <li>Last updated: Dec 4, 2025.</li>
+            <li>What changed: Added executive layout, quick summary, jump links, and sources section.</li>
+            <li>Next: Add dated citations per vendor and a printable compare view.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="back-to-top">
+      <a href="#top">Back to top</a>
+    </div>
+  </main>
+
+  <footer>
+    Illustrative content only. Not investment advice.
+  </footer>
+
+  <script>
+    function renderChart(panelId, canvasId, data) {
+      const panel = document.getElementById(panelId);
+      const ctx = document.getElementById(canvasId);
+      const hasData = data && Array.isArray(data.labels) && data.labels.length > 0 && Array.isArray(data.datasets) && data.datasets.length > 0;
+
+      if (!panel || !ctx) return;
+
+      if (hasData) {
+        new Chart(ctx, {
+          type: 'bar',
+          data: {
+            labels: data.labels,
+            datasets: data.datasets.map((set) => ({
+              ...set,
+            borderRadius: set.borderRadius ?? 6,
+            backgroundColor: set.backgroundColor ?? ['#77f3c6', '#ffb454', '#8ac6ff', '#c9a8ff', '#7ce0ff', '#f57f9c', '#9aa4c3']
+          }))
+        },
+        options: {
+          plugins: {
+            legend: { display: false },
+            tooltip: { backgroundColor: 'rgba(12, 15, 29, 0.9)' }
+          },
+          scales: {
+            x: {
+              grid: { display: false },
+              ticks: { color: '#9aa4c3' }
+            },
+            y: {
+              beginAtZero: true,
+              grid: { color: 'rgba(255,255,255,0.08)' },
+              ticks: { color: '#9aa4c3' }
+            }
+          }
+        });
+
+        if (data.source) {
+          const sourceNote = document.createElement('p');
+          sourceNote.className = 'muted small-text';
+          sourceNote.textContent = `Source: ${data.source}${data.sourceDate ? ` (${data.sourceDate})` : ''}`;
+          panel.appendChild(sourceNote);
+        }
+      } else {
+        const notice = document.createElement('p');
+        notice.className = 'muted small-text';
+        notice.textContent = `Data for this chart is empty. Add sourced values with citation in the corresponding data file to render this chart.`;
+        panel.appendChild(notice);
+      }
+    }
+
+    renderChart('usage-chart-panel', 'marketShareChart', window.marketShareData);
+    renderChart('funding-chart-panel', 'fundingChart', window.fundingData);
+  </script>
+</body>
+</html>

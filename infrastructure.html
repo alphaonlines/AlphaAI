@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Infrastructure | AI Landscape</title>
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand"><span class="dot"></span>AI Landscape</div>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="ai-overview.html">Model Leaders</a>
+        <a href="infrastructure.html">Infrastructure</a>
+        <a href="research.html">Research Log</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="pill">AI & robotics stack</div>
+      <h1>Who powers AI training, inference, and robots</h1>
+      <p>Hardware, cloud, networking, and robotics platforms that turn models into production systems. Use this as a starting point for diligence.</p>
+    </section>
+
+    <section>
+      <h2>Compute & accelerators</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>GPUs & AI silicon</h3>
+          <p class="muted">NVIDIA (H100/Blackwell), AMD (MI300), Intel (Gaudi), Tenstorrent, and purpose-built ASICs. Supply and interconnects are pacing factors.</p>
+          <div class="tag-row"><span class="tag">NVIDIA</span><span class="tag">AMD</span><span class="tag">Intel</span><span class="tag">Tenstorrent</span></div>
+        </div>
+        <div class="card">
+          <h3>Hyperscale cloud</h3>
+          <p class="muted">AWS (Trainium/Inferentia, Bedrock), Azure (OpenAI, Maia), Google Cloud (TPU v5, Vertex), Oracle Cloud (NVIDIA partnerships).</p>
+          <div class="tag-row"><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GCP</span><span class="tag">OCI</span></div>
+        </div>
+        <div class="card">
+          <h3>Networking & storage</h3>
+          <p class="muted">High-bandwidth fabrics and fast storage keep clusters fed: NVIDIA (InfiniBand), Arista, Broadcom, Cisco; storage from NetApp, Pure, VAST.</p>
+          <div class="tag-row"><span class="tag">InfiniBand</span><span class="tag">Ethernet</span><span class="tag">NVMe</span></div>
+        </div>
+        <div class="card">
+          <h3>Edge & on-prem</h3>
+          <p class="muted">Qualcomm, Apple, and NVIDIA Jetson for edge inference; Dell/HPE/Supermicro for on-prem clusters; open-weight models enable hybrid setups.</p>
+          <div class="tag-row"><span class="tag">Edge AI</span><span class="tag">Jetson</span><span class="tag">On-prem</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Robotics & autonomy enablers</h2>
+      <div class="grid two">
+        <div class="card">
+          <h3>Platforms & SDKs</h3>
+          <p class="muted">NVIDIA Isaac/Omniverse, ROS 2, and Boston Dynamics SDKs accelerate perception and control; reinforcement learning and simulation reduce field time.</p>
+          <div class="tag-row"><span class="tag">Isaac</span><span class="tag">ROS 2</span><span class="tag">Simulation</span></div>
+        </div>
+        <div class="card">
+          <h3>Industrial builders</h3>
+          <p class="muted">ABB, Fanuc, Yaskawa, and Siemens supply industrial arms and motion control; OT/IT integration remains a moat for incumbents.</p>
+          <div class="tag-row"><span class="tag">ABB</span><span class="tag">Fanuc</span><span class="tag">Yaskawa</span><span class="tag">Siemens</span></div>
+        </div>
+        <div class="card">
+          <h3>Autonomy stack</h3>
+          <p class="muted">Perception (LiDAR/camera fusion), planning, and safety layers from firms like Mobileye and Hexagon underpin AMRs and ADAS.</p>
+          <div class="tag-row"><span class="tag">Perception</span><span class="tag">Safety</span><span class="tag">Mapping</span></div>
+        </div>
+        <div class="card">
+          <h3>Integration services</h3>
+          <p class="muted">System integrators and boutique robotics firms stitch together hardware, networking, and software for brownfield deployments.</p>
+          <div class="tag-row"><span class="tag">SI</span><span class="tag">Deployment</span><span class="tag">Field ops</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Quick reference</h2>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Layer</th>
+            <th>Representative players</th>
+            <th>Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Chips</td>
+            <td>NVIDIA, AMD, Intel, Tenstorrent</td>
+            <td>Performance roadmap, supply, and interconnects drive pricing power.</td>
+          </tr>
+          <tr>
+            <td>Cloud</td>
+            <td>AWS, Azure, Google Cloud, Oracle</td>
+            <td>GPUs + proprietary accelerators; differentiated by model access and data services.</td>
+          </tr>
+          <tr>
+            <td>Networking</td>
+            <td>NVIDIA, Arista, Broadcom, Cisco</td>
+            <td>High-bandwidth/low-latency fabrics are essential for large clusters.</td>
+          </tr>
+          <tr>
+            <td>Storage</td>
+            <td>NetApp, Pure Storage, VAST Data</td>
+            <td>Feeding GPUs requires fast, scalable NVMe and parallel file systems.</td>
+          </tr>
+          <tr>
+            <td>Robotics</td>
+            <td>ABB, Fanuc, Yaskawa, Boston Dynamics, NVIDIA Isaac</td>
+            <td>Combines hardware, control stacks, and simulation for deployment speed.</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    Illustrative content only. Not investment advice.
+  </footer>
+</body>
+</html>
