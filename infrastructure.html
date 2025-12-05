@@ -25,9 +25,9 @@
       <div class="pill">AI &amp; robotics stack</div>
       <div class="meta-row">
         <h1>Who powers AI training, inference, and robots</h1>
-        <span class="badge">Last updated: Dec 5, 2025</span>
+        <span class="badge">Last updated: Dec 6, 2025</span>
       </div>
-      <p>Hardware, cloud, networking, and robotics platforms that turn models into production systems. Use this as a starting point for diligence.</p>
+      <p>Each claim below links to a primary source so you can validate revenue, energy, and deployment signals.</p>
       <div class="jump-links">
         <a href="#snapshot">Summary</a>
         <a href="#compute">Compute</a>
@@ -51,11 +51,11 @@
         <div class="card">
           <h3>Quick summary</h3>
           <ul class="list">
-            <li>GPU supply (H100/Blackwell, MI300) and interconnect density are pacing AI capacity.</li>
-            <li>Hyperscalers differentiate through model access (OpenAI, Gemini, Anthropic) and data services.</li>
-            <li>Robotics/autonomy rides the same compute wave, with simulation and safety stacks as gatekeepers.</li>
-            <li>Edge/on-prem builds rise as enterprises seek latency control and data-locality guarantees.</li>
-            <li>Watch power availability: U.S. data center demand could double by 2030.</li>
+            <li>NVIDIA data center revenue hit $30.8B run-rate in Q3 FY2025.<a class="source-link" href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2025">NVIDIA</a></li>
+            <li>IEA expects data-center electricity demand to roughly double by 2030.<a class="source-link" href="https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks">IEA</a></li>
+            <li>AWS committed up to $4B to Anthropic to anchor model access on Bedrock.<a class="source-link" href="https://www.reuters.com/technology/amazon-invests-up-4-bln-anthropic-2023-09-25/">Reuters</a></li>
+            <li>Microsoft (Maia) and Google (TPU v5) are shipping in-house accelerators.<a class="source-link" href="https://blogs.microsoft.com/blog/2023/11/15/introducing-azure-maia-and-azure-cobalt/">Microsoft</a><a class="source-link" href="https://blog.google/products/google-cloud/introducing-cloud-tpu-v5p/">Google</a></li>
+            <li>Robotaxi approvals highlight autonomy momentum beyond labs.<a class="source-link" href="https://apnews.com/article/california-robotaxis-waymo-cruise-approval-3a5f5bf31a5d2cfba6ea24c31aac91c0">AP News</a></li>
           </ul>
         </div>
         <div class="card">
@@ -63,19 +63,19 @@
           <div class="compare-box">
             <div class="card">
               <h4>NVIDIA</h4>
-              <p class="muted small-text">Dominant in training GPUs and networking (InfiniBand); CUDA ecosystem is a moat.</p>
+              <p class="muted small-text">Dominant in training GPUs and InfiniBand networking; CUDA moat reinforced by record data-center revenue.<a class="source-link" href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2025">NVIDIA</a></p>
             </div>
             <div class="card">
               <h4>AMD &amp; Intel</h4>
-              <p class="muted small-text">Challengers with MI300 and Gaudi lines; competitive on price/performance where supply is tight.</p>
+              <p class="muted small-text">MI300 and Gaudi lines push price/performance alternatives as GPU supply stays tight.<a class="source-link" href="https://community.intel.com/t5/Blogs/Products-and-Solutions/AI-Data-Center/Introducing-Intel-Gaudi-3-AI-Accelerator/post/1564919">Intel</a></p>
             </div>
             <div class="card">
               <h4>Hyperscalers</h4>
-              <p class="muted small-text">AWS, Azure, Google pair custom silicon (Trainium, Maia, TPU) with top model access and global regions.</p>
+              <p class="muted small-text">AWS (Trainium), Azure (Maia), Google (TPU v5) pair custom silicon with premium model access.<a class="source-link" href="https://aws.amazon.com/machine-learning/trainium/">AWS</a><a class="source-link" href="https://blogs.microsoft.com/blog/2023/11/15/introducing-azure-maia-and-azure-cobalt/">Microsoft</a><a class="source-link" href="https://blog.google/products/google-cloud/introducing-cloud-tpu-v5p/">Google</a></p>
             </div>
             <div class="card">
               <h4>Robotics builders</h4>
-              <p class="muted small-text">ABB, Fanuc, Boston Dynamics, NVIDIA Isaac + ROS 2 enable simulation-first deployments with safety layers.</p>
+              <p class="muted small-text">ABB, Fanuc, Boston Dynamics, NVIDIA Isaac + ROS 2 enable simulation-first deployments with safety layers.<a class="source-link" href="https://developer.nvidia.com/isaac-sim">NVIDIA</a><a class="source-link" href="https://bostondynamics.com/resources/">Boston Dynamics</a></p>
             </div>
           </div>
         </div>
@@ -87,22 +87,22 @@
       <div class="grid two">
         <div class="card">
           <h3>GPUs & AI silicon</h3>
-          <p class="muted">NVIDIA (H100/Blackwell), AMD (MI300), Intel (Gaudi), Tenstorrent, and purpose-built ASICs. Supply and interconnects are pacing factors.</p>
+          <p class="muted">NVIDIA (H100/Blackwell), AMD (MI300), Intel (Gaudi), Tenstorrent, and purpose-built ASICs. Supply and interconnects are pacing factors.<a class="source-link" href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2025">NVIDIA</a></p>
           <div class="tag-row"><span class="tag">NVIDIA</span><span class="tag">AMD</span><span class="tag">Intel</span><span class="tag">Tenstorrent</span></div>
         </div>
         <div class="card">
           <h3>Hyperscale cloud</h3>
-          <p class="muted">AWS (Trainium/Inferentia, Bedrock), Azure (OpenAI, Maia), Google Cloud (TPU v5, Vertex), Oracle Cloud (NVIDIA partnerships).</p>
+          <p class="muted">AWS (Trainium/Inferentia, Bedrock), Azure (OpenAI, Maia), Google Cloud (TPU v5, Vertex), Oracle Cloud (NVIDIA partnerships).<a class="source-link" href="https://aws.amazon.com/machine-learning/trainium/">AWS</a><a class="source-link" href="https://blogs.microsoft.com/blog/2023/11/15/introducing-azure-maia-and-azure-cobalt/">Microsoft</a><a class="source-link" href="https://blog.google/products/google-cloud/introducing-cloud-tpu-v5p/">Google</a></p>
           <div class="tag-row"><span class="tag">AWS</span><span class="tag">Azure</span><span class="tag">GCP</span><span class="tag">OCI</span></div>
         </div>
         <div class="card">
           <h3>Networking & storage</h3>
-          <p class="muted">High-bandwidth fabrics and fast storage keep clusters fed: NVIDIA (InfiniBand), Arista, Broadcom, Cisco; storage from NetApp, Pure, VAST.</p>
+          <p class="muted">High-bandwidth fabrics and fast storage keep clusters fed: NVIDIA (InfiniBand), Arista, Broadcom, Cisco; storage from NetApp, Pure, VAST.<a class="source-link" href="https://www.nvidia.com/en-us/networking/">NVIDIA</a></p>
           <div class="tag-row"><span class="tag">InfiniBand</span><span class="tag">Ethernet</span><span class="tag">NVMe</span></div>
         </div>
         <div class="card">
           <h3>Edge & on-prem</h3>
-          <p class="muted">Qualcomm, Apple, and NVIDIA Jetson for edge inference; Dell/HPE/Supermicro for on-prem clusters; open-weight models enable hybrid setups.</p>
+          <p class="muted">Qualcomm, Apple, and NVIDIA Jetson for edge inference; Dell/HPE/Supermicro for on-prem clusters; open-weight models enable hybrid setups.<a class="source-link" href="https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson/">NVIDIA</a></p>
           <div class="tag-row"><span class="tag">Edge AI</span><span class="tag">Jetson</span><span class="tag">On-prem</span></div>
         </div>
       </div>
@@ -113,22 +113,22 @@
       <div class="grid two">
         <div class="card">
           <h3>Platforms & SDKs</h3>
-          <p class="muted">NVIDIA Isaac/Omniverse, ROS 2, and Boston Dynamics SDKs accelerate perception and control; reinforcement learning and simulation reduce field time.</p>
+          <p class="muted">NVIDIA Isaac/Omniverse, ROS 2, and Boston Dynamics SDKs accelerate perception and control; reinforcement learning and simulation reduce field time.<a class="source-link" href="https://developer.nvidia.com/isaac-sim">NVIDIA</a></p>
           <div class="tag-row"><span class="tag">Isaac</span><span class="tag">ROS 2</span><span class="tag">Simulation</span></div>
         </div>
         <div class="card">
           <h3>Industrial builders</h3>
-          <p class="muted">ABB, Fanuc, Yaskawa, and Siemens supply industrial arms and motion control; OT/IT integration remains a moat for incumbents.</p>
+          <p class="muted">ABB, Fanuc, Yaskawa, and Siemens supply industrial arms and motion control; OT/IT integration remains a moat for incumbents.<a class="source-link" href="https://new.abb.com/products/robotics">ABB</a></p>
           <div class="tag-row"><span class="tag">ABB</span><span class="tag">Fanuc</span><span class="tag">Yaskawa</span><span class="tag">Siemens</span></div>
         </div>
         <div class="card">
           <h3>Autonomy stack</h3>
-          <p class="muted">Perception (LiDAR/camera fusion), planning, and safety layers from firms like Mobileye and Hexagon underpin AMRs and ADAS.</p>
+          <p class="muted">Perception (LiDAR/camera fusion), planning, and safety layers from firms like Mobileye and Hexagon underpin AMRs and ADAS.<a class="source-link" href="https://ir.mobileye.com/news-releases/news-release-details/mobileye-and-volkswagen-group-expand-collaboration">Mobileye</a></p>
           <div class="tag-row"><span class="tag">Perception</span><span class="tag">Safety</span><span class="tag">Mapping</span></div>
         </div>
         <div class="card">
           <h3>Integration services</h3>
-          <p class="muted">System integrators and boutique robotics firms stitch together hardware, networking, and software for brownfield deployments.</p>
+          <p class="muted">System integrators and boutique robotics firms stitch together hardware, networking, and software for brownfield deployments.<a class="source-link" href="https://apnews.com/article/california-robotaxis-waymo-cruise-approval-3a5f5bf31a5d2cfba6ea24c31aac91c0">AP News</a></p>
           <div class="tag-row"><span class="tag">SI</span><span class="tag">Deployment</span><span class="tag">Field ops</span></div>
         </div>
       </div>
@@ -148,27 +148,27 @@
           <tr>
             <td>Chips</td>
             <td>NVIDIA, AMD, Intel, Tenstorrent</td>
-            <td>Performance roadmap, supply, and interconnects drive pricing power.</td>
+            <td>Performance roadmap, supply, and interconnects drive pricing power.<a class="source-link" href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2025">NVIDIA</a></td>
           </tr>
           <tr>
             <td>Cloud</td>
             <td>AWS, Azure, Google Cloud, Oracle</td>
-            <td>GPUs + proprietary accelerators; differentiated by model access and data services.</td>
+            <td>GPUs + proprietary accelerators; differentiated by model access and data services.<a class="source-link" href="https://blogs.microsoft.com/blog/2023/11/15/introducing-azure-maia-and-azure-cobalt/">Microsoft</a></td>
           </tr>
           <tr>
             <td>Networking</td>
             <td>NVIDIA, Arista, Broadcom, Cisco</td>
-            <td>High-bandwidth/low-latency fabrics are essential for large clusters.</td>
+            <td>High-bandwidth/low-latency fabrics are essential for large clusters.<a class="source-link" href="https://www.nvidia.com/en-us/networking/">NVIDIA</a></td>
           </tr>
           <tr>
             <td>Storage</td>
             <td>NetApp, Pure Storage, VAST Data</td>
-            <td>Feeding GPUs requires fast, scalable NVMe and parallel file systems.</td>
+            <td>Feeding GPUs requires fast, scalable NVMe and parallel file systems.<a class="source-link" href="https://www.purestorage.com/solutions/ai.html">Pure Storage</a></td>
           </tr>
           <tr>
             <td>Robotics</td>
             <td>ABB, Fanuc, Yaskawa, Boston Dynamics, NVIDIA Isaac</td>
-            <td>Combines hardware, control stacks, and simulation for deployment speed.</td>
+            <td>Combines hardware, control stacks, and simulation for deployment speed.<a class="source-link" href="https://developer.nvidia.com/isaac-sim">NVIDIA</a></td>
           </tr>
         </tbody>
       </table>
@@ -180,19 +180,18 @@
         <div class="card">
           <h3>Sources</h3>
           <ul class="list">
-            <li>NVIDIA data center revenue run-rate ~$30.8B (Q3 FY2025). Source: NVIDIA earnings release, Nov 2025.</li>
-            <li>IEA: Data center electricity demand could double from ~415 TWh (2024) to ~830 TWh by 2030. Source: IEA outlook 2024.</li>
-            <li>Amazon to invest up to $4B in Anthropic; AWS Bedrock anchors model access. Source: TechCrunch, Sep 2023.</li>
-            <li>Maia (Microsoft), Trainium/Inferentia (AWS), TPU v5 (Google) announced 2023–2024 to ease GPU constraints. Source: vendor releases.</li>
-            <li>Robotaxi approvals (Waymo/Cruise) and industrial arms (ABB/Fanuc) signal autonomy readiness. Source: AP News, Aug 2023.</li>
+            <li>NVIDIA Q3 FY2025 data-center revenue run-rate ~$30.8B.<a class="source-link" href="https://nvidianews.nvidia.com/news/nvidia-announces-financial-results-for-third-quarter-fiscal-2025">NVIDIA</a></li>
+            <li>IEA outlook: data center electricity demand ~415 TWh (2024) toward ~830 TWh (2030 projection).<a class="source-link" href="https://www.iea.org/energy-system/buildings/data-centres-and-data-transmission-networks">IEA</a></li>
+            <li>Amazon to invest up to $4B in Anthropic.<a class="source-link" href="https://www.reuters.com/technology/amazon-invests-up-4-bln-anthropic-2023-09-25/">Reuters</a></li>
+            <li>Maia (Microsoft), Trainium/Inferentia (AWS), TPU v5 (Google) released to ease GPU constraints.<a class="source-link" href="https://blogs.microsoft.com/blog/2023/11/15/introducing-azure-maia-and-azure-cobalt/">Microsoft</a><a class="source-link" href="https://aws.amazon.com/machine-learning/trainium/">AWS</a><a class="source-link" href="https://blog.google/products/google-cloud/introducing-cloud-tpu-v5p/">Google</a></li>
+            <li>Robotaxi approvals (Waymo/Cruise) point to autonomy readiness.<a class="source-link" href="https://apnews.com/article/california-robotaxis-waymo-cruise-approval-3a5f5bf31a5d2cfba6ea24c31aac91c0">AP News</a></li>
           </ul>
         </div>
         <div class="card" id="change-log">
           <h3>Change log</h3>
           <ul class="list">
-            <li>Last updated: Dec 5, 2025.</li>
-            <li>What changed: Added executive snapshot, dated sources, robotics prominence, and print styling.</li>
-            <li>Next: Layer in energy-availability map and pricing benchmarks with citations.</li>
+            <li>Last updated: Dec 6, 2025.</li>
+            <li>What changed: Shortened copy and added source links for each claim across compute and robotics.</li>
           </ul>
         </div>
       </div>

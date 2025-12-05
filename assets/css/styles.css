@@ -34,6 +34,18 @@ a {
   font-weight: 600;
 }
 
+.source-link {
+  font-weight: 600;
+  color: var(--accent-2);
+  margin-left: 6px;
+}
+
+.source-link::after {
+  content: '↗';
+  margin-left: 4px;
+  font-size: 12px;
+}
+
 a:hover {
   color: var(--accent-2);
 }
