@@ -5,16 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI for Beginners | Easy Guide to Artificial Intelligence</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <script src="assets/js/common.js"></script>
 </head>
 <body>
   <header>
     <div class="nav">
       <div class="brand"><span class="dot"></span>AI for Beginners</div>
-      <div class="nav-links">
-        <a href="index.html">What is AI?</a>
-        <a href="getting-started.html">Get Started</a>
-        <a href="daily-life.html">AI in Daily Life</a>
-      </div>
+       <div class="nav-links">
+         <a href="index.html">What is AI?</a>
+         <a href="getting-started.html">Get Started</a>
+         <a href="daily-life.html">AI in Daily Life</a>
+         <a href="Research.md">Research</a>
+       </div>
     </div>
   </header>
 
@@ -136,20 +138,7 @@
         </div>
         <div class="timeline-controls">
           <label for="startEra" class="muted">Jump to an era</label>
-          <select id="startEra" aria-label="Jump to era">
-            <option value="present">Present day</option>
-            <option value="2023">2023 – Robotaxis approved</option>
-            <option value="2022">2022 – AI chat and art go mainstream</option>
-            <option value="2021">2021 – Next-gen batteries</option>
-            <option value="2020">2020 – New chips, rockets, and cheaper batteries</option>
-            <option value="2019">2019 – 5G launches</option>
-            <option value="2018">2018 – First paid robotaxis</option>
-            <option value="2016">2016 – AI and mobile tipping points</option>
-            <option value="2015">2015 – Ethereum and home batteries</option>
-            <option value="2012">2012 – Robots land and work</option>
-            <option value="2011">2011 – Voice assistants arrive</option>
-            <option value="2010">2010 – Cloud goes global</option>
-          </select>
+          <select id="startEra" aria-label="Jump to era"></select>
           <div class="filter-row" role="group" aria-label="Filter timeline by topic">
             <button class="chip active" data-filter="all">All</button>
             <button class="chip" data-filter="ai">AI</button>
@@ -173,20 +162,7 @@
           </div>
           <div class="era-map">
             <p class="muted small-text">You are viewing</p>
-            <ul id="eraMap">
-              <li class="active">Present day</li>
-              <li>2023</li>
-              <li>2022</li>
-              <li>2021</li>
-              <li>2020</li>
-              <li>2019</li>
-              <li>2018</li>
-              <li>2016</li>
-              <li>2015</li>
-              <li>2012</li>
-              <li>2011</li>
-              <li>2010</li>
-            </ul>
+            <ul id="eraMap"></ul>
           </div>
           <div class="prompt-copy">
             <p class="muted">Starter prompts</p>
@@ -196,193 +172,7 @@
         </div>
 
         <div class="timeline-cards">
-          <article class="timeline-card" data-era="present" data-track="ai" data-visual="✨" id="present-anchor">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">Today</div>
-            <h3>Modern chat AI is everywhere</h3>
-            <p>People now talk to AI in phones, laptops, and cars. Voice and chat help with daily tasks.</p>
-            <p class="why">Why it matters: Easy tools make it simple for anyone to get answers and learn.</p>
-            <div class="mini-quiz" data-answer="b">
-              <p class="small-text">Mini quiz: AI is best at...</p>
-              <div class="quiz-options">
-                <button type="button" data-choice="a">Reading your mind</button>
-                <button type="button" data-choice="b">Spotting patterns in data</button>
-                <button type="button" data-choice="c">Cooking dinner</button>
-              </div>
-              <p class="quiz-feedback" aria-live="polite"></p>
-            </div>
-          </article>
-
-          <article class="timeline-card" data-era="2023" data-track="robotics" data-visual="🚕" id="era-2023">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2023</div>
-            <h3>Robotaxis get 24/7 approval</h3>
-            <p>California regulators let Waymo and Cruise run paid, driverless taxis across San Francisco at all hours.</p>
-            <p class="why">Why it matters: Shows autonomous vehicles are reliable enough for real city service, not just tests.</p>
-            <p class="muted small-text">Sources: <a href="https://www.theverge.com/2023/8/10/23827790/waymo-cruise-cpuc-vote-robotaxi-san-francisco" target="_blank" rel="noreferrer">The Verge</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2022" data-track="ai" data-visual="🎨" id="era-2022">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2022</div>
-            <h3>AI image generation goes mainstream</h3>
-            <p>OpenAI’s DALL·E 2 and open models like Stable Diffusion let anyone create images from text prompts.</p>
-            <p class="why">Why it matters: Creative tools moved from labs to millions of people, raising new IP and ethics questions.</p>
-            <p class="muted small-text">Sources: <a href="https://www.baseten.co/blog/the-best-open-source-image-generation-model/" target="_blank" rel="noreferrer">Baseten</a>; <a href="https://medium.com/@pdelsignore/2022-was-the-year-of-ai-art-51e0903f3c1" target="_blank" rel="noreferrer">Medium</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2022" data-track="ai" data-visual="💬">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2022</div>
-            <h3>ChatGPT hits 100M users fast</h3>
-            <p>OpenAI launched ChatGPT in November; it reached 1M users in 5 days and 100M monthly users by January 2023.</p>
-            <p class="why">Why it matters: Conversational AI became a daily tool, triggering an industry-wide rush to add chat assistants.</p>
-            <p class="muted small-text">Sources: <a href="https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/" target="_blank" rel="noreferrer">Reuters</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2021" data-track="energy" data-visual="🔋" id="era-2021">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2021</div>
-            <h3>Solid-state EV battery prototype drives</h3>
-            <p>Toyota demoed a car running on an all-solid-state battery, promising faster charging and safer packs.</p>
-            <p class="why">Why it matters: Points to longer-range, safer electric vehicles once manufacturing scales.</p>
-            <p class="muted small-text">Sources: <a href="https://www.thedrive.com/tech/42287/toyota-is-road-testing-a-prototype-solid-state-battery-ev" target="_blank" rel="noreferrer">The Drive</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2021" data-track="energy" data-visual="🧂">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2021</div>
-            <h3>Sodium-ion batteries debut</h3>
-            <p>CATL unveiled its first-generation sodium-ion cells with fast charging and lower-cost materials.</p>
-            <p class="why">Why it matters: Reduces reliance on lithium and rare metals, unlocking cheaper storage for EVs and the grid.</p>
-            <p class="muted small-text">Sources: <a href="https://insideevs.com/news/523413/catl-unveils-sodium-ion-battery/" target="_blank" rel="noreferrer">InsideEVs</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2021" data-track="ai" data-visual="🖼️">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2021</div>
-            <h3>NFT art sale shocks the market</h3>
-            <p>Beeple’s “Everydays” NFT sold for $69.3M at Christie’s, turning NFTs into a mainstream headline.</p>
-            <p class="why">Why it matters: Proved digital ownership could command real-world prices, fueling the Web3 art boom.</p>
-            <p class="muted small-text">Sources: <a href="https://press.christies.com/christies-announces-beeplesnbsphuman-onenbspthe-artists-first-ever-dynamic-physical-artworkvideo-nft" target="_blank" rel="noreferrer">Christie’s</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2020" data-track="energy" data-visual="⚡" id="era-2020">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2020</div>
-            <h3>Battery prices fall ~90% in a decade</h3>
-            <p>Lithium-ion packs dropped to ~$137/kWh, down from $1,100 in 2010, making EVs and storage far cheaper.</p>
-            <p class="why">Why it matters: Tipped electric cars and grid storage toward mass adoption.</p>
-            <p class="muted small-text">Sources: <a href="https://www.renewableenergyworld.com/energy-storage/battery/annual-survey-finds-battery-prices-dropped-13-in-2020/" target="_blank" rel="noreferrer">Renewable Energy World</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2020" data-track="robotics" data-visual="🚀">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2020</div>
-            <h3>SpaceX flies astronauts for NASA</h3>
-            <p>Crew Dragon’s Demo-2 mission carried two astronauts to orbit—the first private spacecraft to do so.</p>
-            <p class="why">Why it matters: Opened a commercial path for human spaceflight and cheaper crew missions.</p>
-            <p class="muted small-text">Sources: <a href="https://www.nasa.gov/news-release/nasa-astronauts-launch-from-america-in-historic-test-flight-of-spacex-crew-dragon/" target="_blank" rel="noreferrer">NASA</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2020" data-track="ai" data-visual="🧠">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2020</div>
-            <h3>Apple’s M1 proves ARM laptops</h3>
-            <p>Apple’s first Mac chip delivered big speed and battery gains by moving Macs to an ARM-based system-on-chip.</p>
-            <p class="why">Why it matters: Showed efficient mobile-style chips can power mainstream PCs, reshaping hardware roadmaps.</p>
-            <p class="muted small-text">Sources: <a href="https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/" target="_blank" rel="noreferrer">Apple</a>; <a href="https://en.wikipedia.org/wiki/Apple_M1" target="_blank" rel="noreferrer">Wikipedia</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2019" data-track="ai" data-visual="📶" id="era-2019">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2019</div>
-            <h3>First national 5G networks switch on</h3>
-            <p>South Korea and others launched 5G, bringing faster speeds and lower latency for billions of devices.</p>
-            <p class="why">Why it matters: Laid the wireless foundation for AR, IoT, and real-time connected systems.</p>
-            <p class="muted small-text">Sources: <a href="https://en.wikipedia.org/wiki/5G" target="_blank" rel="noreferrer">Wikipedia</a>; <a href="https://www.qualcomm.com/research/5g/5g-timeline/2019" target="_blank" rel="noreferrer">Qualcomm</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2018" data-track="robotics" data-visual="🚗" id="era-2018">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2018</div>
-            <h3>First paid robotaxi rides</h3>
-            <p>Waymo One launched in Arizona, letting riders hail self-driving cars with an app.</p>
-            <p class="why">Why it matters: Moved autonomous driving from demo to commercial service.</p>
-            <p class="muted small-text">Sources: <a href="https://www.latimes.com/business/autos/la-fi-hy-waymo-one-20181205-story.html" target="_blank" rel="noreferrer">LA Times</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2016" data-track="ai" data-visual="⚫" id="era-2016">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2016</div>
-            <h3>AlphaGo beats a Go champion</h3>
-            <p>DeepMind’s AI defeated Lee Sedol 4–1, showcasing deep reinforcement learning.</p>
-            <p class="why">Why it matters: Proved AI could master creative, complex decision-making.</p>
-            <p class="muted small-text">Sources: <a href="https://www.rigb.org/explore-science/explore/blog/10-ai-milestones-last-10-years" target="_blank" rel="noreferrer">Royal Institution</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2016" data-track="ai" data-visual="📱">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2016</div>
-            <h3>Mobile web tops desktop</h3>
-            <p>Phones and tablets passed 50% of global web traffic, cementing mobile-first design.</p>
-            <p class="why">Why it matters: Forced products and services to prioritize mobile experiences.</p>
-            <p class="muted small-text">Sources: <a href="https://www.theguardian.com/technology/2016/nov/02/mobile-web-browsing-desktop-smartphones-tablets" target="_blank" rel="noreferrer">The Guardian</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2015" data-track="energy" data-visual="🔌" id="era-2015">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2015</div>
-            <h3>Tesla launches the Powerwall</h3>
-            <p>A wall-mounted home battery let households store solar or off-peak power for later use.</p>
-            <p class="why">Why it matters: Made home energy storage mainstream and boosted residential solar.</p>
-            <p class="muted small-text">Sources: <a href="https://www.theguardian.com/technology/2015/may/01/tesla-announces-low-cost-solar-batteries-elon-musk" target="_blank" rel="noreferrer">The Guardian</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2015" data-track="ai" data-visual="⛓️">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2015</div>
-            <h3>Ethereum mainnet goes live</h3>
-            <p>Ethereum introduced programmable smart contracts, enabling decentralized apps and DeFi.</p>
-            <p class="why">Why it matters: Expanded blockchain beyond currency to a platform for new digital markets.</p>
-            <p class="muted small-text">Sources: <a href="https://en.wikipedia.org/wiki/Ethereum" target="_blank" rel="noreferrer">Wikipedia</a>; <a href="https://zerocap.com/insights/snippets/ethereum-smart-contracts-changed-crypto/" target="_blank" rel="noreferrer">Zerocap</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2012" data-track="robotics" data-visual="🛰️" id="era-2012">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2012</div>
-            <h3>Curiosity rover lands on Mars</h3>
-            <p>NASA’s rover touched down using a sky crane and found evidence Mars once had habitable conditions.</p>
-            <p class="why">Why it matters: Advanced Mars science and showcased daring autonomous landing tech.</p>
-            <p class="muted small-text">Sources: <a href="https://science.nasa.gov/mission/msl-curiosity/" target="_blank" rel="noreferrer">NASA</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2012" data-track="robotics" data-visual="📦">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2012</div>
-            <h3>Amazon buys Kiva warehouse robots</h3>
-            <p>Amazon acquired Kiva Systems to automate fulfillment centers with fleets of mobile robots.</p>
-            <p class="why">Why it matters: Sparked the warehouse automation boom that speeds today’s deliveries.</p>
-            <p class="muted small-text">Sources: <a href="https://spectrum.ieee.org/amazon-acquires-kiva-systems-for-775-million" target="_blank" rel="noreferrer">IEEE Spectrum</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2011" data-track="ai" data-visual="🗣️" id="era-2011">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2011</div>
-            <h3>Siri brings voice to the iPhone</h3>
-            <p>Apple launched Siri on the iPhone 4S, making voice assistants mainstream on mobile.</p>
-            <p class="why">Why it matters: Introduced millions to speaking naturally with devices, paving the way for Alexa and Google Assistant.</p>
-            <p class="muted small-text">Sources: <a href="https://www.britannica.com/technology/Siri" target="_blank" rel="noreferrer">Britannica</a></p>
-          </article>
-
-          <article class="timeline-card" data-era="2010" data-track="ai" data-visual="☁️" id="era-2010">
-            <div class="timeline-dot"></div>
-            <div class="timeline-year">2010</div>
-            <h3>Azure cloud opens to the world</h3>
-            <p>Microsoft made Azure generally available, joining AWS in offering on-demand global cloud compute.</p>
-            <p class="why">Why it matters: Helped popularize renting computing power instead of running your own servers.</p>
-            <p class="muted small-text">Sources: <a href="https://blogs.microsoft.com/blog/2010/02/01/windows-azure-general-availability/" target="_blank" rel="noreferrer">Microsoft Blog</a></p>
-          </article>
+          <div id="timelineCards"></div>
         </div>
       </div>
 
@@ -534,189 +324,8 @@
   </footer>
 
   <script>
-    // Transition state management
-    let isTransitioning = false;
-    let currentTheme = 'dark';
-
-    // Reading progress bar
-    function updateReadingProgress() {
-      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const progress = (scrollTop / scrollHeight) * 100;
-      document.getElementById('readingProgress').style.width = progress + '%';
-    }
-
-    // Theme toggle with sunrise/sunset animation
-    function toggleTheme() {
-      if (isTransitioning) return;
-      
-      const button = event.target;
-      const overlay = document.getElementById('themeOverlay');
-      const isLight = document.body.classList.contains('light-theme');
-      
-      isTransitioning = true;
-      
-      if (isLight) {
-        // Light to Dark - Sunset effect
-        overlay.className = 'theme-transition-overlay sunset-gradient sunset-active';
-        button.textContent = '🌙';
-        
-        setTimeout(() => {
-          document.body.classList.remove('light-theme');
-          localStorage.setItem('theme', 'dark');
-          currentTheme = 'dark';
-        }, 1500); // Mid-transition
-      } else {
-        // Dark to Light - Sunrise effect
-        overlay.className = 'theme-transition-overlay sunrise-gradient sunrise-active';
-        button.textContent = '☀️';
-        
-        setTimeout(() => {
-          document.body.classList.add('light-theme');
-          localStorage.setItem('theme', 'light');
-          currentTheme = 'light';
-        }, 1500); // Mid-transition
-      }
-      
-      // Clean up after animation
-      setTimeout(() => {
-        overlay.className = 'theme-transition-overlay';
-        isTransitioning = false;
-      }, 3000);
-    }
-
-    // Font size toggle with pop animation
-    function toggleFontSize() {
-      if (isTransitioning) return;
-      
-      const isLarge = document.body.classList.contains('large-text');
-      const textElements = document.querySelectorAll('h1, h2, h3, p, li, a, span');
-      
-      if (!isLarge) {
-        // Normal to Large - Pop up animation
-        textElements.forEach((el, index) => {
-          el.classList.add('text-pop-up', `stagger-text-${(index % 8) + 1}`);
-        });
-        
-        document.body.classList.add('large-text');
-        localStorage.setItem('largeText', 'true');
-        
-        setTimeout(() => {
-          textElements.forEach(el => {
-            el.classList.remove('text-pop-up', 'stagger-text-1', 'stagger-text-2', 'stagger-text-3', 'stagger-text-4', 'stagger-text-5', 'stagger-text-6', 'stagger-text-7', 'stagger-text-8');
-          });
-        }, 1200);
-      } else {
-        // Large to Normal - Pop down animation
-        textElements.forEach((el, index) => {
-          el.classList.add('text-pop-down', `stagger-text-${(index % 8) + 1}`);
-        });
-        
-        document.body.classList.remove('large-text');
-        localStorage.setItem('largeText', 'false');
-        
-        setTimeout(() => {
-          textElements.forEach(el => {
-            el.classList.remove('text-pop-down', 'stagger-text-1', 'stagger-text-2', 'stagger-text-3', 'stagger-text-4', 'stagger-text-5', 'stagger-text-6', 'stagger-text-7', 'stagger-text-8');
-          });
-        }, 800);
-      }
-      
-      // Update button state
-      event.target.classList.toggle('active', !isLarge);
-    }
-
-    // High contrast toggle with glitch effect
-    function toggleContrast() {
-      if (isTransitioning) return;
-      
-      const isHighContrast = document.body.classList.contains('high-contrast');
-      
-      if (!isHighContrast) {
-        // Normal to High Contrast - Glitch effect
-        document.body.classList.add('glitch-active');
-        
-        // Create binary rain effect
-        for (let i = 0; i < 15; i++) {
-          setTimeout(() => {
-            const particle = document.createElement('div');
-            particle.className = 'binary-particle';
-            particle.textContent = Math.random() > 0.5 ? '1' : '0';
-            particle.style.left = Math.random() * 100 + '%';
-            document.body.appendChild(particle);
-            
-            setTimeout(() => particle.remove(), 1200);
-          }, i * 50);
-        }
-        
-        // Add scan line
-        setTimeout(() => {
-          const scanLine = document.createElement('div');
-          scanLine.className = 'scan-line';
-          document.body.appendChild(scanLine);
-          
-          setTimeout(() => scanLine.remove(), 1500);
-        }, 500);
-        
-        setTimeout(() => {
-          document.body.classList.remove('glitch-active');
-          document.body.classList.add('high-contrast');
-          localStorage.setItem('highContrast', 'true');
-        }, 1200);
-      } else {
-        // High Contrast to Normal - Smooth transition
-        document.body.classList.remove('high-contrast');
-        localStorage.setItem('highContrast', 'false');
-      }
-      
-      // Update button state
-      event.target.classList.toggle('active', !isHighContrast);
-    }
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
-
-    // Load saved preferences
+    // Timeline-specific functionality for index.html
     document.addEventListener('DOMContentLoaded', function() {
-      // Theme
-      const savedTheme = localStorage.getItem('theme');
-      if (savedTheme === 'light') {
-        document.body.classList.add('light-theme');
-        currentTheme = 'light';
-        document.querySelector('.theme-toggle').textContent = '☀️';
-      }
-      
-      // Font size
-      if (localStorage.getItem('largeText') === 'true') {
-        document.body.classList.add('large-text');
-      }
-      
-      // High contrast
-      if (localStorage.getItem('highContrast') === 'true') {
-        document.body.classList.add('high-contrast');
-      }
-      
-      // Update button states
-      const fontButtons = document.querySelectorAll('.font-control');
-      fontButtons.forEach(button => {
-        if (button.textContent.includes('A+') && localStorage.getItem('largeText') === 'true') {
-          button.classList.add('active');
-        }
-        if (button.textContent.includes('◐') && localStorage.getItem('highContrast') === 'true') {
-          button.classList.add('active');
-        }
-      });
 
       // Catch up modal controls
       const catchUpModal = document.getElementById('catchUpModal');
@@ -774,9 +383,400 @@
         closeModal();
       });
 
+      // Timeline data and rendering
+      const timelineData = [
+        {
+          era: 'present',
+          yearLabel: 'Today',
+          navLabel: 'Present day',
+          track: 'ai',
+          visual: '✨',
+          title: 'Modern chat AI is everywhere',
+          summary: 'People now talk to AI in phones, laptops, and cars. Voice and chat help with daily tasks.',
+          why: 'Why it matters: Easy tools make it simple for anyone to get answers and learn.',
+          quiz: {
+            answer: 'b',
+            prompt: 'Mini quiz: AI is best at...',
+            options: [
+              { choice: 'a', label: 'Reading your mind' },
+              { choice: 'b', label: 'Spotting patterns in data' },
+              { choice: 'c', label: 'Cooking dinner' }
+            ]
+          }
+        },
+        {
+          era: '2023',
+          yearLabel: '2023',
+          navLabel: '2023 – Robotaxis approved',
+          track: 'robotics',
+          visual: '🚕',
+          title: 'Robotaxis get 24/7 approval',
+          summary: 'California regulators let Waymo and Cruise run paid, driverless taxis across San Francisco at all hours.',
+          why: 'Why it matters: Shows autonomous vehicles are reliable enough for real city service, not just tests.',
+          sources: [{ label: 'The Verge', href: 'https://www.theverge.com/2023/8/10/23827790/waymo-cruise-cpuc-vote-robotaxi-san-francisco' }]
+        },
+        {
+          era: '2022',
+          yearLabel: '2022',
+          navLabel: '2022 – AI chat and art go mainstream',
+          track: 'ai',
+          visual: '🎨',
+          title: 'AI image generation goes mainstream',
+          summary: 'OpenAI’s DALL·E 2 and open models like Stable Diffusion let anyone create images from text prompts.',
+          why: 'Why it matters: Creative tools moved from labs to millions of people, raising new IP and ethics questions.',
+          sources: [
+            { label: 'Baseten', href: 'https://www.baseten.co/blog/the-best-open-source-image-generation-model/' },
+            { label: 'Medium', href: 'https://medium.com/@pdelsignore/2022-was-the-year-of-ai-art-51e0903f3c1' }
+          ]
+        },
+        {
+          era: '2022',
+          yearLabel: '2022',
+          track: 'ai',
+          visual: '💬',
+          title: 'ChatGPT hits 100M users fast',
+          summary: 'OpenAI launched ChatGPT in November; it reached 1M users in 5 days and 100M monthly users by January 2023.',
+          why: 'Why it matters: Conversational AI became a daily tool, triggering an industry-wide rush to add chat assistants.',
+          sources: [{ label: 'Reuters', href: 'https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/' }]
+        },
+        {
+          era: '2021',
+          yearLabel: '2021',
+          navLabel: '2021 – Next-gen batteries',
+          track: 'energy',
+          visual: '🔋',
+          title: 'Solid-state EV battery prototype drives',
+          summary: 'Toyota demoed a car running on an all-solid-state battery, promising faster charging and safer packs.',
+          why: 'Why it matters: Points to longer-range, safer electric vehicles once manufacturing scales.',
+          sources: [{ label: 'The Drive', href: 'https://www.thedrive.com/tech/42287/toyota-is-road-testing-a-prototype-solid-state-battery-ev' }]
+        },
+        {
+          era: '2021',
+          yearLabel: '2021',
+          track: 'energy',
+          visual: '🧂',
+          title: 'Sodium-ion batteries debut',
+          summary: 'CATL unveiled its first-generation sodium-ion cells with fast charging and lower-cost materials.',
+          why: 'Why it matters: Reduces reliance on lithium and rare metals, unlocking cheaper storage for EVs and the grid.',
+          sources: [{ label: 'InsideEVs', href: 'https://insideevs.com/news/523413/catl-unveils-sodium-ion-battery/' }]
+        },
+        {
+          era: '2021',
+          yearLabel: '2021',
+          track: 'ai',
+          visual: '🖼️',
+          title: 'NFT art sale shocks the market',
+          summary: 'Beeple’s “Everydays” NFT sold for $69.3M at Christie’s, turning NFTs into a mainstream headline.',
+          why: 'Why it matters: Proved digital ownership could command real-world prices, fueling the Web3 art boom.',
+          sources: [{ label: 'Christie’s', href: 'https://press.christies.com/christies-announces-beeplesnbsphuman-onenbspthe-artists-first-ever-dynamic-physical-artworkvideo-nft' }]
+        },
+        {
+          era: '2020',
+          yearLabel: '2020',
+          navLabel: '2020 – New chips, rockets, and cheaper batteries',
+          track: 'energy',
+          visual: '⚡',
+          title: 'Battery prices fall ~90% in a decade',
+          summary: 'Lithium-ion packs dropped to ~$137/kWh, down from $1,100 in 2010, making EVs and storage far cheaper.',
+          why: 'Why it matters: Tipped electric cars and grid storage toward mass adoption.',
+          sources: [{ label: 'Renewable Energy World', href: 'https://www.renewableenergyworld.com/energy-storage/battery/annual-survey-finds-battery-prices-dropped-13-in-2020/' }]
+        },
+        {
+          era: '2020',
+          yearLabel: '2020',
+          track: 'robotics',
+          visual: '🚀',
+          title: 'SpaceX flies astronauts for NASA',
+          summary: 'Crew Dragon’s Demo-2 mission carried two astronauts to orbit—the first private spacecraft to do so.',
+          why: 'Why it matters: Opened a commercial path for human spaceflight and cheaper crew missions.',
+          sources: [{ label: 'NASA', href: 'https://www.nasa.gov/news-release/nasa-astronauts-launch-from-america-in-historic-test-flight-of-spacex-crew-dragon/' }]
+        },
+        {
+          era: '2020',
+          yearLabel: '2020',
+          track: 'ai',
+          visual: '🧠',
+          title: 'Apple’s M1 proves ARM laptops',
+          summary: 'Apple’s first Mac chip delivered big speed and battery gains by moving Macs to an ARM-based system-on-chip.',
+          why: 'Why it matters: Showed efficient mobile-style chips can power mainstream PCs, reshaping hardware roadmaps.',
+          sources: [
+            { label: 'Apple', href: 'https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/' },
+            { label: 'Wikipedia', href: 'https://en.wikipedia.org/wiki/Apple_M1' }
+          ]
+        },
+        {
+          era: '2019',
+          yearLabel: '2019',
+          navLabel: '2019 – 5G launches',
+          track: 'ai',
+          visual: '📶',
+          title: 'First national 5G networks switch on',
+          summary: 'South Korea and others launched 5G, bringing faster speeds and lower latency for billions of devices.',
+          why: 'Why it matters: Laid the wireless foundation for AR, IoT, and real-time connected systems.',
+          sources: [
+            { label: 'Wikipedia', href: 'https://en.wikipedia.org/wiki/5G' },
+            { label: 'Qualcomm', href: 'https://www.qualcomm.com/research/5g/5g-timeline/2019' }
+          ]
+        },
+        {
+          era: '2018',
+          yearLabel: '2018',
+          navLabel: '2018 – First paid robotaxis',
+          track: 'robotics',
+          visual: '🚗',
+          title: 'First paid robotaxi rides',
+          summary: 'Waymo One launched in Arizona, letting riders hail self-driving cars with an app.',
+          why: 'Why it matters: Moved autonomous driving from demo to commercial service.',
+          sources: [{ label: 'LA Times', href: 'https://www.latimes.com/business/autos/la-fi-hy-waymo-one-20181205-story.html' }]
+        },
+        {
+          era: '2016',
+          yearLabel: '2016',
+          navLabel: '2016 – AI and mobile tipping points',
+          track: 'ai',
+          visual: '⚫',
+          title: 'AlphaGo beats a Go champion',
+          summary: 'DeepMind’s AI defeated Lee Sedol 4–1, showcasing deep reinforcement learning.',
+          why: 'Why it matters: Proved AI could master creative, complex decision-making.',
+          sources: [{ label: 'Royal Institution', href: 'https://www.rigb.org/explore-science/explore/blog/10-ai-milestones-last-10-years' }]
+        },
+        {
+          era: '2016',
+          yearLabel: '2016',
+          track: 'ai',
+          visual: '📱',
+          title: 'Mobile web tops desktop',
+          summary: 'Phones and tablets passed 50% of global web traffic, cementing mobile-first design.',
+          why: 'Why it matters: Forced products and services to prioritize mobile experiences.',
+          sources: [{ label: 'The Guardian', href: 'https://www.theguardian.com/technology/2016/nov/02/mobile-web-browsing-desktop-smartphones-tablets' }]
+        },
+        {
+          era: '2015',
+          yearLabel: '2015',
+          navLabel: '2015 – Ethereum and home batteries',
+          track: 'energy',
+          visual: '🔌',
+          title: 'Tesla launches the Powerwall',
+          summary: 'A wall-mounted home battery let households store solar or off-peak power for later use.',
+          why: 'Why it matters: Made home energy storage mainstream and boosted residential solar.',
+          sources: [{ label: 'The Guardian', href: 'https://www.theguardian.com/technology/2015/may/01/tesla-announces-low-cost-solar-batteries-elon-musk' }]
+        },
+        {
+          era: '2015',
+          yearLabel: '2015',
+          track: 'ai',
+          visual: '⛓️',
+          title: 'Ethereum mainnet goes live',
+          summary: 'Ethereum introduced programmable smart contracts, enabling decentralized apps and DeFi.',
+          why: 'Why it matters: Expanded blockchain beyond currency to a platform for new digital markets.',
+          sources: [
+            { label: 'Wikipedia', href: 'https://en.wikipedia.org/wiki/Ethereum' },
+            { label: 'Zerocap', href: 'https://zerocap.com/insights/snippets/ethereum-smart-contracts-changed-crypto/' }
+          ]
+        },
+        {
+          era: '2012',
+          yearLabel: '2012',
+          navLabel: '2012 – Robots land and work',
+          track: 'robotics',
+          visual: '🛰️',
+          title: 'Curiosity rover lands on Mars',
+          summary: 'NASA’s rover touched down using a sky crane and found evidence Mars once had habitable conditions.',
+          why: 'Why it matters: Advanced Mars science and showcased daring autonomous landing tech.',
+          sources: [{ label: 'NASA', href: 'https://science.nasa.gov/mission/msl-curiosity/' }]
+        },
+        {
+          era: '2012',
+          yearLabel: '2012',
+          track: 'robotics',
+          visual: '📦',
+          title: 'Amazon buys Kiva warehouse robots',
+          summary: 'Amazon acquired Kiva Systems to automate fulfillment centers with fleets of mobile robots.',
+          why: 'Why it matters: Sparked the warehouse automation boom that speeds today’s deliveries.',
+          sources: [{ label: 'IEEE Spectrum', href: 'https://spectrum.ieee.org/amazon-acquires-kiva-systems-for-775-million' }]
+        },
+        {
+          era: '2011',
+          yearLabel: '2011',
+          navLabel: '2011 – Voice assistants arrive',
+          track: 'ai',
+          visual: '🗣️',
+          title: 'Siri brings voice to the iPhone',
+          summary: 'Apple launched Siri on the iPhone 4S, making voice assistants mainstream on mobile.',
+          why: 'Why it matters: Introduced millions to speaking naturally with devices, paving the way for Alexa and Google Assistant.',
+          sources: [{ label: 'Britannica', href: 'https://www.britannica.com/technology/Siri' }]
+        },
+        {
+          era: '2010',
+          yearLabel: '2010',
+          navLabel: '2010 – Cloud goes global',
+          track: 'ai',
+          visual: '☁️',
+          title: 'Azure cloud opens to the world',
+          summary: 'Microsoft made Azure generally available, joining AWS in offering on-demand global cloud compute.',
+          why: 'Why it matters: Helped popularize renting computing power instead of running your own servers.',
+          sources: [{ label: 'Microsoft Blog', href: 'https://blogs.microsoft.com/blog/2010/02/01/windows-azure-general-availability/' }]
+        }
+      ];
+
+      const timelineCardsContainer = document.getElementById('timelineCards');
+      const startEraSelect = document.getElementById('startEra');
+      const eraMap = document.getElementById('eraMap');
+      let cards = [];
+
+      function buildEraMeta(data) {
+        const seen = new Set();
+        return data.reduce((acc, item) => {
+          if (!seen.has(item.era)) {
+            seen.add(item.era);
+            acc.push({
+              era: item.era,
+              label: item.navLabel || (item.era === 'present' ? 'Present day' : item.yearLabel),
+              yearLabel: item.yearLabel || item.era
+            });
+          }
+          return acc;
+        }, []);
+      }
+
+      function renderEraSelect(meta) {
+        startEraSelect.innerHTML = '';
+        meta.forEach((entry, index) => {
+          const option = document.createElement('option');
+          option.value = entry.era;
+          option.textContent = entry.label;
+          option.selected = index === 0;
+          startEraSelect.appendChild(option);
+        });
+      }
+
+      function renderEraMap(meta) {
+        eraMap.innerHTML = '';
+        meta.forEach((entry, index) => {
+          const li = document.createElement('li');
+          li.textContent = entry.yearLabel || entry.label;
+          if (index === 0) {
+            li.classList.add('active');
+          }
+          eraMap.appendChild(li);
+        });
+      }
+
+      function buildSources(sources) {
+        const sourceLine = document.createElement('p');
+        sourceLine.className = 'muted small-text';
+        sourceLine.appendChild(document.createTextNode('Sources: '));
+        sources.forEach((src, index) => {
+          const link = document.createElement('a');
+          link.href = src.href;
+          link.target = '_blank';
+          link.rel = 'noreferrer';
+          link.textContent = src.label;
+          sourceLine.appendChild(link);
+          if (index < sources.length - 1) {
+            sourceLine.appendChild(document.createTextNode('; '));
+          }
+        });
+        return sourceLine;
+      }
+
+      function buildQuiz(quiz) {
+        const wrapper = document.createElement('div');
+        wrapper.className = 'mini-quiz';
+        wrapper.dataset.answer = quiz.answer;
+
+        const prompt = document.createElement('p');
+        prompt.className = 'small-text';
+        prompt.textContent = quiz.prompt;
+        wrapper.appendChild(prompt);
+
+        const options = document.createElement('div');
+        options.className = 'quiz-options';
+        quiz.options.forEach(opt => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.dataset.choice = opt.choice;
+          btn.textContent = opt.label;
+          options.appendChild(btn);
+        });
+        wrapper.appendChild(options);
+
+        const feedback = document.createElement('p');
+        feedback.className = 'quiz-feedback';
+        feedback.setAttribute('aria-live', 'polite');
+        wrapper.appendChild(feedback);
+
+        return wrapper;
+      }
+
+      function buildCard(item) {
+        const card = document.createElement('article');
+        card.className = 'timeline-card';
+        card.dataset.era = item.era;
+        card.dataset.track = item.track;
+        card.dataset.visual = item.visual || '✨';
+
+        const dot = document.createElement('div');
+        dot.className = 'timeline-dot';
+        card.appendChild(dot);
+
+        const year = document.createElement('div');
+        year.className = 'timeline-year';
+        year.textContent = item.yearLabel;
+        card.appendChild(year);
+
+        const title = document.createElement('h3');
+        title.textContent = item.title;
+        card.appendChild(title);
+
+        const summary = document.createElement('p');
+        summary.textContent = item.summary;
+        card.appendChild(summary);
+
+        if (item.why) {
+          const why = document.createElement('p');
+          why.className = 'why';
+          why.textContent = item.why;
+          card.appendChild(why);
+        }
+
+        if (item.sources && item.sources.length) {
+          card.appendChild(buildSources(item.sources));
+        }
+
+        if (item.quiz) {
+          card.appendChild(buildQuiz(item.quiz));
+        }
+
+        return card;
+      }
+
+      function renderTimelineCards(data) {
+        timelineCardsContainer.innerHTML = '';
+        const anchorSet = new Set();
+        data.forEach(item => {
+          const card = buildCard(item);
+          if (item.era === 'present') {
+            card.id = 'present-anchor';
+            anchorSet.add(item.era);
+          } else if (!anchorSet.has(item.era)) {
+            card.id = `era-${item.era}`;
+            anchorSet.add(item.era);
+          }
+          timelineCardsContainer.appendChild(card);
+        });
+        cards = timelineCardsContainer.querySelectorAll('.timeline-card');
+      }
+
+      const eraMeta = buildEraMeta(timelineData);
+      renderEraSelect(eraMeta);
+      renderEraMap(eraMeta);
+      renderTimelineCards(timelineData);
+
       // Timeline filters and jumps
       const chips = document.querySelectorAll('.chip');
-      const cards = document.querySelectorAll('.timeline-card');
+      let eraMapItems = document.querySelectorAll('#eraMap li');
+
       function applyFilter(filter) {
         chips.forEach(chip => chip.classList.toggle('active', chip.dataset.filter === filter || (filter === 'all' && chip.dataset.filter === 'all')));
         cards.forEach(card => {
@@ -807,7 +807,7 @@
         });
       });
 
-      document.getElementById('startEra').addEventListener('change', (event) => {
+      startEraSelect.addEventListener('change', (event) => {
         scrollToEra(event.target.value);
       });
 
@@ -820,7 +820,6 @@
       const stickyVisual = document.getElementById('stickyVisual');
       const visualIcon = stickyVisual.querySelector('.visual-icon');
       const visualText = stickyVisual.querySelector('p');
-      const eraMapItems = document.querySelectorAll('#eraMap li');
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -875,12 +874,8 @@
       });
     });
 
-    // Update reading progress on scroll
-    window.addEventListener('scroll', updateReadingProgress);
-    window.addEventListener('resize', updateReadingProgress);
-    
-    // Initial progress update
-    updateReadingProgress();
+    // Timeline-specific initialization is handled above
+    // Common functionality (reading progress, theme, etc.) is in common.js
   </script>
 </body>
 </html>
