@@ -176,48 +176,6 @@
         </div>
       </div>
 
-      <div class="myth-grid" aria-label="Myth versus fact cards">
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <p class="pill">Myth</p>
-              <h3>AI always tells the truth</h3>
-              <p class="muted">Tap to see the fact.</p>
-            </div>
-            <div class="flip-back">
-              <p class="pill">Fact</p>
-              <p>AI can be wrong. Always double-check important answers.</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <p class="pill">Myth</p>
-              <h3>Robots replace everyone</h3>
-              <p class="muted">Tap to see the fact.</p>
-            </div>
-            <div class="flip-back">
-              <p class="pill">Fact</p>
-              <p>Robots take on dull or risky tasks. People guide and improve them.</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <p class="pill">Myth</p>
-              <h3>Batteries never change</h3>
-              <p class="muted">Tap to see the fact.</p>
-            </div>
-            <div class="flip-back">
-              <p class="pill">Fact</p>
-              <p>New battery designs appear each year, making devices last longer.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
       <div class="timeline-footer">
         <p class="muted">Want a shortcut? Use the "Back to Present" button or pick a path above to jump around.</p>
         <a class="button primary" href="#present-anchor" id="backToPresent">Back to Present</a>
@@ -711,7 +669,7 @@
 
       function buildCard(item) {
         const card = document.createElement('article');
-        card.className = 'timeline-card';
+        card.className = 'timeline-card collapsed';
         card.dataset.era = item.era;
         card.dataset.track = item.track;
         card.dataset.visual = item.visual || '✨';
@@ -720,33 +678,53 @@
         dot.className = 'timeline-dot';
         card.appendChild(dot);
 
+        const header = document.createElement('div');
+        header.className = 'timeline-card-header';
+
         const year = document.createElement('div');
         year.className = 'timeline-year';
         year.textContent = item.yearLabel;
-        card.appendChild(year);
+        header.appendChild(year);
 
         const title = document.createElement('h3');
         title.textContent = item.title;
-        card.appendChild(title);
+        header.appendChild(title);
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'card-toggle';
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = 'Show details';
+        header.appendChild(toggle);
+
+        card.appendChild(header);
+
+        const body = document.createElement('div');
+        body.className = 'card-body';
+        const bodyId = `card-body-${item.era}-${item.yearLabel}`;
+        body.id = bodyId;
+        toggle.setAttribute('aria-controls', bodyId);
 
         const summary = document.createElement('p');
         summary.textContent = item.summary;
-        card.appendChild(summary);
+        body.appendChild(summary);
 
         if (item.why) {
           const why = document.createElement('p');
           why.className = 'why';
           why.textContent = item.why;
-          card.appendChild(why);
+          body.appendChild(why);
         }
 
         if (item.sources && item.sources.length) {
-          card.appendChild(buildSources(item.sources));
+          body.appendChild(buildSources(item.sources));
         }
 
         if (item.quiz) {
-          card.appendChild(buildQuiz(item.quiz));
+          body.appendChild(buildQuiz(item.quiz));
         }
+
+        card.appendChild(body);
 
         return card;
       }
@@ -768,10 +746,30 @@
         cards = timelineCardsContainer.querySelectorAll('.timeline-card');
       }
 
+      function attachCardInteractions() {
+        cards.forEach(card => {
+          const toggle = card.querySelector('.card-toggle');
+          if (!toggle) return;
+
+          const setExpanded = (expanded) => {
+            card.classList.toggle('expanded', expanded);
+            card.classList.toggle('collapsed', !expanded);
+            toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            toggle.textContent = expanded ? 'Hide details' : 'Show details';
+          };
+
+          toggle.addEventListener('click', () => {
+            const isExpanded = card.classList.contains('expanded');
+            setExpanded(!isExpanded);
+          });
+        });
+      }
+
       const eraMeta = buildEraMeta(timelineData);
       renderEraSelect(eraMeta);
       renderEraMap(eraMeta);
       renderTimelineCards(timelineData);
+      attachCardInteractions();
 
       // Timeline filters and jumps
       const chips = document.querySelectorAll('.chip');
