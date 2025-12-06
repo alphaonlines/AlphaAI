@@ -157,11 +157,17 @@
       <div class="timeline-wrap">
         <div class="timeline-sticky" aria-live="polite">
           <div class="sticky-visual" id="stickyVisual" role="img" aria-label="Present day AI and tech moment">
-            <div class="visual-icon">✨</div>
-            <p class="muted">Highlights update as you scroll.</p>
+            <div class="visual-frame">
+              <div class="visual-icon">✨</div>
+              <div class="visual-meta">
+                <p class="visual-year">Today</p>
+                <p class="visual-title">Modern chat AI is everywhere</p>
+              </div>
+            </div>
+            <p class="muted small-text">Highlights update as you scroll.</p>
           </div>
           <div class="era-map">
-            <p class="muted small-text">You are viewing</p>
+            <p class="muted small-text">Jump to a year</p>
             <ul id="eraMap"></ul>
           </div>
           <div class="prompt-copy">
@@ -173,48 +179,6 @@
 
         <div class="timeline-cards">
           <div id="timelineCards"></div>
-        </div>
-      </div>
-
-      <div class="myth-grid" aria-label="Myth versus fact cards">
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <p class="pill">Myth</p>
-              <h3>AI always tells the truth</h3>
-              <p class="muted">Tap to see the fact.</p>
-            </div>
-            <div class="flip-back">
-              <p class="pill">Fact</p>
-              <p>AI can be wrong. Always double-check important answers.</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <p class="pill">Myth</p>
-              <h3>Robots replace everyone</h3>
-              <p class="muted">Tap to see the fact.</p>
-            </div>
-            <div class="flip-back">
-              <p class="pill">Fact</p>
-              <p>Robots take on dull or risky tasks. People guide and improve them.</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <p class="pill">Myth</p>
-              <h3>Batteries never change</h3>
-              <p class="muted">Tap to see the fact.</p>
-            </div>
-            <div class="flip-back">
-              <p class="pill">Fact</p>
-              <p>New battery designs appear each year, making devices last longer.</p>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -356,6 +320,7 @@
         if (target) {
           target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
+        highlightEraMap(era);
       }
 
       catchUpForm.addEventListener('submit', (e) => {
@@ -654,10 +619,15 @@
         eraMap.innerHTML = '';
         meta.forEach((entry, index) => {
           const li = document.createElement('li');
-          li.textContent = entry.yearLabel || entry.label;
+          const button = document.createElement('button');
+          button.type = 'button';
+          button.className = 'era-link';
+          button.dataset.era = entry.era;
+          button.textContent = entry.yearLabel || entry.label;
           if (index === 0) {
-            li.classList.add('active');
+            button.classList.add('active');
           }
+          li.appendChild(button);
           eraMap.appendChild(li);
         });
       }
@@ -711,7 +681,7 @@
 
       function buildCard(item) {
         const card = document.createElement('article');
-        card.className = 'timeline-card';
+        card.className = 'timeline-card collapsed';
         card.dataset.era = item.era;
         card.dataset.track = item.track;
         card.dataset.visual = item.visual || '✨';
@@ -720,33 +690,53 @@
         dot.className = 'timeline-dot';
         card.appendChild(dot);
 
+        const header = document.createElement('div');
+        header.className = 'timeline-card-header';
+
         const year = document.createElement('div');
         year.className = 'timeline-year';
         year.textContent = item.yearLabel;
-        card.appendChild(year);
+        header.appendChild(year);
 
         const title = document.createElement('h3');
         title.textContent = item.title;
-        card.appendChild(title);
+        header.appendChild(title);
+
+        const toggle = document.createElement('button');
+        toggle.type = 'button';
+        toggle.className = 'card-toggle';
+        toggle.setAttribute('aria-expanded', 'false');
+        toggle.textContent = 'Show details';
+        header.appendChild(toggle);
+
+        card.appendChild(header);
+
+        const body = document.createElement('div');
+        body.className = 'card-body';
+        const bodyId = `card-body-${item.era}-${item.yearLabel}`;
+        body.id = bodyId;
+        toggle.setAttribute('aria-controls', bodyId);
 
         const summary = document.createElement('p');
         summary.textContent = item.summary;
-        card.appendChild(summary);
+        body.appendChild(summary);
 
         if (item.why) {
           const why = document.createElement('p');
           why.className = 'why';
           why.textContent = item.why;
-          card.appendChild(why);
+          body.appendChild(why);
         }
 
         if (item.sources && item.sources.length) {
-          card.appendChild(buildSources(item.sources));
+          body.appendChild(buildSources(item.sources));
         }
 
         if (item.quiz) {
-          card.appendChild(buildQuiz(item.quiz));
+          body.appendChild(buildQuiz(item.quiz));
         }
+
+        card.appendChild(body);
 
         return card;
       }
@@ -768,14 +758,46 @@
         cards = timelineCardsContainer.querySelectorAll('.timeline-card');
       }
 
+      function attachCardInteractions() {
+        cards.forEach(card => {
+          const toggle = card.querySelector('.card-toggle');
+          if (!toggle) return;
+
+          const setExpanded = (expanded) => {
+            card.classList.toggle('expanded', expanded);
+            card.classList.toggle('collapsed', !expanded);
+            toggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+            toggle.textContent = expanded ? 'Hide details' : 'Show details';
+          };
+
+          toggle.addEventListener('click', () => {
+            const isExpanded = card.classList.contains('expanded');
+            setExpanded(!isExpanded);
+          });
+        });
+      }
+
       const eraMeta = buildEraMeta(timelineData);
       renderEraSelect(eraMeta);
       renderEraMap(eraMeta);
       renderTimelineCards(timelineData);
+      attachCardInteractions();
 
       // Timeline filters and jumps
       const chips = document.querySelectorAll('.chip');
-      let eraMapItems = document.querySelectorAll('#eraMap li');
+      let eraMapItems = document.querySelectorAll('#eraMap .era-link');
+
+      function highlightEraMap(era) {
+        eraMapItems.forEach(item => {
+          item.classList.toggle('active', item.dataset.era === era);
+        });
+      }
+
+      eraMapItems.forEach(item => {
+        item.addEventListener('click', () => {
+          scrollToEra(item.dataset.era);
+        });
+      });
 
       function applyFilter(filter) {
         chips.forEach(chip => chip.classList.toggle('active', chip.dataset.filter === filter || (filter === 'all' && chip.dataset.filter === 'all')));
@@ -819,7 +841,27 @@
       // Sticky visual updates
       const stickyVisual = document.getElementById('stickyVisual');
       const visualIcon = stickyVisual.querySelector('.visual-icon');
-      const visualText = stickyVisual.querySelector('p');
+      const visualYear = stickyVisual.querySelector('.visual-year');
+      const visualTitle = stickyVisual.querySelector('.visual-title');
+      const visualFrame = stickyVisual.querySelector('.visual-frame');
+
+      const visualThemes = {
+        ai: { gradient: 'linear-gradient(135deg, rgba(79,156,255,0.25), rgba(0,212,170,0.15))', accent: 'var(--accent)' },
+        robotics: { gradient: 'linear-gradient(135deg, rgba(255,107,157,0.2), rgba(79,156,255,0.2))', accent: 'var(--accent-3)' },
+        energy: { gradient: 'linear-gradient(135deg, rgba(0,212,170,0.25), rgba(255,206,84,0.15))', accent: 'var(--accent-2)' },
+        default: { gradient: 'linear-gradient(135deg, rgba(79,156,255,0.2), rgba(255,255,255,0.06))', accent: 'var(--accent)' }
+      };
+
+      if (cards.length) {
+        const firstCard = cards[0];
+        const firstTheme = visualThemes[firstCard.dataset.track] || visualThemes.default;
+        visualIcon.textContent = firstCard.dataset.visual || '✨';
+        visualYear.textContent = firstCard.querySelector('.timeline-year').textContent;
+        visualTitle.textContent = firstCard.querySelector('h3').textContent;
+        visualFrame.style.backgroundImage = firstTheme.gradient;
+        stickyVisual.style.setProperty('--visual-accent', firstTheme.accent);
+        stickyVisual.setAttribute('aria-label', `${visualYear.textContent} — ${visualTitle.textContent}`);
+      }
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -829,12 +871,13 @@
             const year = card.querySelector('.timeline-year').textContent;
             const title = card.querySelector('h3').textContent;
             visualIcon.textContent = icon;
-            visualText.textContent = `${year} — ${title}`;
-            eraMapItems.forEach(item => {
-              const label = item.textContent.trim();
-              const match = label.includes(year) || (card.dataset.era === 'present' && label.toLowerCase().includes('present'));
-              item.classList.toggle('active', match);
-            });
+            visualYear.textContent = year;
+            visualTitle.textContent = title;
+            const theme = visualThemes[card.dataset.track] || visualThemes.default;
+            visualFrame.style.backgroundImage = theme.gradient;
+            stickyVisual.style.setProperty('--visual-accent', theme.accent);
+            stickyVisual.setAttribute('aria-label', `${year} — ${title}`);
+            highlightEraMap(card.dataset.era);
           }
         });
       }, { rootMargin: '-20% 0px -50% 0px', threshold: 0.5 });
