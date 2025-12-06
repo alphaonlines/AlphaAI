@@ -285,6 +285,10 @@ section {
   overflow: hidden;
 }
 
+#timeline {
+  overflow: visible;
+}
+
 section::before {
   content: '';
   position: absolute;
