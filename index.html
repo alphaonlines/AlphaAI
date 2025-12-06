@@ -40,10 +40,374 @@
       </div>
       <p>Artificial Intelligence (AI) is like teaching computers to think and learn like humans. It's already helping you every day, even if you don't realize it.</p>
       <div class="cta-row">
-        <a class="button primary" href="getting-started.html">Try AI Today</a>
+        <a class="button primary" href="https://alphaonlines.org/pages/wolfbot" target="_blank" rel="noopener">Try it now</a>
         <a class="button secondary" href="daily-life.html">See AI in Daily Life</a>
+        <button class="button ghost" id="openCatchUp" aria-haspopup="dialog">Catch up fast</button>
       </div>
       <p class="muted small-text">Made for beginners • No technical experience needed</p>
+    </section>
+
+    <section class="catchup-modal" id="catchUpModal" role="dialog" aria-modal="true" aria-labelledby="catchUpTitle" hidden tabindex="-1">
+      <div class="modal-content">
+        <div class="modal-header">
+          <div>
+            <p class="pill">2-minute setup</p>
+            <h2 id="catchUpTitle">Find the best starting point</h2>
+            <p class="muted">Answer a few quick questions. We'll jump you to the right era.</p>
+          </div>
+          <button class="close-modal" id="closeCatchUp" aria-label="Close questionnaire">×</button>
+        </div>
+        <form id="catchUpForm">
+          <div class="grid two">
+            <label class="prompt-card">
+              <span>How comfortable are you with computers?</span>
+              <div class="option-row">
+                <input type="radio" name="comfort" value="low" required>
+                <span>Not at all</span>
+              </div>
+              <div class="option-row">
+                <input type="radio" name="comfort" value="medium">
+                <span>Some experience</span>
+              </div>
+              <div class="option-row">
+                <input type="radio" name="comfort" value="high">
+                <span>Confident</span>
+              </div>
+            </label>
+            <label class="prompt-card">
+              <span>Which topics interest you?</span>
+              <div class="option-row">
+                <input type="checkbox" name="topics" value="ai" checked>
+                <span>AI and chat tools</span>
+              </div>
+              <div class="option-row">
+                <input type="checkbox" name="topics" value="robotics">
+                <span>Robots and automation</span>
+              </div>
+              <div class="option-row">
+                <input type="checkbox" name="topics" value="energy">
+                <span>Batteries and energy</span>
+              </div>
+            </label>
+          </div>
+          <div class="grid two">
+            <label class="prompt-card">
+              <span>Do you know what "the cloud" means?</span>
+              <div class="option-row">
+                <input type="radio" name="cloud" value="yes" required>
+                <span>Yes</span>
+              </div>
+              <div class="option-row">
+                <input type="radio" name="cloud" value="kinda">
+                <span>Kinda</span>
+              </div>
+              <div class="option-row">
+                <input type="radio" name="cloud" value="no">
+                <span>No</span>
+              </div>
+            </label>
+            <label class="prompt-card">
+              <span>How deep do you want to go?</span>
+              <div class="option-row">
+                <input type="radio" name="depth" value="quick" required>
+                <span>Just the highlights</span>
+              </div>
+              <div class="option-row">
+                <input type="radio" name="depth" value="story">
+                <span>Give me the story</span>
+              </div>
+            </label>
+          </div>
+          <div class="modal-actions">
+            <button type="submit" class="button primary">Show my starting era</button>
+            <button type="button" class="button ghost" id="closeCatchUpFooter">Cancel</button>
+          </div>
+          <p class="muted small-text">We keep your answers in this browser only. You can change them anytime.</p>
+        </form>
+      </div>
+    </section>
+
+    <section id="timeline" aria-label="AI and tech timeline">
+      <div class="timeline-header">
+        <div>
+          <p class="pill">Story mode</p>
+          <h2>Tech Time Machine</h2>
+          <p class="muted">Start from today, then scroll back through the big moments. The sticky image updates as you move.</p>
+        </div>
+        <div class="timeline-controls">
+          <label for="startEra" class="muted">Jump to an era</label>
+          <select id="startEra" aria-label="Jump to era">
+            <option value="present">Present day</option>
+            <option value="2025">2025 – New batteries</option>
+            <option value="2024">2024 – Robots get agile</option>
+            <option value="2017">2017 → now</option>
+            <option value="2012">2012 – Deep learning</option>
+            <option value="1997">1997 – Chess milestone</option>
+            <option value="1966">1966 – First chatbots</option>
+            <option value="1956">1956 – AI gets its name</option>
+            <option value="1950">1950 – Can machines think?</option>
+          </select>
+          <div class="filter-row" role="group" aria-label="Filter timeline by topic">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="ai">AI</button>
+            <button class="chip" data-filter="robotics">Robotics</button>
+            <button class="chip" data-filter="energy">Batteries</button>
+          </div>
+          <div class="path-buttons" role="group" aria-label="Choose your path">
+            <button class="button secondary" data-path="ai">I'm curious about AI</button>
+            <button class="button secondary" data-path="robotics">Show me robots</button>
+            <button class="button secondary" data-path="energy">I want battery news</button>
+            <button class="button ghost" data-path="mixed">Give me everything</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-wrap">
+        <div class="timeline-sticky" aria-live="polite">
+          <div class="sticky-visual" id="stickyVisual" role="img" aria-label="Present day AI and tech moment">
+            <div class="visual-icon">✨</div>
+            <p class="muted">Highlights update as you scroll.</p>
+          </div>
+          <div class="era-map">
+            <p class="muted small-text">You are viewing</p>
+            <ul id="eraMap">
+              <li class="active">Present day</li>
+              <li>2025</li>
+              <li>2024</li>
+              <li>2017 → now</li>
+              <li>2012</li>
+              <li>1997</li>
+              <li>1966</li>
+              <li>1956</li>
+              <li>1950</li>
+            </ul>
+          </div>
+          <div class="prompt-copy">
+            <p class="muted">Starter prompts</p>
+            <button class="copy-button" data-prompt="Summarize the biggest AI change in the last 5 years in simple words.">Copy: AI in 5 years</button>
+            <button class="copy-button" data-prompt="List one friendly robot example and why it helps people.">Copy: Robot example</button>
+          </div>
+        </div>
+
+        <div class="timeline-cards">
+          <article class="timeline-card" data-era="present" data-track="ai" data-visual="✨" id="present-anchor">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">Today</div>
+            <h3>Modern chat AI is everywhere</h3>
+            <p>People now talk to AI in phones, laptops, and cars. Voice and chat help with daily tasks.</p>
+            <p class="why">Why it matters: Easy tools make it simple for anyone to get answers and learn.</p>
+            <div class="mini-quiz" data-answer="b">
+              <p class="small-text">Mini quiz: AI is best at...</p>
+              <div class="quiz-options">
+                <button type="button" data-choice="a">Reading your mind</button>
+                <button type="button" data-choice="b">Spotting patterns in data</button>
+                <button type="button" data-choice="c">Cooking dinner</button>
+              </div>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="timeline-card" data-era="2025" data-track="energy" data-visual="🔋" id="era-2025">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2025</div>
+            <h3>Sodium-ion batteries move toward shelves</h3>
+            <p>New sodium-based packs promise safer, cheaper power. A company called CATL plans mass production.</p>
+            <p class="why">Why it matters: Better batteries make phones, scooters, and home backups more reliable.</p>
+            <div class="mini-quiz" data-answer="c">
+              <p class="small-text">Mini quiz: Sodium-ion batteries can help because...</p>
+              <div class="quiz-options">
+                <button type="button" data-choice="a">They run on gasoline</button>
+                <button type="button" data-choice="b">They replace the sun</button>
+                <button type="button" data-choice="c">They use easier-to-find materials</button>
+              </div>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="timeline-card" data-era="2024" data-track="robotics" data-visual="🤖" id="era-2024">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2024</div>
+            <h3>Electric humanoid robots step out</h3>
+            <p>New electric robots, like Boston Dynamics' Atlas update, aim to work safely around people.</p>
+            <p class="why">Why it matters: Quiet, battery-powered robots fit better in workplaces and homes.</p>
+            <div class="mini-quiz" data-answer="a">
+              <p class="small-text">Mini quiz: Electric robots are helpful because...</p>
+              <div class="quiz-options">
+                <button type="button" data-choice="a">They can run indoors without fumes</button>
+                <button type="button" data-choice="b">They never need charging</button>
+                <button type="button" data-choice="c">They only dance</button>
+              </div>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="timeline-card" data-era="2017" data-track="ai" data-visual="🕸️" id="era-2017">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2017 → now</div>
+            <h3>Transformers change language tools</h3>
+            <p>New AI models learned to focus on the right words. This made chatbots and translation feel natural.</p>
+            <p class="why">Why it matters: Better language tools help people write, learn, and connect.</p>
+            <div class="mini-quiz" data-answer="c">
+              <p class="small-text">Mini quiz: "Attention" helps AI...</p>
+              <div class="quiz-options">
+                <button type="button" data-choice="a">Grow robot arms</button>
+                <button type="button" data-choice="b">Save battery power</button>
+                <button type="button" data-choice="c">Focus on key words</button>
+              </div>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="timeline-card" data-era="2016" data-track="ai" data-visual="⚫" id="era-2016">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2016</div>
+            <h3>AlphaGo shocks the world</h3>
+            <p>An AI named AlphaGo beat a Go world champion. It mixed practice games with clever planning.</p>
+            <p class="why">Why it matters: AI can now learn complex choices, not just simple rules.</p>
+            <div class="mini-quiz" data-answer="a">
+              <p class="small-text">Mini quiz: AlphaGo learned by...</p>
+              <div class="quiz-options">
+                <button type="button" data-choice="a">Playing millions of games</button>
+                <button type="button" data-choice="b">Watching only one match</button>
+                <button type="button" data-choice="c">Guessing at random</button>
+              </div>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="timeline-card" data-era="2012" data-track="ai" data-visual="📷" id="era-2012">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">2012</div>
+            <h3>Deep learning breaks out</h3>
+            <p>A system called AlexNet won an image contest by a wide margin. It learned from many photos.</p>
+            <p class="why">Why it matters: This jump started modern AI for pictures, voice, and more.</p>
+            <div class="mini-quiz" data-answer="b">
+              <p class="small-text">Mini quiz: AlexNet was famous for...</p>
+              <div class="quiz-options">
+                <button type="button" data-choice="a">Running on paper</button>
+                <button type="button" data-choice="b">Seeing objects in photos</button>
+                <button type="button" data-choice="c">Making phone calls</button>
+              </div>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="timeline-card" data-era="1997" data-track="ai" data-visual="♟️" id="era-1997">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1997</div>
+            <h3>Computers beat the chess champ</h3>
+            <p>IBM's Deep Blue defeated Garry Kasparov. It mixed speed with careful search.</p>
+            <p class="why">Why it matters: People saw that AI could master skilled games.</p>
+            <div class="mini-quiz" data-answer="b">
+              <p class="small-text">Mini quiz: Deep Blue's advantage was...</p>
+              <div class="quiz-options">
+                <button type="button" data-choice="a">Human feelings</button>
+                <button type="button" data-choice="b">Fast calculations</button>
+                <button type="button" data-choice="c">Magic</button>
+              </div>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="timeline-card" data-era="1966" data-track="ai" data-visual="💬" id="era-1966">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1966</div>
+            <h3>ELIZA starts chatbot history</h3>
+            <p>A simple program named ELIZA mirrored people's words. It showed that talking to a computer felt new.</p>
+            <p class="why">Why it matters: It was the first taste of computer conversation.</p>
+            <div class="mini-quiz" data-answer="a">
+              <p class="small-text">Mini quiz: ELIZA mainly...</p>
+              <div class="quiz-options">
+                <button type="button" data-choice="a">Repeated and reflected text</button>
+                <button type="button" data-choice="b">Understood feelings deeply</button>
+                <button type="button" data-choice="c">Sent voice messages</button>
+              </div>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="timeline-card" data-era="1956" data-track="ai" data-visual="🎓" id="era-1956">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1956</div>
+            <h3>Dartmouth coins the term "AI"</h3>
+            <p>Researchers met at Dartmouth College and named the field Artificial Intelligence.</p>
+            <p class="why">Why it matters: It kicked off organized research into smart machines.</p>
+            <div class="mini-quiz" data-answer="c">
+              <p class="small-text">Mini quiz: Dartmouth was key because...</p>
+              <div class="quiz-options">
+                <button type="button" data-choice="a">Robots were sold there</button>
+                <button type="button" data-choice="b">It was a music festival</button>
+                <button type="button" data-choice="c">The field got its name</button>
+              </div>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </div>
+          </article>
+
+          <article class="timeline-card" data-era="1950" data-track="ai" data-visual="📝" id="era-1950">
+            <div class="timeline-dot"></div>
+            <div class="timeline-year">1950</div>
+            <h3>Turing asks "Can machines think?"</h3>
+            <p>Alan Turing described a playful test where people guess if they talk to a human or a machine.</p>
+            <p class="why">Why it matters: It set the big question that guides AI today.</p>
+            <div class="mini-quiz" data-answer="b">
+              <p class="small-text">Mini quiz: The test checks if a machine can...</p>
+              <div class="quiz-options">
+                <button type="button" data-choice="a">Run very fast</button>
+                <button type="button" data-choice="b">Mimic human answers</button>
+                <button type="button" data-choice="c">Draw pictures</button>
+              </div>
+              <p class="quiz-feedback" aria-live="polite"></p>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="myth-grid" aria-label="Myth versus fact cards">
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <p class="pill">Myth</p>
+              <h3>AI always tells the truth</h3>
+              <p class="muted">Tap to see the fact.</p>
+            </div>
+            <div class="flip-back">
+              <p class="pill">Fact</p>
+              <p>AI can be wrong. Always double-check important answers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <p class="pill">Myth</p>
+              <h3>Robots replace everyone</h3>
+              <p class="muted">Tap to see the fact.</p>
+            </div>
+            <div class="flip-back">
+              <p class="pill">Fact</p>
+              <p>Robots take on dull or risky tasks. People guide and improve them.</p>
+            </div>
+          </div>
+        </div>
+        <div class="flip-card">
+          <div class="flip-inner">
+            <div class="flip-front">
+              <p class="pill">Myth</p>
+              <h3>Batteries never change</h3>
+              <p class="muted">Tap to see the fact.</p>
+            </div>
+            <div class="flip-back">
+              <p class="pill">Fact</p>
+              <p>New battery designs appear each year, making devices last longer.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-footer">
+        <p class="muted">Want a shortcut? Use the "Back to Present" button or pick a path above to jump around.</p>
+        <a class="button primary" href="#present-anchor" id="backToPresent">Back to Present</a>
+      </div>
     </section>
 
     <section>
@@ -328,6 +692,162 @@
         if (button.textContent.includes('◐') && localStorage.getItem('highContrast') === 'true') {
           button.classList.add('active');
         }
+      });
+
+      // Catch up modal controls
+      const catchUpModal = document.getElementById('catchUpModal');
+      const openCatchUp = document.getElementById('openCatchUp');
+      const closeButtons = [document.getElementById('closeCatchUp'), document.getElementById('closeCatchUpFooter')];
+      const catchUpForm = document.getElementById('catchUpForm');
+
+      function openModal() {
+        catchUpModal.removeAttribute('hidden');
+        catchUpModal.focus();
+      }
+
+      function closeModal() {
+        catchUpModal.setAttribute('hidden', 'true');
+        openCatchUp.focus();
+      }
+
+      openCatchUp.addEventListener('click', openModal);
+      closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && !catchUpModal.hasAttribute('hidden')) {
+          closeModal();
+        }
+      });
+
+      function scrollToEra(era) {
+        const target = era === 'present' ? document.getElementById('present-anchor') : document.getElementById(`era-${era}`);
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+
+      catchUpForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const data = new FormData(catchUpForm);
+        const comfort = data.get('comfort');
+        const depth = data.get('depth');
+        const cloud = data.get('cloud');
+        const topics = data.getAll('topics');
+
+        let eraChoice = '2017';
+        if (topics.includes('energy')) {
+          eraChoice = '2025';
+        } else if (topics.includes('robotics')) {
+          eraChoice = '2024';
+        } else if (depth === 'story' && comfort === 'high') {
+          eraChoice = '1956';
+        } else if (cloud === 'no' || comfort === 'low') {
+          eraChoice = '2017';
+        } else {
+          eraChoice = '2012';
+        }
+
+        scrollToEra(eraChoice);
+        closeModal();
+      });
+
+      // Timeline filters and jumps
+      const chips = document.querySelectorAll('.chip');
+      const cards = document.querySelectorAll('.timeline-card');
+      function applyFilter(filter) {
+        chips.forEach(chip => chip.classList.toggle('active', chip.dataset.filter === filter || (filter === 'all' && chip.dataset.filter === 'all')));
+        cards.forEach(card => {
+          const matches = filter === 'all' || card.dataset.track === filter;
+          card.classList.toggle('hidden', !matches);
+        });
+      }
+
+      chips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          applyFilter(chip.dataset.filter);
+        });
+      });
+
+      document.querySelectorAll('.path-buttons .button').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const path = btn.dataset.path;
+          if (path === 'mixed') {
+            applyFilter('all');
+            scrollToEra('present');
+            return;
+          }
+          applyFilter(path);
+          const firstMatch = Array.from(cards).find(card => card.dataset.track === path && !card.classList.contains('hidden'));
+          if (firstMatch) {
+            firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        });
+      });
+
+      document.getElementById('startEra').addEventListener('change', (event) => {
+        scrollToEra(event.target.value);
+      });
+
+      document.getElementById('backToPresent').addEventListener('click', (event) => {
+        event.preventDefault();
+        scrollToEra('present');
+      });
+
+      // Sticky visual updates
+      const stickyVisual = document.getElementById('stickyVisual');
+      const visualIcon = stickyVisual.querySelector('.visual-icon');
+      const visualText = stickyVisual.querySelector('p');
+      const eraMapItems = document.querySelectorAll('#eraMap li');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const card = entry.target;
+            const icon = card.dataset.visual || '✨';
+            const year = card.querySelector('.timeline-year').textContent;
+            const title = card.querySelector('h3').textContent;
+            visualIcon.textContent = icon;
+            visualText.textContent = `${year} — ${title}`;
+            eraMapItems.forEach(item => {
+              const label = item.textContent.trim();
+              const match = label.includes(year) || (card.dataset.era === 'present' && label.toLowerCase().includes('present'));
+              item.classList.toggle('active', match);
+            });
+          }
+        });
+      }, { rootMargin: '-20% 0px -50% 0px', threshold: 0.5 });
+
+      cards.forEach(card => observer.observe(card));
+
+      // Mini quiz feedback
+      document.querySelectorAll('.mini-quiz').forEach(quiz => {
+        quiz.querySelectorAll('button').forEach(btn => {
+          btn.addEventListener('click', () => {
+            const correct = quiz.dataset.answer;
+            const feedback = quiz.querySelector('.quiz-feedback');
+            if (btn.dataset.choice === correct) {
+              feedback.textContent = 'Correct! Great pick.';
+            } else {
+              feedback.textContent = 'Close. Try another option.';
+            }
+          });
+        });
+      });
+
+      // Copy starter prompts
+      document.querySelectorAll('.copy-button').forEach(button => {
+        button.dataset.label = button.textContent;
+        button.addEventListener('click', async () => {
+          const text = button.dataset.prompt;
+          try {
+            await navigator.clipboard.writeText(text);
+            button.textContent = 'Copied!';
+            setTimeout(() => {
+              button.textContent = button.dataset.label;
+            }, 1500);
+          } catch (err) {
+            button.textContent = 'Copy not available here';
+          }
+        });
       });
     });
 
