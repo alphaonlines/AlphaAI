@@ -53,21 +53,22 @@ function toggleTheme(event) {
   }, 3000);
 }
 
+// Helper to clear animation and stagger classes from text elements
 function clearTextAnimationClasses(elements) {
-  const classesToRemove = [
-    'text-pop-up',
-    'text-pop-down',
-    'stagger-text-1',
-    'stagger-text-2',
-    'stagger-text-3',
-    'stagger-text-4',
-    'stagger-text-5',
-    'stagger-text-6',
-    'stagger-text-7',
-    'stagger-text-8'
-  ];
-
-  elements.forEach(el => el.classList.remove(...classesToRemove));
+  elements.forEach(el => {
+    el.classList.remove(
+      'text-pop-up',
+      'text-pop-down',
+      'stagger-text-1',
+      'stagger-text-2',
+      'stagger-text-3',
+      'stagger-text-4',
+      'stagger-text-5',
+      'stagger-text-6',
+      'stagger-text-7',
+      'stagger-text-8'
+    );
+  });
 }
 
 // Font size toggle with pop animation
