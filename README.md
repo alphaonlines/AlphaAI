@@ -20,6 +20,6 @@ Every entry in `timeline.json` must follow this structure:
 - [ ] **Content:** Add "Related Products" data to existing JSON.
 
 ## 🛠 Workflow
-1.  Update `timeline.json` with new events.
+1.  Update `timeline.json` with new events (now hosted in separate repo: https://github.com/alphaonlines/AlphaPulse).
 2.  Run `update_timeline.py` (if adding single entries) or edit JSON directly for bulk changes.
 3.  Refresh `index.html` to test.
