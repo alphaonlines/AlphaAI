@@ -53,6 +53,24 @@ function toggleTheme() {
   }, 3000);
 }
 
+// Helper to clear animation and stagger classes from text elements
+function clearTextAnimationClasses(elements) {
+  elements.forEach(el => {
+    el.classList.remove(
+      'text-pop-up',
+      'text-pop-down',
+      'stagger-text-1',
+      'stagger-text-2',
+      'stagger-text-3',
+      'stagger-text-4',
+      'stagger-text-5',
+      'stagger-text-6',
+      'stagger-text-7',
+      'stagger-text-8'
+    );
+  });
+}
+
 // Font size toggle with pop animation
 function toggleFontSize() {
   if (isTransitioning) return;
@@ -68,11 +86,9 @@ function toggleFontSize() {
     
     document.body.classList.add('large-text');
     localStorage.setItem('largeText', 'true');
-    
+
     setTimeout(() => {
-      textElements.forEach(el => {
-        el.classList.remove('text-pop-up', 'stagger-text-1', 'stagger-text-2', 'stagger-text-3', 'stagger-text-4', 'stagger-text-5', 'stagger-text-6', 'stagger-text-7', 'stagger-text-8');
-      });
+      clearTextAnimationClasses(textElements);
     }, 1200);
   } else {
     // Large to Normal - Pop down animation
@@ -82,11 +98,9 @@ function toggleFontSize() {
     
     document.body.classList.remove('large-text');
     localStorage.setItem('largeText', 'false');
-    
+
     setTimeout(() => {
-      textElements.forEach(el => {
-        el.classList.remove('text-pop-down', 'stagger-text-1', 'stagger-text-2', 'stagger-text-3', 'stagger-text-4', 'stagger-text-5', 'stagger-text-6', 'stagger-text-7', 'stagger-text-8');
-      });
+      clearTextAnimationClasses(textElements);
     }, 800);
   }
   
