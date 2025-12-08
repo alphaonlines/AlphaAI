@@ -2,696 +2,774 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AI for Beginners | Easy Guide to Artificial Intelligence</title>
-   <link rel="stylesheet" href="styles.css">
-   <script src="common.js"></script>
-</xai:function_call
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Tech Timeline | 1800 - 2025</title>
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
 
+    :root {
+      /* Premium dark theme variables */
+      --bg: #0a0b0e;
+      --bg-alt: linear-gradient(135deg, #0a0b0e 0%, #1a1d23 100%);
+      --panel: rgba(26, 29, 35, 0.95);
+      --panel-strong: rgba(40, 44, 52, 1);
+      --text: #e8eaed;
+      --muted: #9aa0a6;
+      --accent: #4f9cff;
+      --accent-2: #00d4aa;
+      --accent-3: #ff6b9d;
+      --border: rgba(255, 255, 255, 0.1);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    body.light-theme {
+      --bg: #f8f9fa;
+      --bg-alt: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+      --panel: rgba(255, 255, 255, 0.95);
+      --panel-strong: #ffffff;
+      --text: #1a1a1a;
+      --muted: #5f6368;
+      --accent: #0066cc;
+      --accent-2: #00a86b;
+      --accent-3: #e63946;
+      --border: rgba(0, 0, 0, 0.15);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Base Layout */
+    * { box-sizing: border-box; }
+    body {
+      margin: 0; min-height: 100vh;
+      background: var(--bg-alt); color: var(--text);
+      font-family: 'Inter', system-ui, sans-serif;
+      font-size: 16px; line-height: 1.6;
+      padding-bottom: 250px; /* Space for mobile bottom drawer */
+      transition: background 0.3s ease;
+    }
+    
+    h1, h2, h3 { font-family: 'Space Grotesk', sans-serif; margin: 0; line-height: 1.2; }
+    a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    
+    /* Header */
+    header {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(26, 29, 35, 0.9); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 12px 20px;
+    }
+    body.light-theme header { background: rgba(255, 255, 255, 0.9); }
+
+    .nav { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+    .brand { font-size: 1.1rem; font-weight: 700; display: flex; align-items: center; gap: 8px; }
+    .brand .dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 10px var(--accent); }
+
+    .last-updated {
+      font-size: 0.75rem; color: var(--accent-2);
+      border: 1px solid var(--border); padding: 4px 8px; border-radius: 6px;
+      background: rgba(0, 212, 170, 0.1);
+      margin-left: 8px;
+    }
+
+    /* Search Bar */
+    .search-wrapper {
+      display: flex; align-items: center; gap: 8px;
+      background: rgba(0,0,0,0.2); padding: 4px 8px;
+      border-radius: 50px; border: 1px solid var(--border);
+    }
+    .search-input {
+      background: transparent; border: none; color: var(--text);
+      font-family: 'Inter', sans-serif; width: 120px; outline: none; font-size: 14px;
+    }
+    .search-btn {
+      background: var(--accent); color: white; border: none;
+      border-radius: 50%; width: 28px; height: 28px;
+      display: grid; place-items: center; cursor: pointer;
+    }
+
+    /* MAIN LAYOUT GRID */
+    .container { 
+      width: min(1200px, 95vw); margin: 0 auto; padding: 20px; 
+      display: grid;
+      grid-template-columns: 1fr 340px; /* Timeline | Sticky Sidebar */
+      gap: 40px;
+    }
+    
+    /* Hero Section (Spans full width) */
+    .hero { grid-column: 1 / -1; text-align: center; margin: 40px 0 20px; }
+    .pill { background: var(--panel-strong); padding: 6px 14px; border-radius: 999px; font-size: 0.85rem; color: var(--muted); border: 1px solid var(--border); display: inline-block; margin-bottom: 12px;}
+
+    /* TIMELINE COLUMN */
+    .timeline-column { position: relative; }
+
+    /* The Center Spine (Centered within the Left Column) */
+    .timeline-feed { position: relative; padding: 20px 0; }
+    
+    .timeline-feed::before {
+      content: ''; position: absolute; top: 0; bottom: 0; left: 50%;
+      width: 2px; background: linear-gradient(180deg, var(--accent) 0%, rgba(255,255,255,0.05) 100%);
+      transform: translateX(-50%);
+    }
+
+    .timeline-card {
+      position: relative; width: 45%; margin-bottom: 50px;
+      background: var(--panel); border: 1px solid var(--border);
+      border-radius: 16px; padding: 20px;
+      cursor: pointer; transition: var(--transition);
+      transform-origin: center;
+    }
+
+    /* Active State (Triggered by Scroll) */
+    .timeline-card.active-card {
+      border-color: var(--accent);
+      box-shadow: 0 0 25px rgba(79, 156, 255, 0.15);
+      background: var(--panel-strong);
+    }
+
+    /* Alternating Sides */
+    .timeline-card:nth-child(odd) { margin-left: auto; margin-right: 0; text-align: left; }
+    .timeline-card:nth-child(even) { margin-left: 0; margin-right: auto; text-align: right; }
+
+    /* Center Dots */
+    .timeline-dot {
+      position: absolute; top: 24px; width: 14px; height: 14px;
+      border-radius: 50%; background: var(--bg); border: 3px solid var(--accent);
+      z-index: 2; transition: var(--transition);
+    }
+    .timeline-card:nth-child(odd) .timeline-dot { left: -11.5%; } 
+    .timeline-card:nth-child(even) .timeline-dot { right: -11.5%; }
+    
+    /* Adjust dots based on card width/gap calculation approximately */
+    @media (min-width: 900px) {
+       .timeline-card:nth-child(odd) .timeline-dot { left: calc(-11% - 3px); } 
+       .timeline-card:nth-child(even) .timeline-dot { right: calc(-11% - 3px); } 
+    }
+
+    /* Connector Lines */
+    .timeline-card::after {
+      content: ''; position: absolute; top: 31px; height: 1px; width: 11%;
+      background: var(--border); opacity: 0.5; z-index: 1;
+    }
+    .timeline-card:nth-child(odd)::after { left: -11%; }
+    .timeline-card:nth-child(even)::after { right: -11%; }
+
+    /* Content Styling */
+    .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .timeline-card:nth-child(even) .card-header { flex-direction: row-reverse; }
+    
+    .timeline-year { 
+      font-weight: 700; color: var(--accent); text-transform: uppercase; 
+      font-size: 0.85rem; letter-spacing: 1px; flex-shrink: 0;
+    }
+    .visual-icon { font-size: 1.5rem; }
+    
+    .expand-hint {
+      font-size: 0.75rem; color: var(--accent-3); margin-top: 8px;
+      display: block; opacity: 0.7; font-weight: 600;
+    }
+
+    /* Expanded Content */
+    .extended-content {
+      max-height: 0; opacity: 0; overflow: hidden;
+      transition: var(--transition);
+      margin-top: 0; border-top: 1px solid transparent; text-align: left;
+    }
+    .timeline-card:nth-child(even) .extended-content { text-align: right; }
+
+    .timeline-card.expanded .extended-content {
+      max-height: 800px; opacity: 1; margin-top: 16px;
+      padding-top: 16px; border-top-color: var(--border);
+    }
+    .timeline-card.expanded .expand-hint { display: none; }
+
+    /* STICKY SIDEBAR COLUMN */
+    .sidebar-column { position: relative; }
+    
+    .floating-panel {
+      position: sticky; top: 100px;
+      background: var(--panel-strong);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      text-align: center;
+      transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+      opacity: 0; transform: translateY(20px);
+    }
+    .floating-panel.visible { opacity: 1; transform: translateY(0); }
+
+    .fp-image-container {
+      width: 100%; height: 200px;
+      border-radius: 12px; overflow: hidden;
+      background: #000; margin-bottom: 16px; position: relative;
+    }
+    .fp-image { width: 100%; height: 100%; object-fit: cover; transition: opacity 0.3s; }
+    
+    .fp-emoji {
+      font-size: 3rem; margin: -40px auto 10px;
+      position: relative; z-index: 10;
+      filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+    .fp-stock-box {
+      background: rgba(0, 212, 170, 0.08);
+      border: 1px solid var(--accent-2);
+      border-radius: 12px; padding: 12px;
+      margin-top: 12px; text-align: left;
+    }
+    .fp-stock-label { font-size: 0.75rem; text-transform: uppercase; color: var(--accent-2); font-weight: 700; display: block; margin-bottom: 4px; }
+    .fp-stock-text { font-size: 0.9rem; line-height: 1.4; }
+
+    /* MOBILE RESPONSIVE */
+    @media (max-width: 900px) {
+      .container { grid-template-columns: 1fr; gap: 0; padding: 10px; }
+      
+      /* Sidebar becomes Bottom Drawer */
+      .sidebar-column { 
+        position: fixed; bottom: 0; left: 0; right: 0; 
+        z-index: 100; pointer-events: none;
+        padding: 10px;
+      }
+      .floating-panel {
+        pointer-events: auto;
+        display: grid; grid-template-columns: 70px 1fr; gap: 12px;
+        text-align: left; padding: 12px;
+        background: rgba(26, 29, 35, 0.98);
+        border: 1px solid var(--accent);
+        box-shadow: 0 -4px 30px rgba(0,0,0,0.5);
+        margin: 0; top: auto;
+      }
+      
+      .fp-image-container { width: 70px; height: 70px; margin: 0; }
+      .fp-emoji { grid-column: 1; grid-row: 1; font-size: 1.8rem; margin: 0; position: absolute; bottom: -5px; right: -5px; }
+      .fp-stock-box { background: transparent; border: none; padding: 0; margin: 0; }
+      .fp-stock-label { display: inline; margin-right: 6px; }
+      .fp-stock-text { font-size: 0.85rem; display: inline; }
+
+      /* Timeline Adjustments */
+      .timeline-feed::before { left: 20px; transform: none; }
+      .timeline-card { 
+        width: calc(100% - 50px); 
+        margin-left: 50px !important; margin-right: 0 !important; 
+        text-align: left !important;
+      }
+      .timeline-card:nth-child(even) .card-header { flex-direction: row; }
+      .timeline-card:nth-child(even) .extended-content { text-align: left; }
+      
+      .timeline-dot { left: -38px !important; right: auto !important; }
+      .timeline-card::after { left: -30px !important; right: auto !important; width: 30px; }
+    }
+  </style>
 </head>
 <body>
+
   <header>
     <div class="nav">
-      <div class="brand"><span class="dot"></span>AI for Beginners</div>
-       <div class="nav-links">
-         <a href="index.html">What is AI?</a>
-         <a href="getting-started.html">Get Started</a>
-         <a href="daily-life.html">AI in Daily Life</a>
-         <a href="Research.md">Research</a>
-       </div>
+      <div class="brand">
+        <span class="dot"></span>
+        <span id="titleText">AlphaAI Timeline</span>
+        <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
+      </div>
+      
+      <div class="search-wrapper">
+        <input type="number" id="yearInput" class="search-input" placeholder="Jump (e.g. 1950)">
+        <button class="search-btn" onclick="jumpToYear()">→</button>
+      </div>
     </div>
   </header>
 
-  <!-- Theme Transition Overlay -->
-  <div class="theme-transition-overlay" id="themeOverlay"></div>
+  <div class="container">
+    <section class="hero">
+      <div class="pill">1800 – 2025</div>
+      <h1>Innovation Timeline</h1>
+      <p style="color: var(--muted); margin-top: 8px;">
+        From the Voltaic Pile to Agentic AI.
+      </p>
+    </section>
 
-  <!-- Reading Progress Bar -->
-  <div class="reading-progress" id="readingProgress"></div>
+    <div class="timeline-column">
+      <div class="timeline-feed" id="timelineFeed">
+        </div>
+    </div>
 
-  <!-- Accessibility Controls -->
-  <div class="accessibility-controls">
-    <button class="font-control" onclick="toggleFontSize(event)" aria-label="Change text size" data-tooltip="Text Size">A+</button>
-    <button class="font-control" onclick="toggleContrast(event)" aria-label="Toggle high contrast" data-tooltip="High Contrast">◐</button>
-    <button class="font-control theme-toggle" onclick="toggleTheme(event)" aria-label="Toggle theme" data-tooltip="Theme">🌙</button>
+    <div class="sidebar-column">
+      <aside class="floating-panel" id="floatingPanel">
+        <div class="fp-image-container">
+          <img src="" alt="Event visual" class="fp-image" id="fpImage">
+        </div>
+        <div class="fp-content">
+          <div class="fp-emoji" id="fpEmoji">🚀</div>
+          <h3 id="fpTitle" style="font-size: 1.1rem; margin-bottom: 4px;">Select an Era</h3>
+          <div class="fp-stock-box">
+            <span class="fp-stock-label">📈 Impact / Market</span>
+            <span class="fp-stock-text" id="fpStock">Scroll to see details.</span>
+          </div>
+        </div>
+      </aside>
+    </div>
   </div>
 
-  <main class="container">
-    <section class="hero" id="top">
-      <div class="pill">Beginner friendly</div>
-      <div class="meta-row">
-        <h1>What is Artificial Intelligence?</h1>
-        <span class="badge">Easy to understand</span>
-      </div>
-      <p>Artificial Intelligence (AI) is like teaching computers to think and learn like humans. It's already helping you every day, even if you don't realize it.</p>
-      <div class="cta-row">
-        <a class="button primary" href="#timeline">Start the Journey</a>
-        <a class="button secondary" href="daily-life.html">See AI in Daily Life</a>
-        <button class="button ghost" id="openCatchUp" aria-haspopup="dialog">Catch up fast</button>
-      </div>
-      <p class="muted small-text">Made for beginners • No technical experience needed</p>
-    </section>
-
-    <!-- Catch Up Modal -->
-    <section class="catchup-modal" id="catchUpModal" role="dialog" aria-modal="true" aria-labelledby="catchUpTitle" hidden tabindex="-1">
-      <div class="modal-content">
-        <div class="modal-header">
-          <div>
-            <p class="pill">2-minute setup</p>
-            <h2 id="catchUpTitle">Find the best starting point</h2>
-            <p class="muted">Answer a few quick questions. We'll jump you to the right era.</p>
-          </div>
-          <button class="close-modal" id="closeCatchUp" aria-label="Close questionnaire">×</button>
-        </div>
-        <form id="catchUpForm">
-          <div class="grid two">
-            <label class="prompt-card">
-              <span>How comfortable are you with computers?</span>
-              <div class="option-row">
-                <input type="radio" name="comfort" value="low" required>
-                <span>Not at all</span>
-              </div>
-              <div class="option-row">
-                <input type="radio" name="comfort" value="medium">
-                <span>Some experience</span>
-              </div>
-              <div class="option-row">
-                <input type="radio" name="comfort" value="high">
-                <span>Confident</span>
-              </div>
-            </label>
-            <label class="prompt-card">
-              <span>Which topics interest you?</span>
-              <div class="option-row">
-                <input type="checkbox" name="topics" value="ai" checked>
-                <span>AI and chat tools</span>
-              </div>
-              <div class="option-row">
-                <input type="checkbox" name="topics" value="robotics">
-                <span>Robots and automation</span>
-              </div>
-              <div class="option-row">
-                <input type="checkbox" name="topics" value="energy">
-                <span>Batteries and energy</span>
-              </div>
-            </label>
-          </div>
-          <div class="modal-actions">
-            <button type="submit" class="button primary">Show my starting era</button>
-            <button type="button" class="button ghost" id="closeCatchUpFooter">Cancel</button>
-          </div>
-          <p class="muted small-text">We keep your answers in this browser only. You can change them anytime.</p>
-        </form>
-      </div>
-    </section>
-
-    <section id="timeline" aria-label="AI and tech timeline">
-      <div class="timeline-header">
-        <div>
-          <p class="pill">Story mode</p>
-          <h2>Tech Time Machine</h2>
-          <p class="muted">Key milestones are always shown. Use buttons to dive deeper.</p>
-        </div>
-        
-        <!-- Controls -->
-        <div class="timeline-controls">
-          <p class="small-text muted" style="margin: 0 0 8px;">Toggle extra details:</p>
-          <div class="toggle-row">
-            <button class="toggle-btn" data-track="ai">
-              <span class="status-indicator"></span> AI History
-            </button>
-            <button class="toggle-btn" data-track="robotics">
-              <span class="status-indicator"></span> Robotics
-            </button>
-            <button class="toggle-btn" data-track="energy">
-              <span class="status-indicator"></span> Energy & Hardware
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-wrap">
-        <!-- Sticky Visual (now simplified to just sit at top of timeline area on mobile, or float on desktop if needed, but here simplified to flow naturally) -->
-        <div class="timeline-sticky" aria-live="polite" style="display:none;"></div> 
-        <!-- Note: Sticky visual removed for cleaner center-line aesthetic per "premium" request, 
-             focusing on the cards themselves. -->
-
-        <div class="timeline-cards" id="timelineCards"></div>
-      </div>
-
-      <div class="myth-grid" aria-label="Myth versus fact cards">
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <p class="pill">Myth</p>
-              <h3>AI always tells the truth</h3>
-              <p class="muted">Tap to see the fact.</p>
-            </div>
-            <div class="flip-back">
-              <p class="pill">Fact</p>
-              <p>AI can be wrong. Always double-check important answers.</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <p class="pill">Myth</p>
-              <h3>Robots replace everyone</h3>
-              <p class="muted">Tap to see the fact.</p>
-            </div>
-            <div class="flip-back">
-              <p class="pill">Fact</p>
-              <p>Robots take on dull or risky tasks. People guide and improve them.</p>
-            </div>
-          </div>
-        </div>
-        <div class="flip-card">
-          <div class="flip-inner">
-            <div class="flip-front">
-              <p class="pill">Myth</p>
-              <h3>Batteries never change</h3>
-              <p class="muted">Tap to see the fact.</p>
-            </div>
-            <div class="flip-back">
-              <p class="pill">Fact</p>
-              <p>New battery designs appear each year, making devices last longer.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="timeline-footer">
-        <p class="muted">Want a shortcut? Use the "Back to Present" button to jump to the top.</p>
-        <a class="button primary" href="#present-anchor" id="backToPresent">Back to Present</a>
-      </div>
-    </section>
-
-    <section>
-      <h2>Why Learn About AI?</h2>
-      <div class="grid two">
-        <div class="card">
-          <h3>🎯 It Makes Life Easier</h3>
-          <p>AI can help you write emails, organize photos, find recipes, and even learn new skills. It's like having a helpful friend who knows almost everything.</p>
-        </div>
-        <div class="card">
-          <h3>🔒 Stay Safe and Smart</h3>
-          <p>Understanding AI helps you spot fake information, protect your privacy, and make better choices about which AI tools to use.</p>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Ready to Explore?</h2>
-      <div class="grid two">
-        <div class="card">
-          <h3>🚀 Try AI Tools</h3>
-          <p>Step-by-step guides to popular AI tools you can use today.</p>
-          <a class="button primary" href="getting-started.html">Get Started Now</a>
-        </div>
-        <div class="card">
-          <h3>🏠 AI in Daily Life</h3>
-          <p>Discover how AI is already helping you every day.</p>
-          <a class="button secondary" href="daily-life.html">Explore Examples</a>
-        </div>
-      </div>
-    </section>
-
-    <div class="back-to-top">
-      <a href="#top">Back to top</a>
-    </div>
-  </main>
-
-  <footer>
-    Made with ❤️ for beginners • No technical experience needed
-  </footer>
-
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // 1. Data Source
-      // Includes new historical data from 1900-1990
-      const timelineData = [
-        {
-          era: 'present',
-          yearLabel: 'Today',
-          track: 'ai',
-          visual: '✨',
-          isMajor: true,
-          title: 'Modern AI is everywhere',
-          summary: 'People now talk to AI in phones, laptops, and cars. Tools like ChatGPT and Gemini help with writing, planning, and learning.',
-          why: 'Why it matters: Easy tools make it simple for anyone to use powerful technology.'
-        },
-        {
-          era: '2025',
-          yearLabel: '2025',
-          track: 'energy',
-          visual: '🔋',
-          isMajor: true,
-          title: 'Sodium-ion batteries arrive',
-          summary: 'New batteries using sodium (like table salt) are moving toward mass production. They are cheaper and work better in the cold.',
-          why: 'Why it matters: It makes electric storage cheaper and less reliant on rare metals.',
-          sources: [{ label: 'InsideEVs', href: 'https://insideevs.com/news/523413/catl-unveils-sodium-ion-battery/' }]
-        },
-        {
-          era: '2024',
-          yearLabel: '2024',
-          track: 'robotics',
-          visual: '🤖',
-          isMajor: false,
-          title: 'Humanoid robots get electric',
-          summary: 'New versions of robots (like Atlas) switched from loud hydraulics to quiet electric motors, making them safer to work near people.',
-          why: 'Why it matters: Quiet, safe robots could one day help in factories or even homes.',
-          sources: [{ label: 'Boston Dynamics', href: 'https://bostondynamics.com' }]
-        },
-        {
-          era: '2023',
-          yearLabel: '2023',
-          track: 'ai',
-          visual: '📈',
-          isMajor: true,
-          title: 'Nvidia hits $1 Trillion value',
-          summary: 'Chipmaker Nvidia became one of the most valuable companies on earth because everyone needs their chips to run AI.',
-          why: 'Why it matters: It shows that AI is a huge business, not just a science project.',
-          sources: [{ label: 'Reuters', href: 'https://www.reuters.com' }]
-        },
-        {
-          era: '2023',
-          yearLabel: '2023',
-          track: 'robotics',
-          visual: '🚕',
-          isMajor: true,
-          title: 'Robotaxis approved for 24/7 use',
-          summary: 'Regulators allowed driverless taxis (Waymo & Cruise) to operate all day and night in San Francisco.',
-          why: 'Why it matters: Proved that self-driving cars are ready for real city streets, not just tests.',
-          sources: [{ label: 'The Verge', href: 'https://www.theverge.com/2023/8/10/23827790/waymo-cruise-cpuc-vote-robotaxi-san-francisco' }]
-        },
-        {
-          era: '2022',
-          yearLabel: '2022',
-          track: 'ai',
-          visual: '💬',
-          isMajor: true,
-          title: 'ChatGPT brings AI to the masses',
-          summary: 'OpenAI released ChatGPT. It reached 100 million users in just two months, sparking a global boom in interest.',
-          why: 'Why it matters: It was the first time "smart" AI was free and easy for everyone to talk to.',
-          sources: [{ label: 'Reuters', href: 'https://www.reuters.com/technology/chatgpt-sets-record-fastest-growing-user-base-analyst-note-2023-02-01/' }]
-        },
-        {
-          era: '2021',
-          yearLabel: '2021',
-          track: 'energy',
-          visual: '⚡',
-          isMajor: false,
-          title: 'Solid-state battery prototype',
-          summary: 'Toyota tested a car with a "solid-state" battery, which promises to be safer and charge much faster than today\'s batteries.',
-          why: 'Why it matters: This technology is the "holy grail" for making electric cars drive further.',
-          sources: [{ label: 'The Drive', href: 'https://www.thedrive.com/tech/42287/toyota-is-road-testing-a-prototype-solid-state-battery-ev' }]
-        },
-        {
-          era: '2020',
-          yearLabel: '2020',
-          track: 'energy',
-          visual: '📉',
-          isMajor: true,
-          title: 'Battery prices drop 90%',
-          summary: 'Since 2010, the cost of batteries has fallen by nearly 90%. This makes electric cars and home storage affordable.',
-          why: 'Why it matters: Cheaper batteries change everything from how we drive to how we store solar power.',
-          sources: [{ label: 'Renewable Energy World', href: 'https://www.renewableenergyworld.com' }]
-        },
-        {
-          era: '2020',
-          yearLabel: '2020',
-          track: 'robotics',
-          visual: '🚀',
-          isMajor: true,
-          title: 'Private companies launch astronauts',
-          summary: 'SpaceX became the first private company to fly NASA astronauts to orbit, opening a new era of commercial space travel.',
-          why: 'Why it matters: It marked the shift from government-only space missions to private innovation.',
-          sources: [{ label: 'NASA', href: 'https://www.nasa.gov' }]
-        },
-        {
-          era: '2018',
-          yearLabel: '2018',
-          track: 'robotics',
-          visual: '🚙',
-          isMajor: false,
-          title: 'Waymo One launches',
-          summary: 'The first commercial self-driving taxi service opened in Arizona, letting people hail a robot car via an app.',
-          why: 'Why it matters: It moved autonomous driving from science fiction to a paid service.',
-          sources: [{ label: 'LA Times', href: 'https://www.latimes.com/business/autos/la-fi-hy-waymo-one-20181205-story.html' }]
-        },
-        {
-          era: '2017',
-          yearLabel: '2017',
-          track: 'ai',
-          visual: '🕸️',
-          isMajor: false,
-          title: 'The "Transformer" breakthrough',
-          summary: 'Google researchers invented a new way for AI to read text called the "Transformer." This architecture powers modern tools like ChatGPT.',
-          why: 'Why it matters: It taught computers to understand context, not just individual words.'
-        },
-        {
-          era: '2016',
-          yearLabel: '2016',
-          track: 'ai',
-          visual: '⚫',
-          isMajor: true,
-          title: 'AlphaGo shocks the world',
-          summary: 'An AI beat the world champion at Go, a game much harder for computers than chess.',
-          why: 'Why it matters: It showed AI could have "intuition" and creative strategy.',
-          sources: [{ label: 'Royal Institution', href: 'https://www.rigb.org' }]
-        },
-        {
-          era: '2015',
-          yearLabel: '2015',
-          track: 'energy',
-          visual: '🏠',
-          isMajor: false,
-          title: 'Tesla Powerwall launches',
-          summary: 'A big battery for your house that stores solar energy for the night.',
-          why: 'Why it matters: It made home energy independence practical for regular families.',
-          sources: [{ label: 'The Guardian', href: 'https://www.theguardian.com' }]
-        },
-        {
-          era: '2012',
-          yearLabel: '2012',
-          track: 'ai',
-          visual: '📷',
-          isMajor: true,
-          title: 'Deep Learning wakes up',
-          summary: 'An AI named AlexNet won a photo recognition contest by a huge margin, proving that "neural networks" worked.',
-          why: 'Why it matters: This moment kicked off the modern AI boom we are living in now.'
-        },
-        {
-          era: '2011',
-          yearLabel: '2011',
-          track: 'ai',
-          visual: '🗣️',
-          isMajor: false,
-          title: 'Siri enters the iPhone',
-          summary: 'Apple added Siri to the iPhone 4S. It was the first time millions of people carried a voice assistant in their pocket.',
-          why: 'Why it matters: It taught us to talk to our devices instead of just typing.',
-          sources: [{ label: 'Britannica', href: 'https://www.britannica.com/technology/Siri' }]
-        },
-        {
-          era: '1997',
-          yearLabel: '1997',
-          track: 'ai',
-          visual: '♟️',
-          isMajor: true,
-          title: 'Computer beats chess champion',
-          summary: 'IBM\'s Deep Blue defeated Garry Kasparov. It used raw calculation speed to win.',
-          why: 'Why it matters: The first proof that computers could out-think humans in logic games.'
-        },
-        // --- NEW HISTORICAL ERA (1900-1991) ---
-        {
-          era: '1991',
-          yearLabel: '1991',
-          track: 'energy',
-          visual: '🔋',
-          isMajor: true,
-          title: 'First Li-Ion Battery',
-          summary: 'Sony released the first commercial lithium-ion battery. It was lightweight and rechargeable.',
-          why: 'Why it matters: This invention made smartphones, laptops, and eventually electric cars possible.',
-          sources: [{ label: 'American Chemical Society', href: 'https://www.acs.org/education/whatischemistry/landmarks/lithium-ion-batteries.html' }]
-        },
-        {
-          era: '1980',
-          yearLabel: '1980s',
-          track: 'ai',
-          visual: '💻',
-          isMajor: false,
-          title: 'Expert Systems Boom',
-          summary: 'Companies started using "Expert Systems"—software programmed with strict rules to mimic human specialists (like doctors or accountants).',
-          why: 'Why it matters: It was the first time AI was useful in business, even if it was brittle.',
-          sources: [{ label: 'Computer History Museum', href: 'https://www.computerhistory.org/' }]
-        },
-        {
-          era: '1966',
-          yearLabel: '1966',
-          track: 'ai',
-          visual: '🤖',
-          isMajor: false,
-          title: 'ELIZA the Chatbot',
-          summary: 'A program named ELIZA pretended to be a therapist by repeating people\'s words back to them.',
-          why: 'Why it matters: It showed that people could feel an emotional connection to a machine, even a simple one.'
-        },
-        {
-          era: '1961',
-          yearLabel: '1961',
-          track: 'robotics',
-          visual: '🏗️',
-          isMajor: true,
-          title: 'Unimate: First Industrial Robot',
-          summary: 'General Motors installed "Unimate," a robotic arm that lifted hot metal parts that were dangerous for humans.',
-          why: 'Why it matters: It started the automation age in factories.',
-          sources: [{ label: 'Robotic Industries Association', href: 'https://www.robotics.org/' }]
-        },
-        {
-          era: '1956',
-          yearLabel: '1956',
-          track: 'ai',
-          visual: '🎓',
-          isMajor: true,
-          title: 'AI gets its name',
-          summary: 'Researchers met at Dartmouth College and coined the term "Artificial Intelligence."',
-          why: 'Why it matters: It was the official birth of the field.'
-        },
-        {
-          era: '1954',
-          yearLabel: '1954',
-          track: 'energy',
-          visual: '☀️',
-          isMajor: false,
-          title: 'First Silicon Solar Cell',
-          summary: 'Scientists at Bell Labs created the first solar panel capable of powering electric devices.',
-          why: 'Why it matters: It proved we could turn sunlight directly into electricity.',
-          sources: [{ label: 'APS Physics', href: 'https://www.aps.org/publications/apsnews/200904/physicshistory.cfm' }]
-        },
-        {
-          era: '1950',
-          yearLabel: '1950',
-          track: 'ai',
-          visual: '🧠',
-          isMajor: false,
-          title: 'The Turing Test',
-          summary: 'Alan Turing proposed a test: If a machine can fool a human into thinking it is also human, it counts as intelligent.',
-          why: 'Why it matters: It gave us a goal to aim for and is still debated today.',
-          sources: [{ label: 'Stanford Encyclopedia', href: 'https://plato.stanford.edu/entries/turing-test/' }]
-        },
-        {
-          era: '1947',
-          yearLabel: '1947',
-          track: 'energy', // Using 'energy' track for hardware/prerequisites
-          visual: '⚡',
-          isMajor: true,
-          title: 'The Transistor Invented',
-          summary: 'Bell Labs invented the transistor, a tiny switch that controls electricity. It replaced bulky vacuum tubes.',
-          why: 'Why it matters: Without transistors, we would not have modern computers, phones, or AI.',
-          sources: [{ label: 'Computer History Museum', href: 'https://www.computerhistory.org/revolution/digital-logic/2/263' }]
-        },
-        {
-          era: '1921',
-          yearLabel: '1921',
-          track: 'robotics',
-          visual: '🎭',
-          isMajor: true,
-          title: 'The word "Robot" is born',
-          summary: 'Karel Čapek wrote a play called R.U.R. about artificial people. He named them "Robots" (from the Czech word for forced labor).',
-          why: 'Why it matters: It gave a name to the idea of artificial workers and shaped sci-fi for 100 years.',
-          sources: [{ label: 'Britannica', href: 'https://www.britannica.com/topic/RUR' }]
-        }
-      ];
+    // --- CONFIGURATION ---
+    const lastUpdated = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    document.getElementById('lastUpdatedDate').textContent = `Updated: ${lastUpdated}`;
 
-      // 2. Control State
-      const activeTracks = {
-        ai: false,
-        robotics: false,
-        energy: false
-      };
-
-      // 3. Rendering Logic
-      const timelineCardsContainer = document.getElementById('timelineCards');
-      let cards = [];
-
-      function buildCard(item) {
-        const card = document.createElement('article');
-        card.className = 'timeline-card collapsed'; // Will have 'left' or 'right' added dynamically
-        card.dataset.era = item.era;
-        card.dataset.track = item.track;
-        card.dataset.visual = item.visual;
-        card.dataset.isMajor = item.isMajor;
-
-        const dot = document.createElement('div');
-        dot.className = 'timeline-dot';
-        card.appendChild(dot);
-
-        const header = document.createElement('div');
-        header.className = 'timeline-card-header';
-        
-        const year = document.createElement('div');
-        year.className = 'timeline-year';
-        year.textContent = item.yearLabel;
-        header.appendChild(year);
-
-        const title = document.createElement('h3');
-        title.textContent = item.title;
-        header.appendChild(title);
-
-        const toggle = document.createElement('button');
-        toggle.type = 'button';
-        toggle.className = 'card-toggle';
-        toggle.textContent = 'Show details';
-        header.appendChild(toggle);
-
-        card.appendChild(header);
-
-        const body = document.createElement('div');
-        body.className = 'card-body';
-        
-        const summary = document.createElement('p');
-        summary.textContent = item.summary;
-        body.appendChild(summary);
-
-        if (item.why) {
-          const why = document.createElement('p');
-          why.className = 'why';
-          why.textContent = item.why;
-          body.appendChild(why);
-        }
-
-        if (item.sources) {
-          const srcP = document.createElement('p');
-          srcP.className = 'muted small-text';
-          srcP.textContent = 'Source: ';
-          item.sources.forEach((s, i) => {
-            const link = document.createElement('a');
-            link.href = s.href;
-            link.target = '_blank';
-            link.textContent = s.label;
-            srcP.appendChild(link);
-            if (i < item.sources.length - 1) srcP.appendChild(document.createTextNode(', '));
-          });
-          body.appendChild(srcP);
-        }
-
-        card.appendChild(body);
-        return card;
+    // --- ENRICHED DATA (Sorted Newest to Oldest) ---
+    const timelineData = [
+      // === 2025 ===
+      {
+        year: 2025,
+        month: 'Late',
+        title: 'Solid-State Pilot Lines',
+        visual: '🔋',
+        summary: 'Major automakers launch pilot production for solid-state batteries.',
+        why: 'The "Holy Grail" of batteries: lighter, safer, and 2x range compared to Lithium-Ion.',
+        stockReaction: 'Battery startups (QuantumScape) and legacy auto stocks fluctuate on prototype results.',
+        emoji: '⚡',
+        imgQuery: 'solid state battery technology'
+      },
+      {
+        year: 2025,
+        month: 'Mid',
+        title: 'Agentic AI',
+        visual: '🤖',
+        summary: 'AI shifts from "Chatbots" to "Agents" that perform complex tasks autonomously.',
+        why: 'Transforms AI from a conversational tool to a workforce tool.',
+        stockReaction: 'Cloud infrastructure stocks (AMZN, MSFT) rally on compute demand.',
+        emoji: '🧠',
+        imgQuery: 'artificial intelligence agent futuristic'
+      },
+      // === 2024 ===
+      {
+        year: 2024,
+        month: 'Oct',
+        title: 'Tesla "We, Robot"',
+        visual: '🚕',
+        summary: 'Tesla unveils Cybercab and Optimus Gen 3 updates.',
+        why: 'Signals full pivot to robotics over traditional cars.',
+        stockReaction: 'High volatility in TSLA as market debates timeline.',
+        emoji: '🚕',
+        imgQuery: 'cyberpunk autonomous taxi'
+      },
+      {
+        year: 2024,
+        month: 'Mar',
+        title: 'Claude 3 Launch',
+        visual: '📝',
+        summary: 'Anthropic releases Claude 3 (Opus), surpassing GPT-4.',
+        why: 'Ended OpenAI monopoly on top-tier reasoning.',
+        stockReaction: 'GOOG and MSFT adjusted as AI race became a three-way battle.',
+        emoji: '📜',
+        imgQuery: 'ai writing code screen'
+      },
+      {
+        year: 2024,
+        month: 'Mar',
+        title: 'Figure 01 Demo',
+        visual: '🦿',
+        summary: 'Figure AI robot holds conversation and performs tasks.',
+        why: 'First convincing demo of LLM-brained humanoid.',
+        stockReaction: 'Sparked massive VC investment in robotics.',
+        emoji: '🦾',
+        imgQuery: 'humanoid robot handing apple'
+      },
+      {
+        year: 2024,
+        month: 'Feb',
+        title: 'Gemini 1.5 Pro',
+        visual: '💎',
+        summary: 'Google launches 1-million token context window.',
+        why: 'Allowed AI to read entire books/codebases at once.',
+        stockReaction: 'Alphabet (GOOG) rallied on technical leadership.',
+        emoji: '💠',
+        imgQuery: 'google gemini ai abstract'
+      },
+      // === 2023 ===
+      {
+        year: 2023,
+        month: 'Dec',
+        title: 'Optimus Gen 2',
+        visual: '🦾',
+        summary: 'Tesla reveals faster, lighter Optimus Gen 2.',
+        why: 'Demonstrated rapid hardware iteration.',
+        stockReaction: 'Reinforced Tesla robotics narrative.',
+        emoji: '🤖',
+        imgQuery: 'tesla optimus robot'
+      },
+      {
+        year: 2023,
+        month: 'Aug',
+        title: 'Robotaxis 24/7',
+        visual: '🚦',
+        summary: 'SF approves 24/7 paid driverless rides.',
+        why: 'Commercial validation of Level 4 autonomy.',
+        stockReaction: 'Waymo solidified lead; Uber/Lyft partnerships followed.',
+        emoji: '🚗',
+        imgQuery: 'self driving car san francisco'
+      },
+      // === 2020-2022 ===
+      {
+        year: 2022,
+        month: 'Nov',
+        title: 'ChatGPT Launch',
+        visual: '💬',
+        summary: 'OpenAI releases ChatGPT to the public.',
+        why: 'The "iPhone Moment" for AI.',
+        stockReaction: 'Triggered multi-trillion dollar AI bull market.',
+        emoji: '🚀',
+        imgQuery: 'chatgpt openai logo digital'
+      },
+      {
+        year: 2021,
+        month: 'Jul',
+        title: 'Sodium-Ion Battery',
+        visual: '🧂',
+        summary: 'CATL unveils Sodium-Ion tech.',
+        why: 'Reduces reliance on scarce lithium.',
+        stockReaction: 'CATL stock surged; raw material markets shifted.',
+        emoji: '🔋',
+        imgQuery: 'salt crystal battery energy'
+      },
+      {
+        year: 2020,
+        month: 'Nov',
+        title: 'Apple M1 Chip',
+        visual: '💻',
+        summary: 'Apple shifts Macs to custom Silicon.',
+        why: 'Revolutionized laptop efficiency.',
+        stockReaction: 'Apple margins rose; Intel declined.',
+        emoji: '🍏',
+        imgQuery: 'computer processor chip macro'
+      },
+      // === 1990s - 2000s ===
+      {
+        year: 1991,
+        month: '',
+        title: 'Li-Ion Commercialized',
+        visual: '🔋',
+        summary: 'Sony commercializes the Lithium-Ion battery.',
+        why: 'Enabled the portable electronics revolution (laptops, phones).',
+        stockReaction: 'Fueled the consumer electronics boom of the 90s.',
+        emoji: '📼',
+        imgQuery: 'vintage sony battery 1990'
+      },
+      {
+        year: 1986,
+        month: '',
+        title: 'Backpropagation',
+        visual: '📉',
+        summary: 'Hinton et al. popularize backprop for training neural nets.',
+        why: 'The mathematical foundation of modern Deep Learning.',
+        stockReaction: 'Academic breakthrough; laid groundwork for future AI stocks.',
+        emoji: '📐',
+        imgQuery: 'neural network diagram vintage'
+      },
+      {
+        year: 1972,
+        month: '',
+        title: 'MYCIN Expert System',
+        visual: '⚕️',
+        summary: 'An AI designed to diagnose bacterial infections.',
+        why: 'Proved AI could mimic human expert decision making.',
+        stockReaction: 'Boosted interest in symbolic AI research funding.',
+        emoji: '🏥',
+        imgQuery: 'vintage computer medical'
+      },
+      {
+        year: 1971,
+        month: '',
+        title: 'Intel 4004',
+        visual: '💾',
+        summary: 'The first commercially available microprocessor.',
+        why: 'Shrunk computers from rooms to desktops.',
+        stockReaction: 'Launched the Silicon Valley semiconductor era.',
+        emoji: '📼',
+        imgQuery: 'intel 4004 chip macro'
+      },
+      {
+        year: 1966,
+        month: '',
+        title: 'Shakey the Robot',
+        visual: '🤖',
+        summary: 'The first general-purpose mobile robot able to reason.',
+        why: 'Combined robotics, computer vision, and planning.',
+        stockReaction: 'Funded largely by DARPA; military/research impact.',
+        emoji: '📷',
+        imgQuery: 'shakey the robot sri'
+      },
+      {
+        year: 1965,
+        month: '',
+        title: 'Fuzzy Logic',
+        visual: '🌫️',
+        summary: 'Lotfi Zadeh introduces Fuzzy Logic.',
+        why: 'Allowed computers to handle ambiguous data ("somewhat hot").',
+        stockReaction: 'Widely adopted later in industrial control systems.',
+        emoji: '🌡️',
+        imgQuery: 'fuzzy logic diagram math'
+      },
+      {
+        year: 1958,
+        month: '',
+        title: 'Perceptron & LISP',
+        visual: '👁️',
+        summary: 'Rosenblatt invents the Perceptron; McCarthy creates LISP.',
+        why: 'Hardware for learning and software for reasoning.',
+        stockReaction: 'N/A (Academic Era)',
+        emoji: '📜',
+        imgQuery: 'vintage computer punch cards'
+      },
+      {
+        year: 1956,
+        month: '',
+        title: 'Dartmouth Conference',
+        visual: '🎓',
+        summary: 'The term "Artificial Intelligence" is coined.',
+        why: 'The official birth of AI as a research field.',
+        stockReaction: 'N/A (Academic Era)',
+        emoji: '🏫',
+        imgQuery: 'dartmouth college 1950s'
+      },
+      {
+        year: 1954,
+        month: '',
+        title: 'Unimate Robot',
+        visual: '🏗️',
+        summary: 'First programmable industrial robot patent.',
+        why: 'The grandfather of all factory automation.',
+        stockReaction: 'Revolutionized GM assembly lines in the 60s.',
+        emoji: '🏭',
+        imgQuery: 'unimate robot arm 1960s'
+      },
+      {
+        year: 1950,
+        month: '',
+        title: 'Turing Test',
+        visual: '🧠',
+        summary: 'Alan Turing proposes the "Imitation Game".',
+        why: 'Defined the ultimate goal of machine intelligence.',
+        stockReaction: 'N/A',
+        emoji: '♟️',
+        imgQuery: 'alan turing computer'
+      },
+      {
+        year: 1948,
+        month: '',
+        title: 'Cybernetics',
+        visual: '🌀',
+        summary: 'Norbert Wiener publishes "Cybernetics".',
+        why: 'Established the study of control and communication in machines.',
+        stockReaction: 'N/A',
+        emoji: '📖',
+        imgQuery: 'cybernetics book vintage'
+      },
+      {
+        year: 1947,
+        month: '',
+        title: 'The Transistor',
+        visual: '⚡',
+        summary: 'Bell Labs invents the point-contact transistor.',
+        why: 'Replaced vacuum tubes; made modern tech possible.',
+        stockReaction: 'Economic Impact: Infinite. Created the Digital Age.',
+        emoji: '💡',
+        imgQuery: 'first transistor bell labs'
+      },
+      {
+        year: 1945,
+        month: '',
+        title: 'ENIAC',
+        visual: '🖥️',
+        summary: 'First general-purpose electronic computer.',
+        why: 'Demonstrated massive speed for calculation.',
+        stockReaction: 'Economic Impact: Shifted military/science to digital.',
+        emoji: '🔌',
+        imgQuery: 'eniac computer room'
+      },
+      {
+        year: 1943,
+        month: '',
+        title: 'Neural Networks',
+        visual: '🕸️',
+        summary: 'McCulloch & Pitts model artificial neurons.',
+        why: 'The theoretical ancestor of modern Deep Learning.',
+        stockReaction: 'N/A',
+        emoji: '🧠',
+        imgQuery: 'artificial neuron diagram vintage'
+      },
+      {
+        year: 1937,
+        month: '',
+        title: 'Analytical Engine',
+        visual: '⚙️',
+        summary: 'Babbage designs the first general mechanical computer.',
+        why: 'The Victorian ancestor of the modern CPU.',
+        stockReaction: 'Economic Impact: None at the time (it wasn\'t built).',
+        emoji: '🎩',
+        imgQuery: 'charles babbage analytical engine'
+      },
+      {
+        year: 1879,
+        month: '',
+        title: 'Electric Light',
+        visual: '💡',
+        summary: 'Edison commercializes the light bulb.',
+        why: 'Built the grid infrastructure we plug robots into today.',
+        stockReaction: 'Economic Impact: Created the Utility Industry.',
+        emoji: '🌃',
+        imgQuery: 'edison light bulb vintage'
+      },
+      {
+        year: 1837,
+        month: '',
+        title: 'The Telegraph',
+        visual: '📠',
+        summary: 'Morse demonstrates long-distance communication.',
+        why: 'The "Victorian Internet"; precursor to data networks.',
+        stockReaction: 'Economic Impact: Globalization of information.',
+        emoji: '📡',
+        imgQuery: 'vintage telegraph machine'
+      },
+      {
+        year: 1821,
+        month: '',
+        title: 'Electric Motor',
+        visual: '⚙️',
+        summary: 'Faraday builds the first electric motor.',
+        why: 'Provided the muscle (actuation) for future robots.',
+        stockReaction: 'Economic Impact: Electrification of industry.',
+        emoji: '🧲',
+        imgQuery: 'faraday electric motor'
+      },
+      {
+        year: 1800,
+        month: '',
+        title: 'Voltaic Pile',
+        visual: '🔋',
+        summary: 'Alessandro Volta invents the first battery.',
+        why: 'Enabled portable electric power for the first time.',
+        stockReaction: 'Economic Impact: The birth of Electrochemistry.',
+        emoji: '🧪',
+        imgQuery: 'voltaic pile battery'
       }
+    ];
 
-      function renderTimeline() {
-        timelineCardsContainer.innerHTML = '';
-        const anchorSet = new Set();
-        
-        timelineData.forEach(item => {
-          const card = buildCard(item);
-          // Set ID for jumping
-          if (item.era === 'present') {
-            card.id = 'present-anchor';
-            anchorSet.add('present');
-          } else if (!anchorSet.has(item.era)) {
-            card.id = `era-${item.era}`;
-            anchorSet.add(item.era);
-          }
-          timelineCardsContainer.appendChild(card);
-        });
-        
-        cards = timelineCardsContainer.querySelectorAll('.timeline-card');
-        attachInteractions();
-        applyFilters(); // Apply initial visibility & layout
-      }
-
-      function applyFilters() {
-        let visibleCount = 0;
-        
-        cards.forEach(card => {
-          const track = card.dataset.track;
-          const isMajor = card.dataset.isMajor === 'true';
-          const isVisible = isMajor || activeTracks[track];
-          
-          if (isVisible) {
-            card.classList.remove('hidden');
-            // Assign Left/Right classes based on visible order
-            card.classList.remove('left', 'right');
-            card.classList.add(visibleCount % 2 === 0 ? 'left' : 'right');
-            visibleCount++;
-          } else {
-            card.classList.add('hidden');
-            card.classList.remove('left', 'right');
-          }
-        });
-      }
-
-      function attachInteractions() {
-        cards.forEach(card => {
-          const toggle = card.querySelector('.card-toggle');
-          if(toggle) {
-            toggle.addEventListener('click', () => {
-              const isExpanded = card.classList.contains('expanded');
-              card.classList.toggle('expanded', !isExpanded);
-              card.classList.toggle('collapsed', isExpanded);
-              toggle.textContent = isExpanded ? 'Show details' : 'Hide details';
-            });
-          }
-        });
-      }
-
-      // Initialize
-      renderTimeline();
-
-      // Toggle Buttons Logic
-      document.querySelectorAll('.toggle-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const track = btn.dataset.track;
-          activeTracks[track] = !activeTracks[track]; // Toggle state
-          btn.classList.toggle('active');
-          applyFilters();
-        });
-      });
-
-      // Catch Up Modal & Copy
-      const modal = document.getElementById('catchUpModal');
-      const openBtn = document.getElementById('openCatchUp');
-      const closeBtns = document.querySelectorAll('.close-modal, #closeCatchUpFooter');
-      const form = document.getElementById('catchUpForm');
-
-      openBtn.addEventListener('click', () => modal.removeAttribute('hidden'));
-      closeBtns.forEach(b => b.addEventListener('click', () => modal.setAttribute('hidden', 'true')));
-
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const data = new FormData(form);
-        const topics = data.getAll('topics');
-        let targetEra = '1956'; 
-
-        if (data.get('depth') === 'quick') targetEra = '2017';
-        if (topics.includes('energy')) targetEra = '2025';
-        if (topics.includes('robotics')) targetEra = '2024';
-        
-        modal.setAttribute('hidden', 'true');
-        // Activate relevant toggles for the user
-        if (topics.includes('energy')) document.querySelector('[data-track="energy"]').click();
-        if (topics.includes('robotics')) document.querySelector('[data-track="robotics"]').click();
-        if (topics.includes('ai')) document.querySelector('[data-track="ai"]').click();
-
-        const id = targetEra === 'present' ? 'present-anchor' : `era-${targetEra}`;
-        const target = document.getElementById(id);
-        if(target) target.scrollIntoView({behavior: 'smooth'});
-      });
-
-      document.querySelectorAll('.copy-button').forEach(btn => {
-        btn.addEventListener('click', () => {
-          navigator.clipboard.writeText(btn.dataset.prompt);
-          const original = btn.textContent;
-          btn.textContent = 'Copied!';
-          setTimeout(() => btn.textContent = original, 1500);
-        });
-      });
+    // --- RENDER TIMELINE ---
+    function renderTimeline() {
+      const container = document.getElementById('timelineFeed');
       
-      document.getElementById('backToPresent').addEventListener('click', (e) => {
-        e.preventDefault();
-        document.getElementById('present-anchor').scrollIntoView({behavior:'smooth'});
+      timelineData.forEach((item, index) => {
+        const card = document.createElement('article');
+        card.className = 'timeline-card';
+        card.id = `card-${item.year}`;
+        card.dataset.year = item.year;
+        card.dataset.index = index;
+
+        card.innerHTML = `
+          <div class="timeline-dot"></div>
+          <div class="card-header">
+            <span class="visual-icon">${item.visual}</span>
+            <div>
+              <div class="timeline-year">${item.month ? item.month + ' ' : ''}${item.year}</div>
+              <h3 style="font-size:1.1rem;">${item.title}</h3>
+            </div>
+          </div>
+          
+          <p>${item.summary}</p>
+          <span class="expand-hint">Click to expand details</span>
+
+          <div class="extended-content">
+            <div style="padding-left:12px; border-left:2px solid var(--accent); margin-bottom:12px; color: var(--text);">
+              <strong>Why it matters:</strong> ${item.why}
+            </div>
+            <div style="font-size:0.9rem; opacity:0.8;">
+              <strong>Impact:</strong> ${item.stockReaction}
+            </div>
+          </div>
+        `;
+
+        // Click to toggle expansion
+        card.addEventListener('click', (e) => {
+          if(e.target.tagName === 'A') return;
+          const isExpanded = card.classList.contains('expanded');
+          document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('expanded'));
+          if(!isExpanded) card.classList.add('expanded');
+        });
+
+        container.appendChild(card);
       });
+
+      setupObserver();
+    }
+
+    // --- STICKY PANEL LOGIC ---
+    function setupObserver() {
+      const cards = document.querySelectorAll('.timeline-card');
+      const panel = document.getElementById('floatingPanel');
+      const fpImage = document.getElementById('fpImage');
+      const fpTitle = document.getElementById('fpTitle');
+      const fpStock = document.getElementById('fpStock');
+      const fpEmoji = document.getElementById('fpEmoji');
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            cards.forEach(c => c.classList.remove('active-card'));
+            entry.target.classList.add('active-card');
+            
+            const index = entry.target.dataset.index;
+            const data = timelineData[index];
+            
+            if (data) {
+              panel.classList.add('visible');
+              fpTitle.textContent = data.title;
+              fpStock.textContent = data.stockReaction;
+              fpEmoji.textContent = data.emoji;
+              
+              const safeQuery = encodeURIComponent(data.imgQuery);
+              fpImage.src = `https://image.pollinations.ai/prompt/${safeQuery}?width=400&height=300&nologo=true`;
+            }
+          }
+        });
+      }, {
+        threshold: 0.5,
+        rootMargin: "-10% 0px -10% 0px"
+      });
+
+      cards.forEach(card => observer.observe(card));
+    }
+
+    // --- JUMP TO YEAR ---
+    function jumpToYear() {
+      const input = document.getElementById('yearInput').value;
+      if (!input) return;
+      const targetYear = parseInt(input);
+      const cards = Array.from(document.querySelectorAll('.timeline-card'));
+      
+      const targetCard = cards.reduce((prev, curr) => {
+        return (Math.abs(curr.dataset.year - targetYear) < Math.abs(prev.dataset.year - targetYear) ? curr : prev);
+      });
+
+      if (targetCard) {
+        targetCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        targetCard.click(); 
+        targetCard.style.transition = '0.2s';
+        targetCard.style.background = 'var(--accent)';
+        setTimeout(() => {
+          targetCard.style.background = '';
+          targetCard.style.transition = 'var(--transition)';
+        }, 400);
+      }
+    }
+
+    document.getElementById('yearInput').addEventListener('keypress', (e) => {
+      if(e.key === 'Enter') jumpToYear();
     });
+
+    // Init
+    document.addEventListener('DOMContentLoaded', renderTimeline);
   </script>
 </body>
 </html>
