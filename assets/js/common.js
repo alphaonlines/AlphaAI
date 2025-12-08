@@ -21,14 +21,18 @@ function toggleTheme(event) {
   const button = event?.target || document.querySelector('.theme-toggle');
   const overlay = document.getElementById('themeOverlay');
   const isLight = document.body.classList.contains('light-theme');
-  
+
   isTransitioning = true;
-  
+
   if (isLight) {
     // Light to Dark - Sunset effect
-    overlay.className = 'theme-transition-overlay sunset-gradient sunset-active';
-    button.textContent = '🌙';
-    
+    if (overlay) {
+      overlay.className = 'theme-transition-overlay sunset-gradient sunset-active';
+    }
+    if (button) {
+      button.textContent = '🌙';
+    }
+
     setTimeout(() => {
       document.body.classList.remove('light-theme');
       localStorage.setItem('theme', 'dark');
@@ -36,19 +40,25 @@ function toggleTheme(event) {
     }, 1500); // Mid-transition
   } else {
     // Dark to Light - Sunrise effect
-    overlay.className = 'theme-transition-overlay sunrise-gradient sunrise-active';
-    button.textContent = '☀️';
-    
+    if (overlay) {
+      overlay.className = 'theme-transition-overlay sunrise-gradient sunrise-active';
+    }
+    if (button) {
+      button.textContent = '☀️';
+    }
+
     setTimeout(() => {
       document.body.classList.add('light-theme');
       localStorage.setItem('theme', 'light');
       currentTheme = 'light';
     }, 1500); // Mid-transition
   }
-  
+
   // Clean up after animation
   setTimeout(() => {
-    overlay.className = 'theme-transition-overlay';
+    if (overlay) {
+      overlay.className = 'theme-transition-overlay';
+    }
     isTransitioning = false;
   }, 3000);
 }
@@ -77,7 +87,7 @@ function toggleFontSize(event) {
 
   const isLarge = document.body.classList.contains('large-text');
   const textElements = document.querySelectorAll('h1, h2, h3, p, li, a, span');
-  const button = event?.target || document.querySelector('.font-control[aria-label="Change text size"]');
+  const button = event?.target || document.querySelector('.font-control[data-tooltip="Text Size"]');
   
   if (!isLarge) {
     // Normal to Large - Pop up animation
@@ -114,7 +124,7 @@ function toggleContrast(event) {
   if (isTransitioning) return;
 
   const isHighContrast = document.body.classList.contains('high-contrast');
-  const button = event?.target || document.querySelector('.font-control[aria-label="Toggle high contrast"]');
+  const button = event?.target || document.querySelector('.font-control[data-tooltip="High Contrast"]');
   
   if (!isHighContrast) {
     // Normal to High Contrast - Glitch effect
