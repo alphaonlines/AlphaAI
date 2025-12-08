@@ -278,10 +278,10 @@
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
-      <div class="search-wrapper" style="padding: 4px 12px; cursor: pointer;" onclick="playHistory()">
-        <span style="font-size: 1.2rem;">▶</span>
-        <span style="font-size: 0.9rem; font-weight: 600; margin-left: 8px;">Play Intro (1800s)</span>
-      </div>
+       <div class="search-wrapper">
+         <input type="text" class="search-input" placeholder="Search timeline...">
+         <button class="search-btn" onclick="playHistory()">▶</button>
+       </div>
     </div>
   </header>
 
@@ -324,23 +324,48 @@
     const lastUpdated = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('lastUpdatedDate').textContent = `Updated: ${lastUpdated}`;
 
+    // --- SEARCH FUNCTIONALITY ---
+    const searchInput = document.querySelector('.search-input');
+    searchInput.addEventListener('input', (e) => {
+      const term = e.target.value.toLowerCase();
+      const cards = document.querySelectorAll('.timeline-card');
+
+      cards.forEach(card => {
+        // Search in title, summary, and year
+        const info = JSON.parse(card.dataset.info);
+        const textContent = `${info.title} ${info.summary} ${info.year}`.toLowerCase();
+
+        if (textContent.includes(term)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    });
+
     // --- FETCH DATA & INIT ---
     async function initTimeline() {
       try {
-        // Fetches the separate data file
+        // Try fetching from the live repo first
         const response = await fetch('https://raw.githubusercontent.com/alphaonlines/AlphaPulse/main/timeline.json');
-        
-        // Converts it to a JavaScript object
+        if (!response.ok) throw new Error("Network response was not ok");
         let timelineData = await response.json();
-
-        // Optional: Ensure it is sorted Newest to Oldest
         timelineData.sort((a, b) => b.year - a.year);
-
-        // Render the timeline
         renderTimeline(timelineData);
       } catch (error) {
-        console.error("Could not load timeline data:", error);
-        document.getElementById('timelineFeed').innerHTML = '<p style="text-align:center; padding:20px;">Error loading data. Ensure you are running on a local server (not opening the file directly).</p>';
+        console.warn("Live data failed, trying local fallback or mock data...", error);
+
+        // Fallback: Try a local file OR load the mock data directly here for testing
+        // You can point this to your local server file path
+        try {
+            const localResponse = await fetch('./timeline.json');
+            let localData = await localResponse.json();
+            localData.sort((a, b) => b.year - a.year);
+            renderTimeline(localData);
+        } catch (localError) {
+            document.getElementById('timelineFeed').innerHTML =
+                '<div style="text-align:center; padding:40px;"><h3>Unable to load data.</h3><p>Ensure timeline.json exists locally or check internet connection.</p></div>';
+        }
       }
     }
 
@@ -393,6 +418,31 @@
       });
 
       setupObserver(data);
+
+      // NEW: Auto-select the first card to populate the sidebar immediately
+      if (document.querySelector('.timeline-card')) {
+          document.querySelector('.timeline-card').classList.add('active-card');
+          // Manually trigger the data population for the first item
+          const firstItem = data[0];
+          if(firstItem) {
+              document.getElementById('fpTitle').textContent = firstItem.title;
+              document.getElementById('fpEmoji').textContent = firstItem.visual;
+              document.getElementById('fpStock').textContent = firstItem.market_analysis || firstItem.summary;
+              document.getElementById('fpSummary').textContent = firstItem.summary;
+              document.getElementById('floatingPanel').classList.add('visible');
+              // Render Products
+              const fpProducts = document.getElementById('fpProducts');
+              fpProducts.innerHTML = ''; // Clear previous
+              if(firstItem.products && Array.isArray(firstItem.products)) {
+                 firstItem.products.forEach(prod => {
+                   const tag = document.createElement('span');
+                   tag.className = 'product-tag';
+                   tag.textContent = prod;
+                   fpProducts.appendChild(tag);
+                 });
+              }
+          }
+      }
     }
 
     // --- STICKY PANEL LOGIC (Modified to read from dataset) ---
@@ -417,7 +467,7 @@
             if (data) {
               panel.classList.add('visible');
               fpTitle.textContent = data.title;
-              fpEmoji.textContent = data.emoji;
+              fpEmoji.textContent = data.visual;
 
               // Use the new market_analysis field if available, fallback to stockReaction
               fpStock.textContent = data.market_analysis || data.stockReaction;
