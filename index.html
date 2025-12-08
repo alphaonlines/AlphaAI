@@ -274,9 +274,9 @@
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
-      <div class="search-wrapper">
-        <input type="number" id="yearInput" class="search-input" placeholder="Jump (e.g. 1950)">
-        <button class="search-btn" onclick="jumpToYear()">→</button>
+      <div class="search-wrapper" style="padding: 4px 12px; cursor: pointer;" onclick="playHistory()">
+        <span style="font-size: 1.2rem;">▶</span>
+        <span style="font-size: 0.9rem; font-weight: 600; margin-left: 8px;">Play Intro (1800s)</span>
       </div>
     </div>
   </header>
@@ -317,355 +317,40 @@
     const lastUpdated = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('lastUpdatedDate').textContent = `Updated: ${lastUpdated}`;
 
-    // --- ENRICHED DATA (Sorted Newest to Oldest) ---
-    const timelineData = [
-      // === 2025 ===
-      {
-        year: 2025,
-        month: 'Late',
-        title: 'Solid-State Pilot Lines',
-        visual: '🔋',
-        summary: 'Major automakers launch pilot production for solid-state batteries.',
-        why: 'The "Holy Grail" of batteries: lighter, safer, and 2x range compared to Lithium-Ion.',
-        stockReaction: 'Battery startups (QuantumScape) and legacy auto stocks fluctuate on prototype results.',
-        emoji: '⚡',
-        imgQuery: 'solid state battery technology'
-      },
-      {
-        year: 2025,
-        month: 'Mid',
-        title: 'Agentic AI',
-        visual: '🤖',
-        summary: 'AI shifts from "Chatbots" to "Agents" that perform complex tasks autonomously.',
-        why: 'Transforms AI from a conversational tool to a workforce tool.',
-        stockReaction: 'Cloud infrastructure stocks (AMZN, MSFT) rally on compute demand.',
-        emoji: '🧠',
-        imgQuery: 'artificial intelligence agent futuristic'
-      },
-      // === 2024 ===
-      {
-        year: 2024,
-        month: 'Oct',
-        title: 'Tesla "We, Robot"',
-        visual: '🚕',
-        summary: 'Tesla unveils Cybercab and Optimus Gen 3 updates.',
-        why: 'Signals full pivot to robotics over traditional cars.',
-        stockReaction: 'High volatility in TSLA as market debates timeline.',
-        emoji: '🚕',
-        imgQuery: 'cyberpunk autonomous taxi'
-      },
-      {
-        year: 2024,
-        month: 'Mar',
-        title: 'Claude 3 Launch',
-        visual: '📝',
-        summary: 'Anthropic releases Claude 3 (Opus), surpassing GPT-4.',
-        why: 'Ended OpenAI monopoly on top-tier reasoning.',
-        stockReaction: 'GOOG and MSFT adjusted as AI race became a three-way battle.',
-        emoji: '📜',
-        imgQuery: 'ai writing code screen'
-      },
-      {
-        year: 2024,
-        month: 'Mar',
-        title: 'Figure 01 Demo',
-        visual: '🦿',
-        summary: 'Figure AI robot holds conversation and performs tasks.',
-        why: 'First convincing demo of LLM-brained humanoid.',
-        stockReaction: 'Sparked massive VC investment in robotics.',
-        emoji: '🦾',
-        imgQuery: 'humanoid robot handing apple'
-      },
-      {
-        year: 2024,
-        month: 'Feb',
-        title: 'Gemini 1.5 Pro',
-        visual: '💎',
-        summary: 'Google launches 1-million token context window.',
-        why: 'Allowed AI to read entire books/codebases at once.',
-        stockReaction: 'Alphabet (GOOG) rallied on technical leadership.',
-        emoji: '💠',
-        imgQuery: 'google gemini ai abstract'
-      },
-      // === 2023 ===
-      {
-        year: 2023,
-        month: 'Dec',
-        title: 'Optimus Gen 2',
-        visual: '🦾',
-        summary: 'Tesla reveals faster, lighter Optimus Gen 2.',
-        why: 'Demonstrated rapid hardware iteration.',
-        stockReaction: 'Reinforced Tesla robotics narrative.',
-        emoji: '🤖',
-        imgQuery: 'tesla optimus robot'
-      },
-      {
-        year: 2023,
-        month: 'Aug',
-        title: 'Robotaxis 24/7',
-        visual: '🚦',
-        summary: 'SF approves 24/7 paid driverless rides.',
-        why: 'Commercial validation of Level 4 autonomy.',
-        stockReaction: 'Waymo solidified lead; Uber/Lyft partnerships followed.',
-        emoji: '🚗',
-        imgQuery: 'self driving car san francisco'
-      },
-      // === 2020-2022 ===
-      {
-        year: 2022,
-        month: 'Nov',
-        title: 'ChatGPT Launch',
-        visual: '💬',
-        summary: 'OpenAI releases ChatGPT to the public.',
-        why: 'The "iPhone Moment" for AI.',
-        stockReaction: 'Triggered multi-trillion dollar AI bull market.',
-        emoji: '🚀',
-        imgQuery: 'chatgpt openai logo digital'
-      },
-      {
-        year: 2021,
-        month: 'Jul',
-        title: 'Sodium-Ion Battery',
-        visual: '🧂',
-        summary: 'CATL unveils Sodium-Ion tech.',
-        why: 'Reduces reliance on scarce lithium.',
-        stockReaction: 'CATL stock surged; raw material markets shifted.',
-        emoji: '🔋',
-        imgQuery: 'salt crystal battery energy'
-      },
-      {
-        year: 2020,
-        month: 'Nov',
-        title: 'Apple M1 Chip',
-        visual: '💻',
-        summary: 'Apple shifts Macs to custom Silicon.',
-        why: 'Revolutionized laptop efficiency.',
-        stockReaction: 'Apple margins rose; Intel declined.',
-        emoji: '🍏',
-        imgQuery: 'computer processor chip macro'
-      },
-      // === 1990s - 2000s ===
-      {
-        year: 1991,
-        month: '',
-        title: 'Li-Ion Commercialized',
-        visual: '🔋',
-        summary: 'Sony commercializes the Lithium-Ion battery.',
-        why: 'Enabled the portable electronics revolution (laptops, phones).',
-        stockReaction: 'Fueled the consumer electronics boom of the 90s.',
-        emoji: '📼',
-        imgQuery: 'vintage sony battery 1990'
-      },
-      {
-        year: 1986,
-        month: '',
-        title: 'Backpropagation',
-        visual: '📉',
-        summary: 'Hinton et al. popularize backprop for training neural nets.',
-        why: 'The mathematical foundation of modern Deep Learning.',
-        stockReaction: 'Academic breakthrough; laid groundwork for future AI stocks.',
-        emoji: '📐',
-        imgQuery: 'neural network diagram vintage'
-      },
-      {
-        year: 1972,
-        month: '',
-        title: 'MYCIN Expert System',
-        visual: '⚕️',
-        summary: 'An AI designed to diagnose bacterial infections.',
-        why: 'Proved AI could mimic human expert decision making.',
-        stockReaction: 'Boosted interest in symbolic AI research funding.',
-        emoji: '🏥',
-        imgQuery: 'vintage computer medical'
-      },
-      {
-        year: 1971,
-        month: '',
-        title: 'Intel 4004',
-        visual: '💾',
-        summary: 'The first commercially available microprocessor.',
-        why: 'Shrunk computers from rooms to desktops.',
-        stockReaction: 'Launched the Silicon Valley semiconductor era.',
-        emoji: '📼',
-        imgQuery: 'intel 4004 chip macro'
-      },
-      {
-        year: 1966,
-        month: '',
-        title: 'Shakey the Robot',
-        visual: '🤖',
-        summary: 'The first general-purpose mobile robot able to reason.',
-        why: 'Combined robotics, computer vision, and planning.',
-        stockReaction: 'Funded largely by DARPA; military/research impact.',
-        emoji: '📷',
-        imgQuery: 'shakey the robot sri'
-      },
-      {
-        year: 1965,
-        month: '',
-        title: 'Fuzzy Logic',
-        visual: '🌫️',
-        summary: 'Lotfi Zadeh introduces Fuzzy Logic.',
-        why: 'Allowed computers to handle ambiguous data ("somewhat hot").',
-        stockReaction: 'Widely adopted later in industrial control systems.',
-        emoji: '🌡️',
-        imgQuery: 'fuzzy logic diagram math'
-      },
-      {
-        year: 1958,
-        month: '',
-        title: 'Perceptron & LISP',
-        visual: '👁️',
-        summary: 'Rosenblatt invents the Perceptron; McCarthy creates LISP.',
-        why: 'Hardware for learning and software for reasoning.',
-        stockReaction: 'N/A (Academic Era)',
-        emoji: '📜',
-        imgQuery: 'vintage computer punch cards'
-      },
-      {
-        year: 1956,
-        month: '',
-        title: 'Dartmouth Conference',
-        visual: '🎓',
-        summary: 'The term "Artificial Intelligence" is coined.',
-        why: 'The official birth of AI as a research field.',
-        stockReaction: 'N/A (Academic Era)',
-        emoji: '🏫',
-        imgQuery: 'dartmouth college 1950s'
-      },
-      {
-        year: 1954,
-        month: '',
-        title: 'Unimate Robot',
-        visual: '🏗️',
-        summary: 'First programmable industrial robot patent.',
-        why: 'The grandfather of all factory automation.',
-        stockReaction: 'Revolutionized GM assembly lines in the 60s.',
-        emoji: '🏭',
-        imgQuery: 'unimate robot arm 1960s'
-      },
-      {
-        year: 1950,
-        month: '',
-        title: 'Turing Test',
-        visual: '🧠',
-        summary: 'Alan Turing proposes the "Imitation Game".',
-        why: 'Defined the ultimate goal of machine intelligence.',
-        stockReaction: 'N/A',
-        emoji: '♟️',
-        imgQuery: 'alan turing computer'
-      },
-      {
-        year: 1948,
-        month: '',
-        title: 'Cybernetics',
-        visual: '🌀',
-        summary: 'Norbert Wiener publishes "Cybernetics".',
-        why: 'Established the study of control and communication in machines.',
-        stockReaction: 'N/A',
-        emoji: '📖',
-        imgQuery: 'cybernetics book vintage'
-      },
-      {
-        year: 1947,
-        month: '',
-        title: 'The Transistor',
-        visual: '⚡',
-        summary: 'Bell Labs invents the point-contact transistor.',
-        why: 'Replaced vacuum tubes; made modern tech possible.',
-        stockReaction: 'Economic Impact: Infinite. Created the Digital Age.',
-        emoji: '💡',
-        imgQuery: 'first transistor bell labs'
-      },
-      {
-        year: 1945,
-        month: '',
-        title: 'ENIAC',
-        visual: '🖥️',
-        summary: 'First general-purpose electronic computer.',
-        why: 'Demonstrated massive speed for calculation.',
-        stockReaction: 'Economic Impact: Shifted military/science to digital.',
-        emoji: '🔌',
-        imgQuery: 'eniac computer room'
-      },
-      {
-        year: 1943,
-        month: '',
-        title: 'Neural Networks',
-        visual: '🕸️',
-        summary: 'McCulloch & Pitts model artificial neurons.',
-        why: 'The theoretical ancestor of modern Deep Learning.',
-        stockReaction: 'N/A',
-        emoji: '🧠',
-        imgQuery: 'artificial neuron diagram vintage'
-      },
-      {
-        year: 1937,
-        month: '',
-        title: 'Analytical Engine',
-        visual: '⚙️',
-        summary: 'Babbage designs the first general mechanical computer.',
-        why: 'The Victorian ancestor of the modern CPU.',
-        stockReaction: 'Economic Impact: None at the time (it wasn\'t built).',
-        emoji: '🎩',
-        imgQuery: 'charles babbage analytical engine'
-      },
-      {
-        year: 1879,
-        month: '',
-        title: 'Electric Light',
-        visual: '💡',
-        summary: 'Edison commercializes the light bulb.',
-        why: 'Built the grid infrastructure we plug robots into today.',
-        stockReaction: 'Economic Impact: Created the Utility Industry.',
-        emoji: '🌃',
-        imgQuery: 'edison light bulb vintage'
-      },
-      {
-        year: 1837,
-        month: '',
-        title: 'The Telegraph',
-        visual: '📠',
-        summary: 'Morse demonstrates long-distance communication.',
-        why: 'The "Victorian Internet"; precursor to data networks.',
-        stockReaction: 'Economic Impact: Globalization of information.',
-        emoji: '📡',
-        imgQuery: 'vintage telegraph machine'
-      },
-      {
-        year: 1821,
-        month: '',
-        title: 'Electric Motor',
-        visual: '⚙️',
-        summary: 'Faraday builds the first electric motor.',
-        why: 'Provided the muscle (actuation) for future robots.',
-        stockReaction: 'Economic Impact: Electrification of industry.',
-        emoji: '🧲',
-        imgQuery: 'faraday electric motor'
-      },
-      {
-        year: 1800,
-        month: '',
-        title: 'Voltaic Pile',
-        visual: '🔋',
-        summary: 'Alessandro Volta invents the first battery.',
-        why: 'Enabled portable electric power for the first time.',
-        stockReaction: 'Economic Impact: The birth of Electrochemistry.',
-        emoji: '🧪',
-        imgQuery: 'voltaic pile battery'
-      }
-    ];
+    // --- FETCH DATA & INIT ---
+    async function initTimeline() {
+      try {
+        // Fetches the separate data file
+        const response = await fetch('timeline.json');
+        
+        // Converts it to a JavaScript object
+        let timelineData = await response.json();
 
-    // --- RENDER TIMELINE ---
-    function renderTimeline() {
+        // Optional: Ensure it is sorted Newest to Oldest
+        timelineData.sort((a, b) => b.year - a.year);
+
+        // Render the timeline
+        renderTimeline(timelineData);
+      } catch (error) {
+        console.error("Could not load timeline data:", error);
+        document.getElementById('timelineFeed').innerHTML = '<p style="text-align:center; padding:20px;">Error loading data. Ensure you are running on a local server (not opening the file directly).</p>';
+      }
+    }
+
+    // --- RENDER TIMELINE (Modified to accept data argument) ---
+    function renderTimeline(data) {
       const container = document.getElementById('timelineFeed');
-      
-      timelineData.forEach((item, index) => {
+      container.innerHTML = ''; // Clear loading state
+
+      data.forEach((item, index) => {
         const card = document.createElement('article');
         card.className = 'timeline-card';
         card.id = `card-${item.year}`;
         card.dataset.year = item.year;
         card.dataset.index = index;
+
+        // Note: We use JSON.stringify for data passing to keep the logic clean
+        card.dataset.info = JSON.stringify(item); 
 
         card.innerHTML = `
           <div class="timeline-dot"></div>
@@ -701,11 +386,11 @@
         container.appendChild(card);
       });
 
-      setupObserver();
+      setupObserver(data);
     }
 
-    // --- STICKY PANEL LOGIC ---
-    function setupObserver() {
+    // --- STICKY PANEL LOGIC (Modified to read from dataset) ---
+    function setupObserver(timelineData) {
       const cards = document.querySelectorAll('.timeline-card');
       const panel = document.getElementById('floatingPanel');
       const fpImage = document.getElementById('fpImage');
@@ -719,8 +404,8 @@
             cards.forEach(c => c.classList.remove('active-card'));
             entry.target.classList.add('active-card');
             
-            const index = entry.target.dataset.index;
-            const data = timelineData[index];
+            // Retrieve data from the dataset we stored earlier
+            const data = JSON.parse(entry.target.dataset.info);
             
             if (data) {
               panel.classList.add('visible');
@@ -764,12 +449,46 @@
       }
     }
 
-    document.getElementById('yearInput').addEventListener('keypress', (e) => {
-      if(e.key === 'Enter') jumpToYear();
-    });
+    // --- AUTOMATED TOUR ---
+    function playHistory() {
+      // 1. Get all timeline cards from the DOM
+      const cards = Array.from(document.querySelectorAll('.timeline-card'));
+      
+      // 2. The DOM is sorted Newest(top) -> Oldest(bottom).
+      //    Reverse it to get Chronological order (1800 -> 2025).
+      const chronologicalCards = cards.reverse();
 
-    // Init
-    document.addEventListener('DOMContentLoaded', renderTimeline);
-  </script>
+      // 3. Select only the first 10 events
+      const tourSteps = chronologicalCards.slice(0, 10);
+
+      // 4. Iterate and schedule the scrolls
+      tourSteps.forEach((card, index) => {
+        setTimeout(() => {
+          // Scroll the card into the center of the view
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          
+          // Simulate a click to expand the details (optional)
+          if (!card.classList.contains('expanded')) {
+            card.click();
+          }
+          
+          // Visual feedback: Flash the card using the accent color
+          card.style.transition = '0.3s';
+          card.style.borderColor = 'var(--accent)';
+          card.style.boxShadow = '0 0 20px var(--accent)';
+          
+          // Remove the highlight after 1.5 seconds
+          setTimeout(() => {
+            card.style.borderColor = '';
+            card.style.boxShadow = '';
+          }, 1500);
+
+        }, index * 4000); // 4000ms = 4 seconds per event
+      });
+    }
+
+    // Start
+    document.addEventListener('DOMContentLoaded', initTimeline);
+</script>
 </body>
 </html>
