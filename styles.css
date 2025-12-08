@@ -1469,18 +1469,224 @@ section {
   body {
     --font-size-base: 16px;
   }
-  
+
   .brand {
     font-size: 18px;
   }
-  
+
   .nav-links a {
     font-size: 14px;
     padding: 10px 12px;
   }
-  
+
   .button {
     font-size: 14px;
     padding: 14px 20px;
+  }
+}
+
+/* --- Timeline Controls --- */
+.timeline-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: var(--panel-strong);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  margin-top: 8px;
+  box-shadow: var(--shadow);
+}
+.toggle-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.toggle-btn {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  border-radius: 99px;
+  border: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--muted);
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.toggle-btn:hover {
+  background: var(--panel);
+  color: var(--text);
+  transform: translateY(-1px);
+}
+.toggle-btn.active {
+  background: rgba(79, 156, 255, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+  box-shadow: 0 4px 12px rgba(79, 156, 255, 0.2);
+}
+.toggle-btn[data-track="robotics"].active {
+  background: rgba(255, 107, 157, 0.15);
+  border-color: var(--accent-3);
+  color: var(--accent-3);
+  box-shadow: 0 4px 12px rgba(255, 107, 157, 0.2);
+}
+.toggle-btn[data-track="energy"].active {
+  background: rgba(0, 212, 170, 0.15);
+  border-color: var(--accent-2);
+  color: var(--accent-2);
+  box-shadow: 0 4px 12px rgba(0, 212, 170, 0.2);
+}
+.status-indicator {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--muted);
+  transition: background 0.3s ease;
+}
+.toggle-btn.active .status-indicator {
+  background: currentColor;
+  box-shadow: 0 0 8px currentColor;
+}
+
+/* --- Premium Center Timeline Layout --- */
+.timeline-wrap {
+  position: relative;
+  margin-top: 40px;
+}
+
+/* The Center Line */
+.timeline-wrap::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background: linear-gradient(180deg, var(--accent) 0%, rgba(255,255,255,0.1) 100%);
+  transform: translateX(-50%);
+  z-index: 0;
+}
+
+.timeline-cards {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 40px; /* Space between rows */
+  padding-bottom: 60px;
+  border: none; /* Removed old left border */
+  padding-left: 0; /* Reset padding */
+}
+
+.timeline-card {
+  position: relative;
+  width: 45%; /* Cards take up slightly less than half width */
+  z-index: 1;
+  border: 1px solid var(--border);
+  background: var(--panel-strong);
+  border-radius: 16px;
+  padding: 24px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* Left Side Cards */
+.timeline-card.left {
+  align-self: flex-start;
+  text-align: right;
+}
+
+/* Right Side Cards */
+.timeline-card.right {
+  align-self: flex-end;
+  text-align: left;
+}
+
+/* The Center Dot */
+.timeline-card .timeline-dot {
+  position: absolute;
+  top: 24px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--bg); /* Hollow center */
+  border: 3px solid var(--accent);
+  box-shadow: 0 0 10px rgba(79, 156, 255, 0.5);
+  z-index: 2;
+}
+
+/* Dot positioning for Left cards */
+.timeline-card.left .timeline-dot {
+  right: -13.5%; /* Push out to center line */
+  left: auto;
+}
+
+/* Dot positioning for Right cards */
+.timeline-card.right .timeline-dot {
+  left: -13.5%; /* Push out to center line */
+}
+
+/* Connector Line (Horizontal) */
+.timeline-card::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  height: 2px;
+  width: 11%; /* Distance to center */
+  background: var(--border);
+  z-index: -1;
+  opacity: 0.5;
+}
+
+.timeline-card.left::after {
+  right: -11%;
+}
+
+.timeline-card.right::after {
+  left: -11%;
+}
+
+/* Headers alignment fix for Left cards */
+.timeline-card.left .timeline-card-header {
+  flex-direction: row-reverse;
+  justify-content: space-between;
+}
+
+/* Ensure dot color matches track */
+.timeline-card[data-track="robotics"] .timeline-dot { border-color: var(--accent-3); box-shadow: 0 0 10px rgba(255, 107, 157, 0.4); }
+.timeline-card[data-track="energy"] .timeline-dot { border-color: var(--accent-2); box-shadow: 0 0 10px rgba(0, 212, 170, 0.4); }
+
+.timeline-year {
+  font-size: 14px;
+  opacity: 0.8;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Mobile Responsive: Collapse to single column */
+@media (max-width: 768px) {
+  .timeline-wrap::before {
+    left: 20px; /* Move line to left */
+  }
+  .timeline-card {
+    width: calc(100% - 50px); /* Full width minus margin */
+    align-self: flex-end !important; /* Always align right */
+    text-align: left !important;
+    margin-left: 50px;
+  }
+  .timeline-card.left .timeline-dot,
+  .timeline-card.right .timeline-dot {
+    left: -38px; /* Fixed position on left */
+    right: auto;
+  }
+  .timeline-card.left::after,
+  .timeline-card.right::after {
+    left: -30px;
+    width: 30px;
+    right: auto;
+  }
+  .timeline-card.left .timeline-card-header {
+    flex-direction: row; /* Reset header direction */
   }
 }
