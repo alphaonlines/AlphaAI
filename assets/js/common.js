@@ -15,10 +15,10 @@ function updateReadingProgress() {
 }
 
 // Theme toggle with sunrise/sunset animation
-function toggleTheme() {
+function toggleTheme(event) {
   if (isTransitioning) return;
-  
-  const button = event.target;
+
+  const button = event?.target || document.querySelector('.theme-toggle');
   const overlay = document.getElementById('themeOverlay');
   const isLight = document.body.classList.contains('light-theme');
   
@@ -72,11 +72,12 @@ function clearTextAnimationClasses(elements) {
 }
 
 // Font size toggle with pop animation
-function toggleFontSize() {
+function toggleFontSize(event) {
   if (isTransitioning) return;
-  
+
   const isLarge = document.body.classList.contains('large-text');
   const textElements = document.querySelectorAll('h1, h2, h3, p, li, a, span');
+  const button = event?.target || document.querySelector('.font-control[aria-label="Change text size"]');
   
   if (!isLarge) {
     // Normal to Large - Pop up animation
@@ -103,16 +104,17 @@ function toggleFontSize() {
       clearTextAnimationClasses(textElements);
     }, 800);
   }
-  
+
   // Update button state
-  event.target.classList.toggle('active', !isLarge);
+  button?.classList.toggle('active', !isLarge);
 }
 
 // High contrast toggle with glitch effect
-function toggleContrast() {
+function toggleContrast(event) {
   if (isTransitioning) return;
-  
+
   const isHighContrast = document.body.classList.contains('high-contrast');
+  const button = event?.target || document.querySelector('.font-control[aria-label="Toggle high contrast"]');
   
   if (!isHighContrast) {
     // Normal to High Contrast - Glitch effect
@@ -150,9 +152,9 @@ function toggleContrast() {
     document.body.classList.remove('high-contrast');
     localStorage.setItem('highContrast', 'false');
   }
-  
+
   // Update button state
-  event.target.classList.toggle('active', !isHighContrast);
+  button?.classList.toggle('active', !isHighContrast);
 }
 
 // Smooth scroll for anchor links
