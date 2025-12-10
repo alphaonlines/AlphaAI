@@ -1087,26 +1087,33 @@
         stickyVisual.setAttribute('aria-label', `${visualYear.textContent} — ${visualTitle.textContent}`);
       }
 
+      function updateSticky(card) {
+        const icon = card.dataset.visual || '✨';
+        const year = card.querySelector('.timeline-year').textContent;
+        const title = card.querySelector('h3').textContent;
+        const theme = visualThemes[card.dataset.track] || visualThemes.default;
+
+        visualIcon.textContent = icon;
+        visualYear.textContent = year;
+        visualTitle.textContent = title;
+        visualFrame.style.backgroundImage = theme.gradient;
+        stickyVisual.style.setProperty('--visual-accent', theme.accent);
+        stickyVisual.setAttribute('aria-label', `${year} — ${title}`);
+        highlightEraMap(card.dataset.era);
+      }
+
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            const card = entry.target;
-            const icon = card.dataset.visual || '✨';
-            const year = card.querySelector('.timeline-year').textContent;
-            const title = card.querySelector('h3').textContent;
-            visualIcon.textContent = icon;
-            visualYear.textContent = year;
-            visualTitle.textContent = title;
-            const theme = visualThemes[card.dataset.track] || visualThemes.default;
-            visualFrame.style.backgroundImage = theme.gradient;
-            stickyVisual.style.setProperty('--visual-accent', theme.accent);
-            stickyVisual.setAttribute('aria-label', `${year} — ${title}`);
-            highlightEraMap(card.dataset.era);
+            updateSticky(entry.target);
           }
         });
       }, { rootMargin: '-20% 0px -50% 0px', threshold: 0.5 });
 
-      cards.forEach(card => observer.observe(card));
+      cards.forEach(card => {
+        observer.observe(card);
+        card.addEventListener('click', () => updateSticky(card));
+      });
 
       // Mini quiz feedback
       document.querySelectorAll('.mini-quiz').forEach(quiz => {
@@ -1140,161 +1147,6 @@
         });
       });
 
-      // Catch up modal controls
-      const catchUpModal = document.getElementById('catchUpModal');
-      const openCatchUp = document.getElementById('openCatchUp');
-      const closeButtons = [document.getElementById('closeCatchUp'), document.getElementById('closeCatchUpFooter')];
-      const catchUpForm = document.getElementById('catchUpForm');
-
-      function openModal() {
-        catchUpModal.removeAttribute('hidden');
-        catchUpModal.focus();
-      }
-
-      function closeModal() {
-        catchUpModal.setAttribute('hidden', 'true');
-        openCatchUp.focus();
-      }
-
-      openCatchUp.addEventListener('click', openModal);
-      closeButtons.forEach(btn => btn.addEventListener('click', closeModal));
-      document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && !catchUpModal.hasAttribute('hidden')) {
-          closeModal();
-        }
-      });
-
-      function scrollToEra(era) {
-        const target = era === 'present' ? document.getElementById('present-anchor') : document.getElementById(`era-${era}`);
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }
-
-      catchUpForm.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const data = new FormData(catchUpForm);
-        const comfort = data.get('comfort');
-        const depth = data.get('depth');
-        const cloud = data.get('cloud');
-        const topics = data.getAll('topics');
-
-        let eraChoice = '2017';
-        if (topics.includes('energy')) {
-          eraChoice = '2025';
-        } else if (topics.includes('robotics')) {
-          eraChoice = '2024';
-        } else if (depth === 'story' && comfort === 'high') {
-          eraChoice = '1956';
-        } else if (cloud === 'no' || comfort === 'low') {
-          eraChoice = '2017';
-        } else {
-          eraChoice = '2012';
-        }
-
-        scrollToEra(eraChoice);
-        closeModal();
-      });
-
-      // Timeline filters and jumps
-      const chips = document.querySelectorAll('.chip');
-      const cards = document.querySelectorAll('.timeline-card');
-      function applyFilter(filter) {
-        chips.forEach(chip => chip.classList.toggle('active', chip.dataset.filter === filter || (filter === 'all' && chip.dataset.filter === 'all')));
-        cards.forEach(card => {
-          const matches = filter === 'all' || card.dataset.track === filter;
-          card.classList.toggle('hidden', !matches);
-        });
-      }
-
-      chips.forEach(chip => {
-        chip.addEventListener('click', () => {
-          applyFilter(chip.dataset.filter);
-        });
-      });
-
-      document.querySelectorAll('.path-buttons .button').forEach(btn => {
-        btn.addEventListener('click', () => {
-          const path = btn.dataset.path;
-          if (path === 'mixed') {
-            applyFilter('all');
-            scrollToEra('present');
-            return;
-          }
-          applyFilter(path);
-          const firstMatch = Array.from(cards).find(card => card.dataset.track === path && !card.classList.contains('hidden'));
-          if (firstMatch) {
-            firstMatch.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          }
-        });
-      });
-
-      document.getElementById('startEra').addEventListener('change', (event) => {
-        scrollToEra(event.target.value);
-      });
-
-      document.getElementById('backToPresent').addEventListener('click', (event) => {
-        event.preventDefault();
-        scrollToEra('present');
-      });
-
-      // Sticky visual updates
-      const stickyVisual = document.getElementById('stickyVisual');
-      const visualIcon = stickyVisual.querySelector('.visual-icon');
-      const visualText = stickyVisual.querySelector('p');
-      const eraMapItems = document.querySelectorAll('#eraMap li');
-
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const card = entry.target;
-            const icon = card.dataset.visual || '✨';
-            const year = card.querySelector('.timeline-year').textContent;
-            const title = card.querySelector('h3').textContent;
-            visualIcon.textContent = icon;
-            visualText.textContent = `${year} — ${title}`;
-            eraMapItems.forEach(item => {
-              const label = item.textContent.trim();
-              const match = label.includes(year) || (card.dataset.era === 'present' && label.toLowerCase().includes('present'));
-              item.classList.toggle('active', match);
-            });
-          }
-        });
-      }, { rootMargin: '-20% 0px -50% 0px', threshold: 0.5 });
-
-      cards.forEach(card => observer.observe(card));
-
-      // Mini quiz feedback
-      document.querySelectorAll('.mini-quiz').forEach(quiz => {
-        quiz.querySelectorAll('button').forEach(btn => {
-          btn.addEventListener('click', () => {
-            const correct = quiz.dataset.answer;
-            const feedback = quiz.querySelector('.quiz-feedback');
-            if (btn.dataset.choice === correct) {
-              feedback.textContent = 'Correct! Great pick.';
-            } else {
-              feedback.textContent = 'Close. Try another option.';
-            }
-          });
-        });
-      });
-
-      // Copy starter prompts
-      document.querySelectorAll('.copy-button').forEach(button => {
-        button.dataset.label = button.textContent;
-        button.addEventListener('click', async () => {
-          const text = button.dataset.prompt;
-          try {
-            await navigator.clipboard.writeText(text);
-            button.textContent = 'Copied!';
-            setTimeout(() => {
-              button.textContent = button.dataset.label;
-            }, 1500);
-          } catch (err) {
-            button.textContent = 'Copy not available here';
-          }
-        });
-      });
     });
 
     // Timeline-specific initialization is handled above
