@@ -236,19 +236,53 @@
       .container { grid-template-columns: 1fr; gap: 0; padding: 10px; }
       
       /* Sidebar becomes Bottom Drawer */
-      .sidebar-column { 
-        position: fixed; bottom: 0; left: 0; right: 0; 
+      .sidebar-column {
+        position: fixed; bottom: 0; left: 0; right: 0;
         z-index: 100; pointer-events: none;
         padding: 10px;
       }
-       .floating-panel {
-         pointer-events: auto;
-         text-align: left; padding: 12px;
-         background: rgba(26, 29, 35, 0.98);
-         border: 1px solid var(--accent);
-         box-shadow: 0 -4px 30px rgba(0,0,0,0.5);
-         margin: 0; top: auto;
-       }
+      .floating-panel {
+        pointer-events: auto;
+        text-align: left; padding: 12px;
+        background: rgba(26, 29, 35, 0.98);
+        border: 1px solid var(--accent);
+        box-shadow: 0 -4px 30px rgba(0,0,0,0.5);
+        margin: 0; top: auto;
+        max-height: 65vh;
+        overflow-y: auto;
+        transform: translateY(0);
+      }
+      .floating-panel.collapsed {
+        transform: translateY(calc(100% - 56px));
+        box-shadow: 0 -2px 18px rgba(0,0,0,0.35);
+        border-color: var(--border);
+      }
+      .drawer-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 10px;
+        padding: 10px 12px;
+        margin: -12px -12px 12px -12px;
+        background: rgba(255,255,255,0.04);
+        border-bottom: 1px solid var(--border);
+        position: sticky;
+        top: 0;
+        z-index: 2;
+      }
+      .drawer-toggle button {
+        background: var(--accent);
+        color: #fff;
+        border: none;
+        border-radius: 999px;
+        padding: 6px 12px;
+        font-weight: 700;
+        cursor: pointer;
+      }
+      .drawer-label {
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
       .fp-stock-box { background: transparent; border: none; padding: 0; margin: 0; }
       .fp-stock-label { display: inline; margin-right: 6px; }
       .fp-stock-text { font-size: 0.85rem; display: inline; }
@@ -274,7 +308,7 @@
     <div class="nav">
       <div class="brand">
         <span class="dot"></span>
-        <span id="titleText">AlphaAI Timeline</span>
+        <span id="titleText">AlphaAI v2 Timeline</span>
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
@@ -301,6 +335,10 @@
 
     <div class="sidebar-column">
       <aside class="floating-panel" id="floatingPanel">
+        <div class="drawer-toggle" id="drawerToggle">
+          <span class="drawer-label">Milestone details</span>
+          <button type="button" id="drawerToggleBtn">Expand</button>
+        </div>
         <div class="fp-content">
           <div class="fp-emoji" id="fpEmoji">🚀</div>
           <h3 id="fpTitle" style="font-size: 1.4rem; margin-bottom: 8px;">Select an Era</h3>
@@ -320,6 +358,86 @@
   </div>
 
   <script>
+    // Sticky sidebar element references
+    const floatingPanel = document.getElementById('floatingPanel');
+    const fpTitle = document.getElementById('fpTitle');
+    const fpStock = document.getElementById('fpStock');
+    const fpEmoji = document.getElementById('fpEmoji');
+    const fpSummary = document.getElementById('fpSummary');
+    const fpProducts = document.getElementById('fpProducts');
+    const drawerToggle = document.getElementById('drawerToggle');
+    const drawerToggleBtn = document.getElementById('drawerToggleBtn');
+    let drawerOpen = false;
+
+    const isMobileLayout = () => window.matchMedia('(max-width: 900px)').matches;
+
+    function collapseDrawer() {
+      if (!isMobileLayout()) return;
+      floatingPanel.classList.add('collapsed');
+      drawerOpen = false;
+      drawerToggleBtn.textContent = 'Expand';
+    }
+
+    function expandDrawer() {
+      if (!isMobileLayout()) return;
+      floatingPanel.classList.remove('collapsed');
+      drawerOpen = true;
+      drawerToggleBtn.textContent = 'Hide';
+    }
+
+    function populateFloatingPanel(data = {}) {
+      floatingPanel.classList.add('visible');
+
+      fpTitle.textContent = data.title || 'Select an Era';
+      fpEmoji.textContent = data.visual || '🛰️';
+
+      fpStock.textContent = data.market_analysis || data.stockReaction || data.summary || 'Waiting for data...';
+      fpSummary.textContent = data.summary || 'Scroll through history to see market impacts.';
+
+      fpProducts.innerHTML = '';
+      if (data.products && Array.isArray(data.products)) {
+        data.products.forEach(prod => {
+          const tag = document.createElement('span');
+          tag.className = 'product-tag';
+          tag.textContent = prod;
+          fpProducts.appendChild(tag);
+        });
+      }
+    }
+
+    function setActiveCard(card) {
+      if (!card) return;
+
+      document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('active-card'));
+      card.classList.add('active-card');
+
+      const data = JSON.parse(card.dataset.info || '{}');
+      populateFloatingPanel(data);
+    }
+
+    // Drawer interactions for mobile
+    drawerToggle.addEventListener('click', (e) => {
+      if (!isMobileLayout()) return;
+      e.stopPropagation();
+      drawerOpen ? collapseDrawer() : expandDrawer();
+    });
+
+    window.addEventListener('resize', () => {
+      if (isMobileLayout()) {
+        collapseDrawer();
+      } else {
+        floatingPanel.classList.remove('collapsed');
+        drawerToggleBtn.textContent = 'Hide';
+        drawerOpen = true;
+      }
+    });
+
+    window.addEventListener('scroll', () => {
+      if (isMobileLayout() && drawerOpen) {
+        collapseDrawer();
+      }
+    }, { passive: true });
+
     // --- CONFIGURATION ---
     const lastUpdated = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('lastUpdatedDate').textContent = `Updated: ${lastUpdated}`;
@@ -409,6 +527,7 @@
         // Click to toggle expansion
         card.addEventListener('click', (e) => {
           if(e.target.tagName === 'A') return;
+          setActiveCard(card);
           const isExpanded = card.classList.contains('expanded');
           document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('expanded'));
           if(!isExpanded) card.classList.add('expanded');
@@ -421,73 +540,18 @@
 
       // NEW: Auto-select the first card to populate the sidebar immediately
       if (document.querySelector('.timeline-card')) {
-          document.querySelector('.timeline-card').classList.add('active-card');
-          // Manually trigger the data population for the first item
-          const firstItem = data[0];
-          if(firstItem) {
-              document.getElementById('fpTitle').textContent = firstItem.title;
-              document.getElementById('fpEmoji').textContent = firstItem.visual;
-              document.getElementById('fpStock').textContent = firstItem.market_analysis || firstItem.summary;
-              document.getElementById('fpSummary').textContent = firstItem.summary;
-              document.getElementById('floatingPanel').classList.add('visible');
-              // Render Products
-              const fpProducts = document.getElementById('fpProducts');
-              fpProducts.innerHTML = ''; // Clear previous
-              if(firstItem.products && Array.isArray(firstItem.products)) {
-                 firstItem.products.forEach(prod => {
-                   const tag = document.createElement('span');
-                   tag.className = 'product-tag';
-                   tag.textContent = prod;
-                   fpProducts.appendChild(tag);
-                 });
-              }
-          }
+          setActiveCard(document.querySelector('.timeline-card'));
       }
     }
 
     // --- STICKY PANEL LOGIC (Modified to read from dataset) ---
     function setupObserver(timelineData) {
       const cards = document.querySelectorAll('.timeline-card');
-      const panel = document.getElementById('floatingPanel');
-      const fpTitle = document.getElementById('fpTitle');
-      const fpStock = document.getElementById('fpStock');
-      const fpEmoji = document.getElementById('fpEmoji');
-      const fpSummary = document.getElementById('fpSummary');
-      const fpProducts = document.getElementById('fpProducts');
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            cards.forEach(c => c.classList.remove('active-card'));
-            entry.target.classList.add('active-card');
-
-            // Retrieve data from the dataset we stored earlier
-            const data = JSON.parse(entry.target.dataset.info);
-
-            if (data) {
-              panel.classList.add('visible');
-              fpTitle.textContent = data.title;
-              fpEmoji.textContent = data.visual;
-
-              // Use the new market_analysis field if available, fallback to stockReaction
-              fpStock.textContent = data.market_analysis || data.stockReaction;
-
-              // Update Summary
-              fpSummary.textContent = data.summary;
-
-              // Render Products
-              fpProducts.innerHTML = ''; // Clear previous
-              if(data.products && Array.isArray(data.products)) {
-                 data.products.forEach(prod => {
-                   const tag = document.createElement('span');
-                   tag.className = 'product-tag';
-                   tag.textContent = prod;
-                   fpProducts.appendChild(tag);
-                 });
-              }
-
-              // No image loading logic needed anymore!
-            }
+            setActiveCard(entry.target);
           }
         });
       }, {
@@ -560,7 +624,15 @@
     }
 
     // Start
-    document.addEventListener('DOMContentLoaded', initTimeline);
+    document.addEventListener('DOMContentLoaded', () => {
+      if (isMobileLayout()) {
+        collapseDrawer();
+      } else {
+        drawerOpen = true;
+        drawerToggleBtn.textContent = 'Hide';
+      }
+      initTimeline();
+    });
 </script>
 </body>
 </html>
