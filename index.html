@@ -274,7 +274,7 @@
     <div class="nav">
       <div class="brand">
         <span class="dot"></span>
-        <span id="titleText">AlphaAI Timeline</span>
+        <span id="titleText">AlphaAI v1 Timeline</span>
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
@@ -320,6 +320,44 @@
   </div>
 
   <script>
+    // Sticky sidebar element references
+    const floatingPanel = document.getElementById('floatingPanel');
+    const fpTitle = document.getElementById('fpTitle');
+    const fpStock = document.getElementById('fpStock');
+    const fpEmoji = document.getElementById('fpEmoji');
+    const fpSummary = document.getElementById('fpSummary');
+    const fpProducts = document.getElementById('fpProducts');
+
+    function populateFloatingPanel(data = {}) {
+      floatingPanel.classList.add('visible');
+
+      fpTitle.textContent = data.title || 'Select an Era';
+      fpEmoji.textContent = data.visual || '🛰️';
+
+      fpStock.textContent = data.market_analysis || data.stockReaction || data.summary || 'Waiting for data...';
+      fpSummary.textContent = data.summary || 'Scroll through history to see market impacts.';
+
+      fpProducts.innerHTML = '';
+      if (data.products && Array.isArray(data.products)) {
+        data.products.forEach(prod => {
+          const tag = document.createElement('span');
+          tag.className = 'product-tag';
+          tag.textContent = prod;
+          fpProducts.appendChild(tag);
+        });
+      }
+    }
+
+    function setActiveCard(card) {
+      if (!card) return;
+
+      document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('active-card'));
+      card.classList.add('active-card');
+
+      const data = JSON.parse(card.dataset.info || '{}');
+      populateFloatingPanel(data);
+    }
+
     // --- CONFIGURATION ---
     const lastUpdated = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('lastUpdatedDate').textContent = `Updated: ${lastUpdated}`;
@@ -409,6 +447,7 @@
         // Click to toggle expansion
         card.addEventListener('click', (e) => {
           if(e.target.tagName === 'A') return;
+          setActiveCard(card);
           const isExpanded = card.classList.contains('expanded');
           document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('expanded'));
           if(!isExpanded) card.classList.add('expanded');
@@ -421,73 +460,18 @@
 
       // NEW: Auto-select the first card to populate the sidebar immediately
       if (document.querySelector('.timeline-card')) {
-          document.querySelector('.timeline-card').classList.add('active-card');
-          // Manually trigger the data population for the first item
-          const firstItem = data[0];
-          if(firstItem) {
-              document.getElementById('fpTitle').textContent = firstItem.title;
-              document.getElementById('fpEmoji').textContent = firstItem.visual;
-              document.getElementById('fpStock').textContent = firstItem.market_analysis || firstItem.summary;
-              document.getElementById('fpSummary').textContent = firstItem.summary;
-              document.getElementById('floatingPanel').classList.add('visible');
-              // Render Products
-              const fpProducts = document.getElementById('fpProducts');
-              fpProducts.innerHTML = ''; // Clear previous
-              if(firstItem.products && Array.isArray(firstItem.products)) {
-                 firstItem.products.forEach(prod => {
-                   const tag = document.createElement('span');
-                   tag.className = 'product-tag';
-                   tag.textContent = prod;
-                   fpProducts.appendChild(tag);
-                 });
-              }
-          }
+          setActiveCard(document.querySelector('.timeline-card'));
       }
     }
 
     // --- STICKY PANEL LOGIC (Modified to read from dataset) ---
     function setupObserver(timelineData) {
       const cards = document.querySelectorAll('.timeline-card');
-      const panel = document.getElementById('floatingPanel');
-      const fpTitle = document.getElementById('fpTitle');
-      const fpStock = document.getElementById('fpStock');
-      const fpEmoji = document.getElementById('fpEmoji');
-      const fpSummary = document.getElementById('fpSummary');
-      const fpProducts = document.getElementById('fpProducts');
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            cards.forEach(c => c.classList.remove('active-card'));
-            entry.target.classList.add('active-card');
-
-            // Retrieve data from the dataset we stored earlier
-            const data = JSON.parse(entry.target.dataset.info);
-
-            if (data) {
-              panel.classList.add('visible');
-              fpTitle.textContent = data.title;
-              fpEmoji.textContent = data.visual;
-
-              // Use the new market_analysis field if available, fallback to stockReaction
-              fpStock.textContent = data.market_analysis || data.stockReaction;
-
-              // Update Summary
-              fpSummary.textContent = data.summary;
-
-              // Render Products
-              fpProducts.innerHTML = ''; // Clear previous
-              if(data.products && Array.isArray(data.products)) {
-                 data.products.forEach(prod => {
-                   const tag = document.createElement('span');
-                   tag.className = 'product-tag';
-                   tag.textContent = prod;
-                   fpProducts.appendChild(tag);
-                 });
-              }
-
-              // No image loading logic needed anymore!
-            }
+            setActiveCard(entry.target);
           }
         });
       }, {
