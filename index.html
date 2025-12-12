@@ -374,7 +374,7 @@
     <div class="nav">
       <div class="brand">
         <span class="dot"></span>
-        <span id="titleText">AlphaAI v2.4 Timeline</span>
+        <span id="titleText">AlphaAI v2.5 Timeline</span>
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
@@ -566,33 +566,46 @@
     }
 
     async function initTimeline() {
-      // Prefer the checked-in file, but harden for GitHub Pages and offline cases.
-      let localData = [];
-      let remoteData = [];
+      const errors = [];
+      const datasets = [];
 
-      // Build an absolute URL to the timeline file so GitHub Pages subpaths work.
-      const currentDir = window.location.href.replace(/[^/]*$/, '');
-      const localUrl = `${currentDir}timeline.json`;
+      const sources = [
+        {
+          name: 'local',
+          url: new URL('timeline.json', window.location.href).href,
+          options: { cache: 'no-store', mode: 'same-origin' },
+        },
+        {
+          name: 'remote',
+          url: 'https://raw.githubusercontent.com/alphaonlines/AlphaAI/main/timeline.json',
+          options: { cache: 'no-store' },
+        }
+      ];
 
-      try {
-        const localResponse = await fetch(localUrl, { cache: 'no-cache' });
-        if (!localResponse.ok) throw new Error(`Local timeline missing: ${localResponse.status}`);
-        localData = await localResponse.json();
-      } catch (localError) {
-        console.warn("Local data missing, continuing with remote...", localError);
-      }
+      for (const source of sources) {
+        try {
+          const response = await fetch(source.url, source.options);
+          if (!response.ok) throw new Error(`${source.name} responded ${response.status}`);
+          const json = await response.json();
+          datasets.push(json);
+        } catch (err) {
+          const message = `${source.name} timeline failed: ${err.message}`;
+          console.warn(message);
+          errors.push(message);
+        }
+      });
 
-      try {
-        const response = await fetch('https://raw.githubusercontent.com/alphaonlines/AlphaAI/main/timeline.json', { cache: 'no-cache' });
-        if (!response.ok) throw new Error(`Network response was not ok: ${response.status}`);
-        remoteData = await response.json();
-      } catch (remoteError) {
-        console.warn("Remote data unavailable", remoteError);
+      const mergedTimeline = sortTimeline(Array.from(mergedMap.values()));
+
+      if (mergedTimeline.length === 0) {
+        document.getElementById('timelineFeed').innerHTML =
+          '<div style="text-align:center; padding:40px;"><h3>Unable to load data.</h3><p>Ensure timeline.json exists locally or check internet connection.</p></div>';
+        return;
       }
 
       const mergedMap = new Map();
 
-      [...remoteData, ...localData].forEach(item => {
+      datasets.flat().forEach(item => {
         const key = `${item.year}-${item.title}`;
         if (!mergedMap.has(key)) {
           mergedMap.set(key, item);
@@ -603,7 +616,11 @@
 
       if (mergedTimeline.length === 0) {
         document.getElementById('timelineFeed').innerHTML =
-          '<div style="text-align:center; padding:40px;"><h3>Unable to load data.</h3><p>Ensure timeline.json exists locally or check internet connection.</p></div>';
+          `<div style="text-align:center; padding:40px;">
+            <h3>Unable to load data.</h3>
+            <p>Make sure <code>timeline.json</code> is served from this directory or that the internet connection is available.</p>
+            ${errors.length ? `<p style="color:var(--muted); font-size:0.9rem;">${errors.join('<br>')}</p>` : ''}
+          </div>`;
         return;
       }
 
