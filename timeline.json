@@ -1,5 +1,124 @@
 [
   {
+    "year": 2026,
+    "month": "Jan",
+    "title": "AGI Breakthrough",
+    "visual": "🧠",
+    "summary": "First verified instance of Artificial General Intelligence.",
+    "why": "Machines can now perform any intellectual task a human can.",
+    "market_analysis": "Global markets halt trading due to volatility. Capital flows aggressively into compute infrastructure and energy sectors.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Artificial_general_intelligence",
+    "products": [
+      "Autonomous Research Assistants",
+      "Universal Translators"
+    ],
+    "stockReaction": "Global markets halt trading due to volatility.",
+    "emoji": "🤯",
+    "imgQuery": "futuristic artificial general intelligence brain"
+  },
+  {
+    "year": 2025,
+    "month": "Late",
+    "title": "Solid-State Pilot Lines",
+    "visual": "🔋",
+    "summary": "Major automakers launch pilot production for solid-state batteries.",
+    "why": "The 'Holy Grail' of batteries: lighter, safer, and 2x range compared to Lithium-Ion.",
+    "market_analysis": "Battery startups (QuantumScape) and legacy auto stocks fluctuate on prototype results. Reduced reliance on lithium drives commodity market shifts.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Solid-state_battery",
+    "products": [
+      "Solid-State Batteries",
+      "Electric Vehicle Packs"
+    ],
+    "stockReaction": "Battery startups (QuantumScape) and legacy auto stocks fluctuate on prototype results.",
+    "emoji": "⚡",
+    "imgQuery": "solid state battery technology"
+  },
+  {
+    "year": 2025,
+    "month": "Mid",
+    "title": "Agentic AI",
+    "visual": "🤖",
+    "summary": "AI shifts from 'Chatbots' to 'Agents' that perform complex tasks autonomously.",
+    "why": "Transforms AI from a conversational tool to a workforce tool.",
+    "market_analysis": "Cloud infrastructure stocks (AMZN, MSFT) rally on compute demand. Labor markets begin adjusting to AI automation.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Intelligent_agent",
+    "products": [
+      "AI Workforce Tools",
+      "Autonomous Systems"
+    ],
+    "stockReaction": "Cloud infrastructure stocks (AMZN, MSFT) rally on compute demand.",
+    "emoji": "🧠",
+    "imgQuery": "artificial intelligence agent futuristic"
+  },
+  {
+    "year": 2024,
+    "month": "Oct",
+    "title": "Tesla \"We, Robot\"",
+    "visual": "🚕",
+    "summary": "Tesla unveils Cybercab and Optimus Gen 3 updates.",
+    "why": "Signals full pivot to robotics over traditional cars.",
+    "market_analysis": "High volatility in TSLA as market debates timeline. Robotics investments surge globally.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Tesla_Robotaxi",
+    "products": [
+      "Autonomous Vehicles",
+      "Humanoid Robots"
+    ],
+    "stockReaction": "High volatility in TSLA as market debates timeline.",
+    "emoji": "🚕",
+    "imgQuery": "cyberpunk autonomous taxi"
+  },
+  {
+    "year": 2024,
+    "month": "Mar",
+    "title": "Claude 3 Launch",
+    "visual": "📝",
+    "summary": "Anthropic releases Claude 3 (Opus), surpassing GPT-4.",
+    "why": "Ended OpenAI monopoly on top-tier reasoning.",
+    "market_analysis": "GOOG and MSFT adjusted as AI race became a three-way battle. Increased competition drives innovation in AI safety.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Claude_(language_model)",
+    "products": [
+      "Advanced Language Models",
+      "AI Safety Tools"
+    ],
+    "stockReaction": "GOOG and MSFT adjusted as AI race became a three-way battle.",
+    "emoji": "📜",
+    "imgQuery": "ai writing code screen"
+  },
+  {
+    "year": 2024,
+    "month": "Mar",
+    "title": "Figure 01 Demo",
+    "visual": "🦿",
+    "summary": "Figure AI robot holds conversation and performs tasks.",
+    "why": "First convincing demo of LLM-brained humanoid.",
+    "market_analysis": "Sparked massive VC investment in robotics. Accelerates humanoid robot development.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Figure_(robotics_company)",
+    "products": [
+      "Humanoid Robots",
+      "AI-Integrated Devices"
+    ],
+    "stockReaction": "Sparked massive VC investment in robotics.",
+    "emoji": "🦾",
+    "imgQuery": "humanoid robot handing apple"
+  },
+  {
+    "year": 2024,
+    "month": "Feb",
+    "title": "Gemini 1.5 Pro",
+    "visual": "💎",
+    "summary": "Google launches 1-million token context window.",
+    "why": "Allowed AI to read entire books/codebases at once.",
+    "market_analysis": "Alphabet (GOOG) rallied on technical leadership. Boosts productivity in software development.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Gemini_(language_model)",
+    "products": [
+      "Large Context AI Models",
+      "Code Analysis Tools"
+    ],
+    "stockReaction": "Alphabet (GOOG) rallied on technical leadership.",
+    "emoji": "💠",
+    "imgQuery": "google gemini ai abstract"
+  },
+  {
     "year": 2024,
     "month": "Mar",
     "title": "NVIDIA Blackwell GPUs",
@@ -57,16 +176,203 @@
   },
   {
     "year": 2023,
-    "title": "ChatGPT Launch",
-    "visual": "🤖",
-    "summary": "OpenAI releases ChatGPT, sparking AI revolution.",
-    "market_analysis": "Tech stocks surge; AI investments hit $50B globally.",
+    "month": "Dec",
+    "title": "Optimus Gen 2",
+    "visual": "🦾",
+    "summary": "Tesla reveals faster, lighter Optimus Gen 2.",
+    "why": "Demonstrated rapid hardware iteration.",
+    "market_analysis": "Reinforced Tesla robotics narrative. Advances in humanoid robotics for manufacturing.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Tesla_Optimus",
     "products": [
-      "AI Assistants",
-      "Generative Tools",
-      "Language Models"
+      "Humanoid Robots",
+      "Robotic Actuators"
     ],
-    "wiki_url": "https://en.wikipedia.org/wiki/ChatGPT"
+    "stockReaction": "Reinforced Tesla robotics narrative.",
+    "emoji": "🤖",
+    "imgQuery": "tesla optimus robot"
+  },
+  {
+    "year": 2023,
+    "month": "Aug",
+    "title": "Robotaxis 24/7",
+    "visual": "🚦",
+    "summary": "SF approves 24/7 paid driverless rides.",
+    "why": "Commercial validation of Level 4 autonomy.",
+    "market_analysis": "Waymo solidified lead; Uber/Lyft partnerships followed. Accelerates autonomous vehicle adoption.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Robotaxi",
+    "products": [
+      "Autonomous Vehicles",
+      "Ride-Sharing Platforms"
+    ],
+    "stockReaction": "Waymo solidified lead; Uber/Lyft partnerships followed.",
+    "emoji": "🚗",
+    "imgQuery": "self driving car san francisco"
+  },
+  {
+    "year": 2022,
+    "month": "Nov",
+    "title": "ChatGPT Launch",
+    "visual": "💬",
+    "summary": "OpenAI releases ChatGPT to the public.",
+    "why": "The 'iPhone Moment' for AI.",
+    "market_analysis": "Triggered multi-trillion dollar AI bull market. Democratized AI access globally.",
+    "wiki_url": "https://en.wikipedia.org/wiki/ChatGPT",
+    "products": [
+      "Conversational AI",
+      "Generative Models"
+    ],
+    "stockReaction": "Triggered multi-trillion dollar AI bull market.",
+    "emoji": "🚀",
+    "imgQuery": "chatgpt openai logo digital"
+  },
+  {
+    "year": 2021,
+    "month": "Jul",
+    "title": "Sodium-Ion Battery",
+    "visual": "🧂",
+    "summary": "CATL unveils Sodium-Ion tech.",
+    "why": "Reduces reliance on scarce lithium.",
+    "market_analysis": "CATL stock surged; raw material markets shifted. Lowers battery costs for EVs.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Sodium-ion_battery",
+    "products": [
+      "Sodium-Ion Batteries",
+      "Energy Storage Systems"
+    ],
+    "stockReaction": "CATL stock surged; raw material markets shifted.",
+    "emoji": "🔋",
+    "imgQuery": "salt crystal battery energy"
+  },
+  {
+    "year": 2020,
+    "month": "Nov",
+    "title": "Apple M1 Chip",
+    "visual": "💻",
+    "summary": "Apple shifts Macs to custom Silicon.",
+    "why": "Revolutionized laptop efficiency.",
+    "market_analysis": "Apple margins rose; Intel declined. Boosts ARM-based computing adoption.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Apple_M1",
+    "products": [
+      "Custom Silicon Chips",
+      "Efficient Laptops"
+    ],
+    "stockReaction": "Apple margins rose; Intel declined.",
+    "emoji": "🍏",
+    "imgQuery": "computer processor chip macro"
+  },
+  {
+    "year": 2019,
+    "month": "Oct",
+    "title": "BERT Powers Google Search",
+    "visual": "🔍",
+    "summary": "Google deploys the BERT language model in search ranking to better understand natural language queries.",
+    "market_analysis": "Signals mainstream NLP adoption; SEO and ad-tech firms adapt content strategies around conversational search.",
+    "products": [
+      "Search ranking",
+      "Enterprise NLP",
+      "Voice assistants"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/BERT_(language_model)"
+  },
+  {
+    "year": 2017,
+    "month": "Jun",
+    "title": "Transformer Architecture Introduced",
+    "visual": "🧠",
+    "summary": "Vaswani et al. publish \"Attention Is All You Need,\" introducing the Transformer model architecture.",
+    "market_analysis": "Sets foundation for modern LLMs; drives GPU demand and a wave of startups building generative AI products.",
+    "products": [
+      "Large language models",
+      "Translation engines",
+      "AI developer platforms"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)"
+  },
+  {
+    "year": 2016,
+    "month": "Mar",
+    "title": "AlphaGo Beats Lee Sedol",
+    "visual": "🥋",
+    "summary": "DeepMind's AlphaGo defeats Go champion Lee Sedol, showcasing deep reinforcement learning at scale.",
+    "market_analysis": "Catalyzes investment in deep learning; accelerates AI hiring and specialized chip roadmaps across Asia.",
+    "products": [
+      "Reinforcement learning platforms",
+      "AI accelerators",
+      "AI research services"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol"
+  },
+  {
+    "year": 2012,
+    "month": "Dec",
+    "title": "AlexNet Wins ImageNet",
+    "visual": "📸",
+    "summary": "AlexNet's CNN architecture wins ImageNet with a large margin using GPU acceleration.",
+    "market_analysis": "Triggers deep learning boom; GPU sales and cloud ML services grow as vision models enter commercial apps.",
+    "products": [
+      "Image recognition APIs",
+      "Autonomous vehicles",
+      "Retail vision systems"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/AlexNet"
+  },
+  {
+    "year": 2007,
+    "month": "Jun",
+    "title": "First iPhone Released",
+    "visual": "📱",
+    "summary": "Apple ships the original iPhone, popularizing the modern smartphone form factor and mobile apps.",
+    "market_analysis": "Creates trillion-dollar mobile ecosystem; carriers revamp data plans and app stores become core revenue streams.",
+    "products": [
+      "Smartphones",
+      "Mobile apps",
+      "Mobile broadband"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)"
+  },
+  {
+    "year": 1998,
+    "month": "Sep",
+    "title": "Google Founded",
+    "visual": "📈",
+    "summary": "Larry Page and Sergey Brin launch Google, introducing PageRank-driven web search.",
+    "market_analysis": "Kickstarts search advertising as a dominant online revenue model; venture funding flows into search and ad-tech.",
+    "products": [
+      "Search engines",
+      "Online advertising",
+      "Web analytics"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Google"
+  },
+  {
+    "year": 1991,
+    "month": "",
+    "title": "Li-Ion Commercialized",
+    "visual": "🔋",
+    "summary": "Sony commercializes the Lithium-Ion battery.",
+    "why": "Enabled the portable electronics revolution (laptops, phones).",
+    "market_analysis": "Fueled the consumer electronics boom of the 90s. Created global lithium demand.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Lithium-ion_battery",
+    "products": [
+      "Lithium-Ion Batteries",
+      "Portable Electronics"
+    ],
+    "stockReaction": "Fueled the consumer electronics boom of the 90s.",
+    "emoji": "📼",
+    "imgQuery": "vintage sony battery 1990"
+  },
+  {
+    "year": 1991,
+    "month": "Aug",
+    "title": "Linux Kernel Announced",
+    "visual": "🐧",
+    "summary": "Linus Torvalds releases the Linux kernel, sparking the modern open-source operating system movement.",
+    "market_analysis": "Drives proliferation of open-source software; underpins enterprise servers, cloud infrastructure, and Android.",
+    "products": [
+      "Servers",
+      "Cloud platforms",
+      "Embedded systems"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Linux"
   },
   {
     "year": 2019,
@@ -168,6 +474,7 @@
   },
   {
     "year": 1989,
+    "month": "",
     "title": "World Wide Web",
     "visual": "🌐",
     "summary": "Tim Berners-Lee invents the World Wide Web.",
@@ -180,41 +487,397 @@
     "wiki_url": "https://en.wikipedia.org/wiki/World_Wide_Web"
   },
   {
-    "year": 1947,
-    "title": "Transistor Invention",
-    "visual": "🔌",
-    "summary": "Bell Labs invents the transistor, replacing vacuum tubes.",
-    "market_analysis": "Enabled miniaturization; semiconductor industry explodes.",
+    "year": 1986,
+    "month": "",
+    "title": "Backpropagation",
+    "visual": "📉",
+    "summary": "Hinton et al. popularize backprop for training neural nets.",
+    "why": "The mathematical foundation of modern Deep Learning.",
+    "market_analysis": "Academic breakthrough; laid groundwork for future AI stocks. Enabled scalable ML training.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Backpropagation",
     "products": [
-      "Computers",
-      "Smartphones",
-      "Integrated Circuits"
+      "Neural Network Tools",
+      "Deep Learning Frameworks"
     ],
-    "wiki_url": "https://en.wikipedia.org/wiki/Transistor"
+    "stockReaction": "Academic breakthrough; laid groundwork for future AI stocks.",
+    "emoji": "📐",
+    "imgQuery": "neural network diagram vintage"
+  },
+  {
+    "year": 1972,
+    "month": "",
+    "title": "MYCIN Expert System",
+    "visual": "⚕️",
+    "summary": "An AI designed to diagnose bacterial infections.",
+    "why": "Proved AI could mimic human expert decision making.",
+    "market_analysis": "Boosted interest in symbolic AI research funding. Pioneered expert systems in medicine.",
+    "wiki_url": "https://en.wikipedia.org/wiki/MYCIN",
+    "products": [
+      "Expert Systems",
+      "Medical Diagnostics Software"
+    ],
+    "stockReaction": "Boosted interest in symbolic AI research funding.",
+    "emoji": "🏥",
+    "imgQuery": "vintage computer medical"
+  },
+  {
+    "year": 1971,
+    "month": "",
+    "title": "Intel 4004",
+    "visual": "💾",
+    "summary": "The first commercially available microprocessor.",
+    "why": "Shrunk computers from rooms to desktops.",
+    "market_analysis": "Launched the Silicon Valley semiconductor era. Enabled personal computing revolution.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Intel_4004",
+    "products": [
+      "Microprocessors",
+      "Personal Computers"
+    ],
+    "stockReaction": "Launched the Silicon Valley semiconductor era.",
+    "emoji": "📼",
+    "imgQuery": "intel 4004 chip macro"
+  },
+  {
+    "year": 1966,
+    "month": "",
+    "title": "Shakey the Robot",
+    "visual": "🤖",
+    "summary": "The first general-purpose mobile robot able to reason.",
+    "why": "Combined robotics, computer vision, and planning.",
+    "market_analysis": "Funded largely by DARPA; military/research impact. Foundation for autonomous robotics.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Shakey_the_robot",
+    "products": [
+      "Mobile Robots",
+      "AI Planning Systems"
+    ],
+    "stockReaction": "Funded largely by DARPA; military/research impact.",
+    "emoji": "📷",
+    "imgQuery": "shakey the robot sri"
+  },
+  {
+    "year": 1965,
+    "month": "",
+    "title": "Fuzzy Logic",
+    "visual": "🌫️",
+    "summary": "Lotfi Zadeh introduces Fuzzy Logic.",
+    "why": "Allowed computers to handle ambiguous data (\"somewhat hot\").",
+    "market_analysis": "Widely adopted later in industrial control systems. Improved automation in appliances.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Fuzzy_logic",
+    "products": [
+      "Control Systems",
+      "Smart Appliances"
+    ],
+    "stockReaction": "Widely adopted later in industrial control systems.",
+    "emoji": "🌡️",
+    "imgQuery": "fuzzy logic diagram math"
+  },
+  {
+    "year": 1958,
+    "month": "",
+    "title": "Perceptron & LISP",
+    "visual": "👁️",
+    "summary": "Rosenblatt invents the Perceptron; McCarthy creates LISP.",
+    "why": "Hardware for learning and software for reasoning.",
+    "market_analysis": "N/A (Academic Era). Laid foundations for neural networks and programming languages.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Perceptron",
+    "products": [
+      "Neural Networks",
+      "Programming Languages"
+    ],
+    "stockReaction": "N/A (Academic Era)",
+    "emoji": "📜",
+    "imgQuery": "vintage computer punch cards"
+  },
+  {
+    "year": 1956,
+    "month": "",
+    "title": "Dartmouth Conference",
+    "visual": "🎓",
+    "summary": "The term \"Artificial Intelligence\" is coined.",
+    "why": "The official birth of AI as a research field.",
+    "market_analysis": "N/A (Academic Era). Sparked global AI research investments.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Dartmouth_Conference",
+    "products": [
+      "AI Research Tools",
+      "Symbolic AI Systems"
+    ],
+    "stockReaction": "N/A (Academic Era)",
+    "emoji": "🏫",
+    "imgQuery": "dartmouth college 1950s"
+  },
+  {
+    "year": 1954,
+    "month": "",
+    "title": "Unimate Robot",
+    "visual": "🏗️",
+    "summary": "First programmable industrial robot patent.",
+    "why": "The grandfather of all factory automation.",
+    "market_analysis": "Revolutionized GM assembly lines in the 60s. Enabled mass manufacturing automation.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Unimate",
+    "products": [
+      "Industrial Robots",
+      "Automated Assembly Lines"
+    ],
+    "stockReaction": "Revolutionized GM assembly lines in the 60s.",
+    "emoji": "🏭",
+    "imgQuery": "unimate robot arm 1960s"
+  },
+  {
+    "year": 1950,
+    "month": "",
+    "title": "Turing Test",
+    "visual": "🧠",
+    "summary": "Alan Turing proposes the \"Imitation Game\".",
+    "why": "Defined the ultimate goal of machine intelligence.",
+    "market_analysis": "N/A. Influenced AI development and ethical discussions.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Turing_test",
+    "products": [
+      "AI Evaluation Tools",
+      "Conversational Agents"
+    ],
+    "stockReaction": "N/A",
+    "emoji": "♟️",
+    "imgQuery": "alan turing computer"
+  },
+  {
+    "year": 1948,
+    "month": "",
+    "title": "Cybernetics",
+    "visual": "🌀",
+    "summary": "Norbert Wiener publishes \"Cybernetics\".",
+    "why": "Established the study of control and communication in machines.",
+    "market_analysis": "N/A. Influenced control systems and AI theory.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Cybernetics",
+    "products": [
+      "Control Systems",
+      "Feedback Mechanisms"
+    ],
+    "stockReaction": "N/A",
+    "emoji": "📖",
+    "imgQuery": "cybernetics book vintage"
+  },
+  {
+    "year": 1947,
+    "month": "",
+    "title": "The Transistor",
+    "visual": "⚡",
+    "summary": "Bell Labs invents the point-contact transistor.",
+    "why": "Replaced vacuum tubes; made modern tech possible.",
+    "market_analysis": "Economic Impact: Infinite. Created the Digital Age. Enabled miniaturization of electronics.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Transistor",
+    "products": [
+      "Transistors",
+      "Electronic Devices"
+    ],
+    "stockReaction": "Economic Impact: Infinite. Created the Digital Age.",
+    "emoji": "💡",
+    "imgQuery": "first transistor bell labs"
+  },
+  {
+    "year": 1945,
+    "month": "",
+    "title": "ENIAC",
+    "visual": "🖥️",
+    "summary": "First general-purpose electronic computer.",
+    "why": "Demonstrated massive speed for calculation.",
+    "market_analysis": "Economic Impact: Shifted military/science to digital. Pioneered programmable computing.",
+    "wiki_url": "https://en.wikipedia.org/wiki/ENIAC",
+    "products": [
+      "Electronic Computers",
+      "Digital Calculators"
+    ],
+    "stockReaction": "Economic Impact: Shifted military/science to digital.",
+    "emoji": "🔌",
+    "imgQuery": "eniac computer room"
+  },
+  {
+    "year": 1943,
+    "month": "",
+    "title": "Neural Networks",
+    "visual": "🕸️",
+    "summary": "McCulloch & Pitts model artificial neurons.",
+    "why": "The theoretical ancestor of modern Deep Learning.",
+    "market_analysis": "N/A. Foundation for modern AI and machine learning.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Artificial_neural_network",
+    "products": [
+      "Neural Network Models",
+      "AI Algorithms"
+    ],
+    "stockReaction": "N/A",
+    "emoji": "🧠",
+    "imgQuery": "artificial neuron diagram vintage"
+  },
+  {
+    "year": 1937,
+    "month": "",
+    "title": "Analytical Engine",
+    "visual": "⚙️",
+    "summary": "Babbage designs the first general mechanical computer.",
+    "why": "The Victorian ancestor of the modern CPU.",
+    "market_analysis": "Economic Impact: None at the time (it wasn't built). Influenced mechanical computing concepts.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Analytical_Engine",
+    "products": [
+      "Mechanical Computers",
+      "Programmable Calculators"
+    ],
+    "stockReaction": "Economic Impact: None at the time (it wasn't built).",
+    "emoji": "🎩",
+    "imgQuery": "charles babbage analytical engine"
+  },
+  {
+    "year": 1879,
+    "month": "",
+    "title": "Electric Light",
+    "visual": "💡",
+    "summary": "Edison commercializes the light bulb.",
+    "why": "Built the grid infrastructure we plug robots into today.",
+    "market_analysis": "Economic Impact: Created the Utility Industry. Extended working hours and productivity.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Incandescent_light_bulb",
+    "products": [
+      "Light Bulbs",
+      "Electrical Grids"
+    ],
+    "stockReaction": "Economic Impact: Created the Utility Industry.",
+    "emoji": "🌃",
+    "imgQuery": "edison light bulb vintage"
   },
   {
     "year": 1856,
+    "month": "",
     "title": "Bessemer Process",
     "visual": "🏗️",
-    "summary": "First inexpensive industrial process for mass-production of steel.",
-    "market_analysis": "Steel prices dropped 80%, enabling skyscrapers and railroads. Carnegie Steel boom.",
+    "summary": "Henry Bessemer patents the first process for mass-producing steel.",
+    "why": "Enabled cheap, strong steel for railways, buildings, and machinery.",
+    "market_analysis": "Lowered the cost of steel production by 80%, enabling the railroad boom and modern skyscrapers.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Bessemer_process",
     "products": [
-      "Railroad Tracks",
-      "Skyscrapers",
-      "Suspension Bridges"
+      "Railways",
+      "Engine Blocks",
+      "Industrial Gears"
     ],
-    "wiki_url": "https://en.wikipedia.org/wiki/Bessemer_process"
+    "stockReaction": "Carnegie Steel became the world's most profitable company.",
+    "emoji": "⚙️",
+    "imgQuery": "bessemer converter industrial"
+  },
+  {
+    "year": 1821,
+    "month": "",
+    "title": "Electric Motor",
+    "visual": "⚙️",
+    "summary": "Faraday builds the first electric motor.",
+    "why": "Provided the muscle (actuation) for future robots.",
+    "market_analysis": "Economic Impact: Electrification of industry. Enabled mechanical automation.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Electric_motor",
+    "products": [
+      "Electric Motors",
+      "Industrial Machinery"
+    ],
+    "stockReaction": "Economic Impact: Electrification of industry.",
+    "emoji": "🧲",
+    "imgQuery": "faraday electric motor"
   },
   {
     "year": 1800,
+    "month": "",
     "title": "Voltaic Pile",
     "visual": "🔋",
-    "summary": "Alessandro Volta invents the first true electric battery.",
-    "market_analysis": "Precursor to all modern electronics energy storage sectors.",
+    "summary": "Alessandro Volta invents the first battery.",
+    "why": "Enabled portable electric power for the first time.",
+    "market_analysis": "Economic Impact: The birth of Electrochemistry. Foundation for all modern batteries.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Voltaic_pile",
     "products": [
       "Batteries",
-      "Electroplating"
+      "Electrochemical Devices"
     ],
-    "wiki_url": "https://en.wikipedia.org/wiki/Voltaic_pile"
+    "stockReaction": "Economic Impact: The birth of Electrochemistry.",
+    "emoji": "🧪",
+    "imgQuery": "voltaic pile battery"
+  },
+  {
+    "year": 1679,
+    "month": "",
+    "title": "Leibniz's Binary System",
+    "visual": "🔢",
+    "summary": "Gottfried Leibniz develops the binary numeral system.",
+    "why": "Foundation for digital logic, enabling modern computing and AI.",
+    "market_analysis": "Economic Impact: Influenced later calculators and computers, boosting scientific productivity.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz",
+    "products": [
+      "Binary Calculators",
+      "Digital Systems"
+    ],
+    "stockReaction": "N/A (Pre-Industrial Era)",
+    "emoji": "🔢",
+    "imgQuery": "leibniz binary system diagram"
+  },
+  {
+    "year": 50,
+    "month": "",
+    "title": "Hero's Aeolipile",
+    "visual": "💨",
+    "summary": "Hero of Alexandria invents the aeolipile, the first steam turbine.",
+    "why": "Demonstrated steam energy for rotation, laying groundwork for batteries and mechanical power.",
+    "market_analysis": "Economic Impact: Inspired later steam engines, though not immediately commercialized.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Aeolipile",
+    "products": [
+      "Steam Turbines",
+      "Early Engines"
+    ],
+    "stockReaction": "N/A (Ancient Era)",
+    "emoji": "⚙️",
+    "imgQuery": "hero of alexandria aeolipile steam"
+  },
+  {
+    "year": -2400,
+    "month": "",
+    "title": "Invention of the Abacus",
+    "visual": "🧮",
+    "summary": "Babylonians develop the abacus for arithmetic calculations.",
+    "why": "Early tool for data manipulation, precursor to computing and AI algorithms.",
+    "market_analysis": "Economic Impact: Improved trade calculations, enabling complex economies and record-keeping.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Abacus",
+    "products": [
+      "Calculating Devices",
+      "Early Computers"
+    ],
+    "stockReaction": "N/A (Ancient Era)",
+    "emoji": "🧮",
+    "imgQuery": "ancient babylonian abacus"
+  },
+  {
+    "year": -3000,
+    "month": "",
+    "title": "Bronze Age Smelting",
+    "visual": "🔥",
+    "summary": "Humans learn to smelt copper and tin into bronze, creating durable tools.",
+    "why": "Foundation for metallurgy, enabling stronger materials for batteries (electrodes) and robotics (gears).",
+    "market_analysis": "Economic Impact: Shifted societies from stone to metal tools, fueling trade and warfare economies.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Bronze_Age",
+    "products": [
+      "Bronze Tools",
+      "Weapons",
+      "Early Machinery"
+    ],
+    "stockReaction": "N/A (Ancient Era)",
+    "emoji": "⚒️",
+    "imgQuery": "bronze age smelting furnace"
+  },
+  {
+    "year": -3500,
+    "month": "",
+    "title": "Invention of the Wheel",
+    "visual": "🛞",
+    "summary": "Mesopotamians invent the wheel, enabling efficient transport and machinery.",
+    "why": "Revolutionized energy exertion through rotation, powering mills and vehicles that manipulate the world.",
+    "market_analysis": "Economic Impact: Enabled trade networks and agriculture, boosting productivity and early industrialization.",
+    "wiki_url": "https://en.wikipedia.org/wiki/Wheel",
+    "products": [
+      "Carts",
+      "Water Wheels",
+      "Windmills"
+    ],
+    "stockReaction": "N/A (Prehistoric Era)",
+    "emoji": "🛞",
+    "imgQuery": "ancient mesopotamian wheel invention"
   }
 ]
