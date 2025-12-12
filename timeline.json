@@ -51,6 +51,320 @@
     "imgQuery": "artificial intelligence agent futuristic"
   },
   {
+    "year": 2025,
+    "month": "Late",
+    "title": "Initial Air-Taxi Routes",
+    "visual": "🛩️",
+    "summary": "First limited commercial eVTOL air-taxi routes begin operating in select cities.",
+    "why": "Marks the start of practical flying-car style urban air mobility.",
+    "market_analysis": "Urban air mobility firms (Joby, Archer) see renewed investor interest as certification and fleet orders translate into early revenue.",
+    "products": [
+      "eVTOL air taxis",
+      "Urban air mobility services"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Urban_air_mobility"
+  },
+  {
+    "year": 2025,
+    "month": "Nov",
+    "title": "Paradromics receives FDA IDE approval to begin Connexus BCI Connect-One early feasibility study",
+    "visual": "🧠",
+    "summary": "Paradromics said the U.S. FDA granted an Investigational Device Exemption (IDE) to start its Connect-One early feasibility study using the fully implantable Connexus brain-computer interface to restore speech and enable computer control for people with severe motor impairment.",
+    "why": "It marks a major clinical-validation step for high-bandwidth implantable BCI systems aimed at real-world communication restoration.",
+    "market_analysis": "While Paradromics is private, FDA IDE clearance is a credibility catalyst that can accelerate partnerships, recruiting, and funding across the BCI sector as competitors race toward clinical data and reimbursement pathways.",
+    "products": [
+      "implantable BCI",
+      "speech decoding",
+      "neural signal processing",
+      "assistive communication"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Paradromics",
+    "news_url": "https://www.paradromics.com/news/paradromics-receives-fda-approval-for-the-connect-one-clinical-study-with-the-connexus-brain-computer-interface"
+  },
+  {
+    "year": 2025,
+    "month": "Nov",
+    "title": "China’s battery and BESS exports surge to record highs in 2025",
+    "visual": "🔋",
+    "summary": "A Reuters analysis reported China’s exports of batteries and battery energy storage systems (BESS) hit records in 2025, rising sharply year over year and generating tens of billions in export receipts through the first nine months.",
+    "why": "Record battery/BESS exports signal accelerating global electrification and grid-storage buildouts that directly feed AI data centers, EVs, and robotics supply chains.",
+    "market_analysis": "The export surge reinforces China’s dominance in battery supply and can pressure global pricing while reshaping industrial policy and procurement strategies in major importing regions.",
+    "products": [
+      "grid-scale BESS",
+      "LFP packs",
+      "EV cells",
+      "data-center storage"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Battery_storage_power_station",
+    "news_url": "https://www.reuters.com/markets/commodities/bess-boom-chinas-battery-exports-charge-new-highs-2025-11-18/"
+  },
+  {
+    "year": 2025,
+    "month": "Nov",
+    "title": "Cursor’s code-generation AI company valuation jumps to ~$29.3B after new funding round",
+    "visual": "🧑‍💻",
+    "summary": "Reuters reported that code-generation startup Cursor nearly tripled its valuation in five months, raising $2.3B in a Coatue-led round with participation from Nvidia and Google, among others.",
+    "why": "Big-ticket funding for AI coding tools accelerates agentic software development that also powers robotics stacks, automation pipelines, and rapid prototyping across industries.",
+    "market_analysis": "The deal underscored continued investor appetite for AI, reinforcing high valuations across the AI tooling ecosystem and signaling sustained capital availability for developer-productivity platforms.",
+    "products": [
+      "AI codegen",
+      "IDE copilots",
+      "agentic coding",
+      "software automation"
+    ],
+    "wiki_url": "",
+    "news_url": "https://www.reuters.com/technology/code-gen-startup-cursor-valuation-nearly-triples-30-billion-latest-funding-round-2025-11-13/"
+  },
+  {
+    "year": 2025,
+    "month": "Nov",
+    "title": "California reports nearly 17,000 MW of battery storage, continuing record growth",
+    "visual": "⚡",
+    "summary": "California’s Energy Commission announced the state reached 16,942 MW of battery storage available, citing rapid recent additions and framing storage as key to grid reliability alongside renewables.",
+    "why": "Large-scale storage buildouts are foundational infrastructure for AI-heavy power demand growth and electrified mobility/robotics expansion.",
+    "market_analysis": "Rapid storage deployment supports demand for cells, inverters, EPC services, and grid software, and it provides a policy signal that can de-risk investment in utility-scale storage and behind-the-meter aggregation.",
+    "products": [
+      "utility-scale storage",
+      "virtual power plants",
+      "grid balancing",
+      "battery inverters"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/California_Energy_Commission",
+    "news_url": "https://www.energy.ca.gov/news/2025-11/californias-battery-storage-fleet-continues-record-growth-strengthening-grid"
+  },
+  {
+    "year": 2025,
+    "month": "Nov",
+    "title": "UNESCO adopts the first global normative framework on the ethics of neurotechnology",
+    "visual": "🧾",
+    "summary": "UNESCO announced member states adopted a recommendation establishing safeguards for neurotechnology, including protections around neural data, consent, and risks to vulnerable groups, with entry into force on Nov. 12, 2025.",
+    "why": "Global guardrails on neural data and neurotech ethics shape the operating environment for BCIs (and AI models trained on neural signals) before mass commercialization.",
+    "market_analysis": "A harmonizing framework can reduce regulatory uncertainty for compliant neurotech developers, but also increases compliance expectations around data handling, transparency, and consumer neurotech claims.",
+    "products": [
+      "neural data governance",
+      "BCI regulation",
+      "neurotech compliance",
+      "privacy-by-design"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/UNESCO",
+    "news_url": "https://www.unesco.org/en/articles/ethics-neurotechnology-unesco-adopts-first-global-standard-cutting-edge-technology"
+  },
+  {
+    "year": 2025,
+    "month": "Nov",
+    "title": "Joby begins power-on testing of its first FAA-conforming eVTOL prototype",
+    "visual": "🛩️",
+    "summary": "Aviation International News reported Joby commenced power-on testing of the first of several aircraft built for FAA type inspection authorization (TIA) testing as it advances its certification program.",
+    "why": "FAA-conforming test articles are a key step toward certified eVTOL operations, which depend heavily on advanced autonomy software, avionics, and high-performance batteries.",
+    "market_analysis": "Certification progress is a major value driver for public eVTOL developers; concrete test milestones can shift investor sentiment around timelines, partnerships, and eventual commercial launch readiness.",
+    "products": [
+      "eVTOL certification",
+      "flight-control software",
+      "electric propulsion",
+      "aviation batteries"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Joby_Aviation",
+    "news_url": "https://www.ainonline.com/aviation-news/futureflight/2025-11-06/joby-starts-power-testing-first-faa-conforming-prototype"
+  },
+  {
+    "year": 2025,
+    "month": "Nov",
+    "title": "Schaeffler partners with Neura Robotics to develop and supply humanoid components",
+    "visual": "🤖",
+    "summary": "Reuters reported Schaeffler partnered with Neura Robotics to jointly develop and supply key components for humanoid robots, and said it plans to integrate a mid-four-digit number of humanoids into production by 2035.",
+    "why": "It signals industrial-scale commitment to humanoids, accelerating demand for robot hardware, perception, and AI control stacks in real factories.",
+    "market_analysis": "Moves by established industrial suppliers validate humanoid commercialization paths and can stimulate supplier ecosystems (actuators, sensors, safety systems) while increasing competitive pressure on automation incumbents.",
+    "products": [
+      "humanoid components",
+      "industrial automation",
+      "robot actuators",
+      "factory robotics"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Schaeffler",
+    "news_url": "https://www.reuters.com/world/china/schaeffler-partners-with-neura-robotics-develop-supply-humanoids-2025-11-04/"
+  },
+  {
+    "year": 2025,
+    "month": "Oct",
+    "title": "Nvidia hits ~$5 trillion market valuation as the AI boom powers a meteoric rise",
+    "visual": "🧠",
+    "summary": "Reuters reported Nvidia became the first company to reach a roughly $5 trillion market capitalization as enthusiasm around AI infrastructure spending surged.",
+    "why": "Nvidia’s valuation milestone reflects how foundational AI compute has become for modern software, robotics perception, and autonomy stacks.",
+    "market_analysis": "A $5T valuation milestone reinforces AI-capex dominance across semis, cloud, and data centers, often lifting the broader AI supply chain while increasing sensitivity to any demand/capex guidance changes.",
+    "products": [
+      "AI accelerators",
+      "AI data centers",
+      "LLM training",
+      "robotics perception"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Nvidia",
+    "news_url": "https://www.reuters.com/business/nvidia-poised-record-5-trillion-market-valuation-2025-10-29/"
+  },
+  {
+    "year": 2025,
+    "month": "Oct",
+    "title": "Joby and Archer publicly demonstrate eVTOL ‘flying taxis’ at a U.S. airshow",
+    "visual": "🛩️",
+    "summary": "Business Insider reported Joby Aviation and Archer Aviation flew public demonstrations at the California International Airshow, showcasing their eVTOL aircraft to a large U.S. crowd.",
+    "why": "High-visibility public demos are key to mainstream acceptance and help de-risk the path to certification and commercial operations for eVTOLs.",
+    "market_analysis": "Public demonstrations can materially affect sentiment for pre-revenue eVTOL makers by validating progress and increasing media attention, often moving investor expectations around certification timelines and near-term partnerships.",
+    "products": [
+      "eVTOL air taxi",
+      "electric propulsion",
+      "flight-control software",
+      "aviation batteries"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Electric_vertical_take-off_and_landing",
+    "news_url": "https://www.businessinsider.com/joby-archer-aviation-evtol-flying-taxis-first-us-public-airshow-2025-10"
+  },
+  {
+    "year": 2025,
+    "month": "Oct",
+    "title": "1X launches consumer pre-orders for its NEO humanoid home robot",
+    "visual": "🤖",
+    "summary": "1X announced the launch of NEO, positioning it as a consumer-oriented humanoid robot for household tasks and opening preorders.",
+    "why": "Consumer preorders are a meaningful commercialization step for humanoids, pushing embodied AI from labs into real homes and real-world data loops.",
+    "market_analysis": "A consumer preorder milestone can stimulate the broader humanoid ecosystem (actuators, safety, teleop, on-device AI) and intensify competition for home-robot form factors and operating models.",
+    "products": [
+      "home humanoid",
+      "teleoperation assist",
+      "vision-language control",
+      "safe actuators"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/1X_Technologies",
+    "news_url": "https://www.1x.tech/discover/neo-home-robot"
+  },
+  {
+    "year": 2025,
+    "month": "Oct",
+    "title": "Europe’s first BCI implant for a quadriplegia patient performed at TUM University Hospital",
+    "visual": "🧠",
+    "summary": "TUM reported a team implanted a 256-microelectrode brain-computer interface in a patient with quadriplegia, described as the first such procedure of its kind in Europe for this indication, aiming toward thought-based control of a smartphone and robotic arm.",
+    "why": "This expands clinical BCI momentum in Europe and directly links AI decoding to practical control of assistive robotics.",
+    "market_analysis": "Credible hospital-led implants can accelerate grant funding, partnerships, and device/algorithm standardization—key ingredients for eventual scaled neurotech markets and downstream assistive-robotics demand.",
+    "products": [
+      "implantable BCI",
+      "neural decoding AI",
+      "assistive robotics",
+      "cursor/arm control"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface",
+    "news_url": "https://www.tum.de/en/news-and-events/all-news/press-releases/details/brain-computer-interface-for-a-patient-with-quadriplegia"
+  },
+  {
+    "year": 2025,
+    "month": "Oct",
+    "title": "Ameresco announces commercial operation of a 50MW/200MWh behind-the-meter BESS for Nucor in Arizona",
+    "visual": "🔋",
+    "summary": "Ameresco announced the development and commercial operation of a 50MW/200MWh battery energy storage system in Kingman, Arizona, described as the largest behind-the-meter storage project in the state.",
+    "why": "Industrial behind-the-meter storage helps stabilize power demand for electrified manufacturing—an enabling layer for EV, robotics, and AI-heavy industrial growth.",
+    "market_analysis": "High-profile BESS go-lives support demand for integrators, long-term storage services contracts, and large-format battery packs, while signaling continued buildout beyond utility-front-of-meter projects.",
+    "products": [
+      "behind-the-meter BESS",
+      "peak shaving",
+      "industrial electrification",
+      "Megapack-scale systems"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Ameresco",
+    "news_url": "https://ir.ameresco.com/news-events/press-releases/detail/727/ameresco-announces-50mw-battery-energy-storage-asset-to"
+  },
+  {
+    "year": 2025,
+    "month": "Oct",
+    "title": "SolarEdge surpasses 500 MWh of storage deployed in virtual power plants",
+    "visual": "⚡",
+    "summary": "SolarEdge announced it surpassed 500 MWh of residential battery storage deployed in virtual power plants across multiple markets.",
+    "why": "VPP-scale residential storage is increasingly important for grid flexibility as electrification and data-center demand accelerate.",
+    "market_analysis": "VPP milestones strengthen the market case for aggregated storage and grid services revenues, impacting the competitive landscape for inverter + storage ecosystems and utility programs.",
+    "products": [
+      "virtual power plant",
+      "residential storage",
+      "grid services",
+      "smart inverters"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/SolarEdge",
+    "news_url": "https://investors.solaredge.com/news-releases/news-release-details/solaredge-surpasses-500-mwh-storage-virtual-power-plants-across"
+  },
+  {
+    "year": 2025,
+    "month": "Oct",
+    "title": "Serve Robotics partners with DoorDash to deploy sidewalk delivery robots",
+    "visual": "🛵",
+    "summary": "Reuters reported Serve Robotics partnered with DoorDash to deploy its sidewalk delivery robots, expanding beyond its earlier Uber Eats relationship and planning broader rollout.",
+    "why": "Last-mile delivery robotics is a practical commercialization path for autonomy, perception, and fleet-ops AI in dense real-world environments.",
+    "market_analysis": "Reuters noted Serve’s shares surged on the announcement, highlighting how revenue-distribution partnerships can re-rate robotics companies by improving utilization and market reach.",
+    "products": [
+      "delivery robots",
+      "autonomous navigation",
+      "fleet operations",
+      "remote teleop"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Delivery_robot",
+    "news_url": "https://www.reuters.com/business/delivery-robot-firm-serve-robotics-partners-with-doordash-expand-reach-2025-10-09/"
+  },
+  {
+    "year": 2025,
+    "month": "Oct",
+    "title": "Reuters: Chinese humanoid robot maker AgiBot plans a Hong Kong IPO",
+    "visual": "🏭",
+    "summary": "Reuters reported sources saying AgiBot planned a Hong Kong IPO, targeting a multibillion-dollar valuation for its humanoid robotics business.",
+    "why": "An IPO pipeline for humanoid robotics signals maturation of the sector and expands capital access for scaling manufacturing and embodied-AI development.",
+    "market_analysis": "IPO plans can catalyze peer valuations and investor interest in embodied AI, while also increasing scrutiny on unit economics, deployment traction, and safety/compliance strategies.",
+    "products": [
+      "humanoid robots",
+      "embodied AI",
+      "robot training data",
+      "factory automation"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/AgiBot",
+    "news_url": "https://www.reuters.com/world/china/chinese-robot-maker-agibot-plans-hong-kong-ipo-next-year-sources-say-2025-10-10/"
+  },
+  {
+    "year": 2024,
+    "month": "Nov",
+    "title": "Noninvasive Brain Decoding Advances",
+    "visual": "📡",
+    "summary": "AI models paired with wearable EEG/fNIRS improve decoding of intent, imagery, and text without implants.",
+    "why": "Lower-barrier brain–computer interfaces accelerate mind-controlled computing and assistive tech.",
+    "market_analysis": "BCI and neurotech startups attract new funding; consumer-grade neural wearables expand beyond wellness into productivity and accessibility.",
+    "products": [
+      "Wearable BCIs",
+      "Neuroadaptive interfaces",
+      "Assistive communication tools"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface"
+  },
+  {
+    "year": 2024,
+    "month": "Apr",
+    "title": "eVTOL Certification Frameworks Mature",
+    "visual": "📜",
+    "summary": "Regulators finalize clearer certification paths for electric vertical takeoff and landing aircraft.",
+    "why": "Turns eVTOLs from prototypes into certifiable products, unlocking scaled deployment.",
+    "market_analysis": "Manufacturers secure preorders and partnerships with airlines and cities; suppliers of batteries, avionics, and autonomy systems benefit.",
+    "products": [
+      "Certified eVTOL aircraft",
+      "Urban air mobility fleets",
+      "Autonomous flight software"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/EVTOL"
+  },
+  {
+    "year": 2024,
+    "month": "Jan",
+    "title": "Neuralink First Human Implant",
+    "visual": "🧠",
+    "summary": "Neuralink implants its first brain–computer interface in a human trial participant.",
+    "why": "Demonstrates high-channel implants enabling thought-to-cursor control and future neuroprosthetics.",
+    "market_analysis": "Neurotech investment accelerates; raises expectations for clinical BCIs and the long-term brain-to-computer market.",
+    "products": [
+      "Implantable BCIs",
+      "Neuroprosthetic control systems",
+      "Assistive cursor/typing tools"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Neuralink"
+  },
+  {
     "year": 2024,
     "month": "Oct",
     "title": "Tesla \"We, Robot\"",
@@ -176,6 +490,36 @@
   },
   {
     "year": 2023,
+    "month": "Sep",
+    "title": "Autonomous Air Taxi Programs Expand",
+    "visual": "🛫",
+    "summary": "eVTOL companies scale autonomous flight testing and urban air-taxi pilot programs.",
+    "why": "Brings AI autonomy into aviation, a key step toward safe pilotless urban flight.",
+    "market_analysis": "Partnerships with cities and airlines grow; autonomy and safety validation becomes a major competitive differentiator.",
+    "products": [
+      "Autonomous air taxis",
+      "Urban air mobility trials",
+      "Aviation autonomy stacks"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Urban_air_mobility"
+  },
+  {
+    "year": 2023,
+    "month": "Aug",
+    "title": "Speech From Brain Signals",
+    "visual": "🗣️",
+    "summary": "Research teams decode near-real-time speech and text from cortical signals for people with paralysis.",
+    "why": "Shows BCIs can restore communication at conversational speed.",
+    "market_analysis": "Hospitals and device makers begin planning clinical pathways; AI-driven neuroprosthetics gain momentum.",
+    "products": [
+      "Speech neuroprosthetics",
+      "Clinical BCI systems",
+      "Assistive communication devices"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface"
+  },
+  {
+    "year": 2023,
     "month": "Dec",
     "title": "Optimus Gen 2",
     "visual": "🦾",
@@ -228,6 +572,36 @@
   {
     "year": 2021,
     "month": "Jul",
+    "title": "AlphaFold 2 Open Release",
+    "visual": "🧬",
+    "summary": "DeepMind releases AlphaFold 2 predictions and tooling broadly, making high-accuracy protein structures accessible.",
+    "why": "Applies deep learning to biology at scale, reshaping drug discovery and synthetic biology.",
+    "market_analysis": "Biotech and pharma accelerate AI adoption; demand rises for AI-first lab automation and molecular design platforms.",
+    "products": [
+      "Protein-structure databases",
+      "AI drug discovery tools",
+      "Biology foundation models"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/AlphaFold"
+  },
+  {
+    "year": 2021,
+    "month": "Apr",
+    "title": "Neuralink Monkey Cursor Demo",
+    "visual": "🐒",
+    "summary": "Neuralink shows a monkey playing simple video games by controlling a cursor with neural signals.",
+    "why": "Public proof that high-channel BCIs can decode motor intent reliably.",
+    "market_analysis": "Boosts neurotech visibility and funding; sparks competition among implantable and noninvasive BCI startups.",
+    "products": [
+      "Implantable neural interfaces",
+      "Motor-intent decoders",
+      "Neurorehabilitation devices"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Neuralink"
+  },
+  {
+    "year": 2021,
+    "month": "Jul",
     "title": "Sodium-Ion Battery",
     "visual": "🧂",
     "summary": "CATL unveils Sodium-Ion tech.",
@@ -261,6 +635,21 @@
   },
   {
     "year": 2019,
+    "month": "Jun",
+    "title": "Piloted eVTOL Urban Test Flights",
+    "visual": "🏙️",
+    "summary": "Early eVTOL aircraft complete piloted urban demonstration flights, validating electric lift and control.",
+    "why": "Shows electric vertical flight is viable for short-range city mobility.",
+    "market_analysis": "Triggers new rounds of investment into eVTOL makers and battery supply chains for aviation-grade cells.",
+    "products": [
+      "eVTOL prototypes",
+      "Urban flight test programs",
+      "Aviation battery packs"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/EVTOL"
+  },
+  {
+    "year": 2019,
     "month": "Oct",
     "title": "BERT Powers Google Search",
     "visual": "🔍",
@@ -272,6 +661,36 @@
       "Voice assistants"
     ],
     "wiki_url": "https://en.wikipedia.org/wiki/BERT_(language_model)"
+  },
+  {
+    "year": 2018,
+    "month": "Dec",
+    "title": "AlphaFold Wins CASP13",
+    "visual": "🧬",
+    "summary": "DeepMind's AlphaFold system achieves breakthrough performance in the CASP13 protein-folding competition.",
+    "why": "Demonstrates deep learning can solve core scientific prediction tasks, expanding AI beyond language and vision.",
+    "market_analysis": "Signals AI's potential in biotech and materials; early investment grows in AI-driven labs and molecular simulation.",
+    "products": [
+      "Protein-folding models",
+      "Scientific AI platforms",
+      "Molecular simulation tools"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/AlphaFold"
+  },
+  {
+    "year": 2017,
+    "month": "",
+    "title": "eVTOL Funding Boom",
+    "visual": "💸",
+    "summary": "Major venture and aerospace investment pours into eVTOL startups like Joby, Lilium, and Volocopter.",
+    "why": "Kickstarts the modern flying-car industry backed by electric power and autonomous flight R&D.",
+    "market_analysis": "Raises valuations across the sector; batteries and autonomy become strategic bottlenecks for commercialization.",
+    "products": [
+      "eVTOL startups",
+      "Urban air mobility platforms",
+      "Flight autonomy research"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Urban_air_mobility"
   },
   {
     "year": 2017,
@@ -289,6 +708,36 @@
   },
   {
     "year": 2016,
+    "month": "Jul",
+    "title": "Neuralink Founded",
+    "visual": "🔌",
+    "summary": "Elon Musk co-founds Neuralink to develop implantable brain–computer interfaces.",
+    "why": "Aims to create high-bandwidth links between neurons and computers for medical and eventually general-use applications.",
+    "market_analysis": "Accelerates the neurotech race; more capital flows into BCI hardware, signal decoding, and regulatory pathways.",
+    "products": [
+      "Implantable BCIs",
+      "Neural recording devices",
+      "Neurostimulation systems"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Neuralink"
+  },
+  {
+    "year": 2016,
+    "month": "Feb",
+    "title": "Closed-Loop Neuroprosthetics",
+    "visual": "🦾",
+    "summary": "Neuroprosthetic systems begin combining brain-controlled movement with sensory feedback loops.",
+    "why": "Turns prosthetics from one-way tools into more natural, learnable extensions of the body.",
+    "market_analysis": "Clinical robotics and neurodevice makers expand trials; AI decoding and stimulation become a key growth area.",
+    "products": [
+      "Sensory-feedback prosthetics",
+      "BCI rehabilitation systems",
+      "Neural stimulation devices"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Neuroprosthetics"
+  },
+  {
+    "year": 2016,
     "month": "Mar",
     "title": "AlphaGo Beats Lee Sedol",
     "visual": "🥋",
@@ -300,6 +749,66 @@
       "AI research services"
     ],
     "wiki_url": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol"
+  },
+  {
+    "year": 2014,
+    "month": "Jun",
+    "title": "GANs Introduced",
+    "visual": "🎨",
+    "summary": "Ian Goodfellow proposes Generative Adversarial Networks (GANs) for realistic synthetic data generation.",
+    "why": "Opens the door to modern generative AI for images, video, and simulation data used in robotics training.",
+    "market_analysis": "Seeds a wave of generative startups and later deepfakes; synthetic data becomes a valuable AI commodity.",
+    "products": [
+      "Generative image models",
+      "Synthetic training datasets",
+      "Simulation tools"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Generative_adversarial_network"
+  },
+  {
+    "year": 2013,
+    "month": "",
+    "title": "Deep Q-Networks (DQN) Atari Breakthrough",
+    "visual": "🎮",
+    "summary": "DeepMind demonstrates that a single deep reinforcement learning agent can learn to play dozens of Atari games directly from pixels.",
+    "why": "Proved deep reinforcement learning could scale beyond toy problems, paving the way for AlphaGo-style systems and modern robotics control.",
+    "market_analysis": "Renewed interest in reinforcement learning for autonomy, leading to increased research funding and early industrial pilots in robotics and simulation.",
+    "products": [
+      "Reinforcement learning agents",
+      "Robotics control policies",
+      "Game AI systems"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Deep_reinforcement_learning"
+  },
+  {
+    "year": 2013,
+    "month": "May",
+    "title": "fMRI Mind-Reading Studies",
+    "visual": "🧠",
+    "summary": "Machine learning models reconstruct viewed images and words from fMRI brain scans with increasing fidelity.",
+    "why": "Demonstrates the feasibility of decoding mental content, a key step toward higher-level BCIs.",
+    "market_analysis": "Boosts academic and commercial interest in neuro-AI; imaging hardware and decoding software ecosystems expand.",
+    "products": [
+      "Neural decoding models",
+      "Brain-imaging analytics",
+      "Neuro-AI research tools"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Functional_magnetic_resonance_imaging"
+  },
+  {
+    "year": 2012,
+    "month": "Apr",
+    "title": "Brain-Controlled Prosthetic Hand Trials",
+    "visual": "✋",
+    "summary": "Clinical studies demonstrate people can control prosthetic hands using implanted or surface neural signals.",
+    "why": "Proves BCIs can drive fine motor robotics for real-world assistive use.",
+    "market_analysis": "Clinical robotics and medtech investors increase BCI funding; accelerates translation of lab BCIs into products.",
+    "products": [
+      "BCI prosthetic hands",
+      "Neural decoding software",
+      "Rehabilitation robotics"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface"
   },
   {
     "year": 2012,
@@ -316,6 +825,36 @@
     "wiki_url": "https://en.wikipedia.org/wiki/AlexNet"
   },
   {
+    "year": 2009,
+    "month": "",
+    "title": "ImageNet Dataset Released",
+    "visual": "🖼️",
+    "summary": "Fei-Fei Li's team publishes ImageNet, a massive labeled image dataset and benchmark for computer vision.",
+    "why": "Standardized large-scale training and evaluation, enabling the deep learning surge in visual recognition.",
+    "market_analysis": "Accelerated demand for GPUs and cloud training; seeded the modern computer-vision industry used in phones, cars, and factories.",
+    "products": [
+      "Computer vision benchmarks",
+      "Image classification models",
+      "Data labeling platforms"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/ImageNet"
+  },
+  {
+    "year": 2009,
+    "month": "",
+    "title": "Modern eVTOL Prototypes Emerge",
+    "visual": "🚁",
+    "summary": "Early electric VTOL prototypes appear, combining lightweight batteries with distributed electric propulsion.",
+    "why": "Starts the modern flying-car era enabled by advances in batteries and flight control software.",
+    "market_analysis": "Signals a new aviation category; battery energy density becomes a strategic constraint for the sector.",
+    "products": [
+      "eVTOL prototypes",
+      "Distributed electric propulsion",
+      "Aviation autonomy systems"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/EVTOL"
+  },
+  {
     "year": 2007,
     "month": "Jun",
     "title": "First iPhone Released",
@@ -330,6 +869,66 @@
     "wiki_url": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)"
   },
   {
+    "year": 2006,
+    "month": "",
+    "title": "Deep Learning Revival",
+    "visual": "📈",
+    "summary": "Geoffrey Hinton and collaborators revive interest in multi-layer neural networks with techniques like deep belief nets and improved training.",
+    "why": "Restarted deep neural network research after the AI winters, setting the stage for 2010s breakthroughs.",
+    "market_analysis": "Shifted academic and early industry attention back toward neural nets, influencing later investments in speech, vision, and recommendation systems.",
+    "products": [
+      "Deep neural network models",
+      "Speech recognition engines",
+      "Representation learning tools"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Deep_learning"
+  },
+  {
+    "year": 2006,
+    "month": "",
+    "title": "ECoG High-Bandwidth BCI Advances",
+    "visual": "🧠",
+    "summary": "Electrocorticography (ECoG) studies show higher-bandwidth neural recording that improves cursor and motor decoding.",
+    "why": "Bridges the gap between noninvasive EEG and fully implanted arrays, enabling more precise mind-controlled interfaces.",
+    "market_analysis": "Strengthens clinical BCI pathways; spurs investment into neural signal decoding and surgical neurotech.",
+    "products": [
+      "Clinical BCI implants",
+      "Neural decoding algorithms",
+      "Motor-intent interfaces"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Electrocorticography"
+  },
+  {
+    "year": 2002,
+    "month": "",
+    "title": "Roomba Consumer Robot",
+    "visual": "🧹",
+    "summary": "iRobot launches Roomba, the first widely successful household robot vacuum.",
+    "why": "Brought autonomous robotics into millions of homes and proved consumer demand for service robots.",
+    "market_analysis": "Created a new consumer robotics category and stimulated investment in home automation and low-cost sensing/navigation.",
+    "products": [
+      "Robot vacuums",
+      "Home service robots",
+      "Domestic navigation sensors"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Roomba"
+  },
+  {
+    "year": 2002,
+    "month": "",
+    "title": "Mind-Controlled Robotic Arm Demo",
+    "visual": "🦾",
+    "summary": "Researchers demonstrate controlling a robotic arm using neural signals from the brain.",
+    "why": "First clear link between BCIs and physical robotics actuation.",
+    "market_analysis": "Expands funding for neuroprosthetics and rehabilitation robotics.",
+    "products": [
+      "BCI robot arms",
+      "Neuroprosthetic controllers",
+      "Rehabilitation robots"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface"
+  },
+  {
     "year": 1998,
     "month": "Sep",
     "title": "Google Founded",
@@ -342,6 +941,51 @@
       "Web analytics"
     ],
     "wiki_url": "https://en.wikipedia.org/wiki/Google"
+  },
+  {
+    "year": 1998,
+    "month": "",
+    "title": "LeNet-5 CNN Deployed",
+    "visual": "🔢",
+    "summary": "LeCun's LeNet-5 convolutional neural network is used commercially for handwriting recognition.",
+    "why": "One of the first real-world deployments of CNNs, proving neural nets could outperform rule-based vision.",
+    "market_analysis": "Early commercial success for neural networks in banking and document processing.",
+    "products": [
+      "Handwriting OCR",
+      "Document digitization",
+      "Early CNN software"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/LeNet"
+  },
+  {
+    "year": 1998,
+    "month": "",
+    "title": "First Implanted BCI Cursor Control",
+    "visual": "🖱️",
+    "summary": "Implanted electrodes enable basic cursor and selection control directly from motor cortex activity.",
+    "why": "First implanted BCI showing practical control of a computer without muscles.",
+    "market_analysis": "Sets the stage for clinical BCI programs and later high-channel implants.",
+    "products": [
+      "Implantable neural interfaces",
+      "Assistive cursor systems",
+      "Neurorehabilitation tools"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface"
+  },
+  {
+    "year": 1997,
+    "month": "",
+    "title": "Deep Blue Beats Kasparov",
+    "visual": "♟️",
+    "summary": "IBM's chess supercomputer Deep Blue defeats world champion Garry Kasparov in a historic match.",
+    "why": "Showcased the power of search, heuristics, and specialized hardware, shifting public expectations about machine intelligence.",
+    "market_analysis": "Sparked a late-90s AI surge in corporate labs and highlighted the value of compute-heavy approaches.",
+    "products": [
+      "Game-playing AI",
+      "Decision-support systems",
+      "Specialized compute hardware"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Deep_Blue_versus_Garry_Kasparov"
   },
   {
     "year": 1991,
@@ -389,6 +1033,21 @@
     "wiki_url": "https://en.wikipedia.org/wiki/World_Wide_Web"
   },
   {
+    "year": 1989,
+    "month": "",
+    "title": "Convolutional Neural Networks (LeNet Era)",
+    "visual": "🧠",
+    "summary": "Yann LeCun develops early convolutional neural networks for handwritten digit recognition.",
+    "why": "Introduces a scalable architecture for vision that becomes central to modern AI and robotics perception.",
+    "market_analysis": "Research milestone that later underpins commercial OCR, surveillance, and autonomous systems.",
+    "products": [
+      "Convolutional neural nets",
+      "Handwriting recognition",
+      "Vision AI foundations"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Convolutional_neural_network"
+  },
+  {
     "year": 1986,
     "month": "",
     "title": "Backpropagation",
@@ -404,6 +1063,36 @@
     "stockReaction": "Academic breakthrough; laid groundwork for future AI stocks.",
     "emoji": "📐",
     "imgQuery": "neural network diagram vintage"
+  },
+  {
+    "year": 1985,
+    "month": "",
+    "title": "Temporal-Difference Reinforcement Learning",
+    "visual": "🎯",
+    "summary": "Richard Sutton introduces temporal-difference methods, formalizing modern reinforcement learning.",
+    "why": "Provided a general framework for learning from rewards, later powering robotics control and game-playing AI.",
+    "market_analysis": "Laid groundwork for the deep RL wave decades later, influencing autonomy research and investment.",
+    "products": [
+      "Autonomous agents",
+      "Robotics control algorithms",
+      "Adaptive optimization systems"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Reinforcement_learning"
+  },
+  {
+    "year": 1973,
+    "month": "",
+    "title": "Brain–Computer Interface Coined",
+    "visual": "🧠",
+    "summary": "Jacques Vidal coins the term Brain–Computer Interface and demonstrates early EEG-based control experiments.",
+    "why": "Establishes BCI as a field linking brain signals to machines.",
+    "market_analysis": "N/A (Academic Era). Seeds decades of neurotech and assistive robotics research.",
+    "products": [
+      "EEG-based control systems",
+      "Neuro-AI research tools",
+      "Assistive interfaces"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Brain%E2%80%93computer_interface"
   },
   {
     "year": 1972,
@@ -474,6 +1163,21 @@
     "imgQuery": "fuzzy logic diagram math"
   },
   {
+    "year": 1961,
+    "month": "",
+    "title": "Unimate Installed at GM",
+    "visual": "🏭",
+    "summary": "The first Unimate industrial robot is deployed on a General Motors assembly line to handle hot die-cast parts.",
+    "why": "Marked the start of real-world industrial robotics and automated manufacturing.",
+    "market_analysis": "Improved factory throughput and safety, seeding the global industrial robotics market.",
+    "products": [
+      "Industrial robot arms",
+      "Automated assembly lines",
+      "Factory safety automation"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Unimate"
+  },
+  {
     "year": 1958,
     "month": "",
     "title": "Perceptron & LISP",
@@ -540,6 +1244,21 @@
     "stockReaction": "N/A",
     "emoji": "♟️",
     "imgQuery": "alan turing computer"
+  },
+  {
+    "year": 1949,
+    "month": "",
+    "title": "Hebbian Learning",
+    "visual": "🧩",
+    "summary": "Donald Hebb proposes the rule \"neurons that fire together wire together.\"",
+    "why": "Foundational idea for learning in neural networks and modern synaptic plasticity models.",
+    "market_analysis": "N/A (Academic Era). Shapes decades of computational neuroscience and AI research.",
+    "products": [
+      "Learning rules",
+      "Neural network theory",
+      "Computational neuroscience"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Hebbian_theory"
   },
   {
     "year": 1948,
@@ -627,6 +1346,36 @@
     "imgQuery": "charles babbage analytical engine"
   },
   {
+    "year": 1929,
+    "month": "",
+    "title": "EEG Invented",
+    "visual": "📈",
+    "summary": "Hans Berger records the first human electroencephalogram (EEG), revealing measurable brain waves.",
+    "why": "Enables noninvasive brain-signal monitoring, later powering neurofeedback and modern BCIs.",
+    "market_analysis": "N/A (Academic/Medical Era). Becomes a core tool in neurology and cognitive science, eventually feeding AI-based decoding.",
+    "products": [
+      "EEG scanners",
+      "Neurodiagnostics",
+      "Brain-signal datasets"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Electroencephalography"
+  },
+  {
+    "year": 1899,
+    "month": "",
+    "title": "Nickel-Cadmium Rechargeable Battery",
+    "visual": "🔋",
+    "summary": "Waldemar Jungner invents the nickel–cadmium (Ni‑Cd) battery, one of the first practical rechargeable chemistries.",
+    "why": "Enabled durable, repeat‑use power sources for early portable tools and devices.",
+    "market_analysis": "Expanded the market for rechargeable energy storage long before lithium, influencing industrial and consumer electrification.",
+    "products": [
+      "Rechargeable cells",
+      "Portable power tools",
+      "Early electronic devices"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Nickel%E2%80%93cadmium_battery"
+  },
+  {
     "year": 1879,
     "month": "",
     "title": "Electric Light",
@@ -642,6 +1391,21 @@
     "stockReaction": "Economic Impact: Created the Utility Industry.",
     "emoji": "🌃",
     "imgQuery": "edison light bulb vintage"
+  },
+  {
+    "year": 1859,
+    "month": "",
+    "title": "Lead-Acid Battery Invented",
+    "visual": "⚡",
+    "summary": "Gaston Planté invents the first rechargeable lead–acid battery.",
+    "why": "First practical way to store electricity, enabling early electric vehicles, telegraph backup, and later automotive starters.",
+    "market_analysis": "Kickstarted commercial energy storage and supported the build‑out of electrical infrastructure.",
+    "products": [
+      "Automotive starter batteries",
+      "UPS systems",
+      "Telecom backup power"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Lead%E2%80%93acid_battery"
   },
   {
     "year": 1856,

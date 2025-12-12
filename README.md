@@ -1,4 +1,4 @@
-# AlphaAI Market & Innovation Timeline (v2.6)
+# AlphaAI Market & Innovation Timeline (v3.2)
 
 ## 🎯 Project Goal
 To visualize the evolution of technology from raw metallurgy to AGI, focusing on the **market impact**, **related products**, and **industrial foundations** (batteries, robotics, AI).
@@ -22,4 +22,10 @@ Every entry in `timeline.json` must follow this structure:
 ## 🛠 Workflow
 1.  Update `timeline.json` with new events (now hosted in separate repo: https://github.com/alphaonlines/AlphaPulse).
 2.  Run `update_timeline.py` (if adding single entries) or edit JSON directly for bulk changes.
-3.  Refresh `index.html` to test.
+3.  (Optional) Pull recent headlines via GDELT:
+    - List top stories:
+      - `python3 fetch_gdelt.py`
+    - Emit schema-ready JSON skeletons you can paste into `timeline.json`:
+      - `python3 fetch_gdelt.py --as-timeline --max 10 > recent.json`
+      - review/edit `recent.json`, then paste entries into `timeline.json`
+4.  Refresh `index.html` to test.

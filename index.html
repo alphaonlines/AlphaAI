@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Tech Timeline | -3500 - 2026</title>
+  <title>AlphaAI v3.2 Timeline | -3500 - 2026</title>
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
@@ -153,9 +153,13 @@
       text-transform: uppercase;
       font-weight: 700;
     }
+    /* Place "Selected" badge top-left for left-side cards (even items) */
+    .timeline-card:nth-child(even).selected-badge::before {
+      left: 14px;
+      right: auto;
+    }
 
     .timeline-card.dimmed { opacity: 0.55; filter: saturate(0.8); }
-    }
 
     /* Alternating Sides */
     .timeline-card:nth-child(odd) { margin-left: auto; margin-right: 0; text-align: left; }
@@ -262,6 +266,13 @@
       transition: opacity 0.2s;
     }
     .wiki-btn:hover { opacity: 0.9; }
+    .news-btn {
+      display: inline-block; margin-top: 8px; margin-left: 8px;
+      padding: 8px 16px; background: var(--accent-2); color: white;
+      border-radius: 6px; font-size: 0.85rem; font-weight: 600;
+      transition: opacity 0.2s;
+    }
+    .news-btn:hover { opacity: 0.9; }
 
     /* Style for the Product Tags */
     .product-tag {
@@ -362,19 +373,25 @@
       }
       .timeline-card:nth-child(even) .card-header { flex-direction: row; }
       .timeline-card:nth-child(even) .extended-content { text-align: left; }
+
+      /* On mobile, all cards are left-aligned: keep badge top-left */
+      .timeline-card.selected-badge::before {
+        left: 14px;
+        right: auto;
+      }
       
       .timeline-dot { left: -38px !important; right: auto !important; }
       .timeline-card::after { left: -30px !important; right: auto !important; width: 30px; }
     }
   </style>
 </head>
-<body data-timeline-path="timeline.json">
+  <body data-timeline-path="https://github.com/alphaonlines/FDAlphaSocial/blob/628ec476e8ad0921b5291c1b3d41fbb3a2a62d0e/timeline.json">
 
   <header>
     <div class="nav">
       <div class="brand">
         <span class="dot"></span>
-        <span id="titleText">AlphaAI v2.6 Timeline</span>
+        <span id="titleText">AlphaAI v3.2 Timeline</span>
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
@@ -421,6 +438,10 @@
             <span class="fp-stock-text" id="fpStock">Waiting for data...</span>
           </div>
 
+          <div id="fpNewsContainer" style="margin-top: 12px; display:none;">
+            <a id="fpNewsLink" href="#" target="_blank" class="news-btn">📰 Read news report</a>
+          </div>
+
           <div id="fpProducts" style="margin-top: 16px;"></div>
         </div>
       </aside>
@@ -435,6 +456,8 @@
     const fpEmoji = document.getElementById('fpEmoji');
     const fpSummary = document.getElementById('fpSummary');
     const fpProducts = document.getElementById('fpProducts');
+    const fpNewsContainer = document.getElementById('fpNewsContainer');
+    const fpNewsLink = document.getElementById('fpNewsLink');
     const drawerToggle = document.getElementById('drawerToggle');
     const drawerToggleBtn = document.getElementById('drawerToggleBtn');
     let drawerOpen = false;
@@ -463,6 +486,14 @@
 
       fpStock.textContent = data.market_analysis || data.stockReaction || data.summary || 'Waiting for data...';
       fpSummary.textContent = data.summary || 'Scroll through history to see market impacts.';
+
+      if (data.news_url) {
+        fpNewsLink.href = data.news_url;
+        fpNewsContainer.style.display = 'block';
+      } else {
+        fpNewsContainer.style.display = 'none';
+        fpNewsLink.href = '#';
+      }
 
       const forecastBanner = document.getElementById('fpForecast');
       if (data.isForecast) {
@@ -565,21 +596,37 @@
       });
     }
 
+    function normalizeTimelinePath(path) {
+      if (!path) return path;
+      // Auto-convert GitHub "blob" URLs to raw URLs.
+      const blobMatch = path.match(/^https?:\/\/github\.com\/([^/]+)\/([^/]+)\/blob\/([^/]+)\/(.+)$/i);
+      if (blobMatch) {
+        const [, owner, repo, branch, filePath] = blobMatch;
+        return `https://raw.githubusercontent.com/${owner}/${repo}/${branch}/${filePath}`;
+      }
+      return path;
+    }
+
     async function fetchTimelineData() {
-      const timelinePath = document.body.dataset.timelinePath || 'timeline.json';
+      const timelinePathRaw = document.body.dataset.timelinePath || 'timeline.json';
+      const timelinePath = normalizeTimelinePath(timelinePathRaw);
       const candidatePaths = [timelinePath];
 
-      if (!timelinePath.includes('/')) {
+      if (!timelinePath.includes('/') && !/^https?:\/\//i.test(timelinePath)) {
         candidatePaths.push(`data/${timelinePath}`);
       }
 
       const errors = [];
 
       for (const path of candidatePaths) {
-        const url = new URL(path, window.location.href).href;
+        const isRemote = /^https?:\/\//i.test(path);
+        const url = isRemote ? path : new URL(path, window.location.href).href;
 
         try {
-          const response = await fetch(url, { cache: 'no-store', mode: 'same-origin' });
+          const response = await fetch(url, {
+            cache: 'no-store',
+            mode: isRemote ? 'cors' : 'same-origin'
+          });
           if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 
           return await response.json();
@@ -605,13 +652,46 @@
         renderTimeline(sortedTimeline);
       } catch (err) {
         console.error('Timeline load failed:', err);
+
+        const isFileProtocol = window.location.protocol === 'file:';
         container.innerHTML = `
-          <div style="text-align:center; padding:40px;">
+          <div style="text-align:center; padding:40px; max-width:680px; margin:0 auto;">
             <h3>Unable to load timeline data.</h3>
-            <p>You can set <code>data-timeline-path</code> on the <code>&lt;body&gt;</code> tag to point to a different same-origin path (e.g., <code>data/timeline.json</code>).</p>
-            <p style="color:var(--muted); font-size:0.9rem;">Error: ${err.message}</p>
+            ${
+              isFileProtocol
+                ? `<p>It looks like you're opening <code>index.html</code> directly from disk. Most browsers block <code>fetch()</code> for local files.</p>
+                   <p><strong>Option A:</strong> Serve this folder locally:</p>
+                   <pre style="text-align:left; display:inline-block; background:var(--panel-strong); padding:12px 14px; border-radius:8px; border:1px solid var(--border);">python3 -m http.server 8000</pre>
+                   <p>Then open <code>http://localhost:8000/index.html</code>.</p>
+                   <p><strong>Option B:</strong> Load a local JSON file:</p>
+                   <input id="timelineFileInput" type="file" accept="application/json" style="margin-top:8px;" />
+                   <p id="timelineFileError" style="color:var(--accent-3); font-size:0.9rem; margin-top:8px; display:none;"></p>`
+                : `<p>You can set <code>data-timeline-path</code> on the <code>&lt;body&gt;</code> tag to point to a different same-origin path (e.g., <code>data/timeline.json</code>).</p>`
+            }
+            <p style="color:var(--muted); font-size:0.9rem; margin-top:12px;">Error: ${err.message}</p>
           </div>
         `;
+
+        if (isFileProtocol) {
+          const input = document.getElementById('timelineFileInput');
+          const errorEl = document.getElementById('timelineFileError');
+          if (input) {
+            input.addEventListener('change', async (e) => {
+              const file = e.target.files && e.target.files[0];
+              if (!file) return;
+              try {
+                const text = await file.text();
+                const data = JSON.parse(text);
+                const sortedTimeline = sortTimeline(data);
+                renderTimeline(sortedTimeline);
+                errorEl.style.display = 'none';
+              } catch (readErr) {
+                errorEl.textContent = `Failed to read JSON: ${readErr.message}`;
+                errorEl.style.display = 'block';
+              }
+            });
+          }
+        }
       }
     }
 
@@ -625,7 +705,7 @@
         const cardPayload = { ...item, isForecast };
         const card = document.createElement('article');
         card.className = 'timeline-card';
-        card.id = `card-${item.year}`;
+        card.id = `card-${item.year}-${index}`;
         card.dataset.year = item.year;
         card.dataset.index = index;
 
@@ -633,27 +713,28 @@
         card.dataset.info = JSON.stringify(cardPayload);
 
         card.innerHTML = `
-          <div class=\"timeline-dot\"></div>
-          <div class=\"card-header\">
-            <span class=\"visual-icon\">${item.visual}</span>
+          <div class="timeline-dot"></div>
+          <div class="card-header">
+            <span class="visual-icon">${item.visual}</span>
             <div>
-              <div class=\"card-meta\">
-                <span class=\"timeline-year\">${item.month ? item.month + ' ' : ''}${item.year}</span>
-                ${isForecast ? '<span class=\"forecast-pill\">Forecast</span>' : ''}
+              <div class="card-meta">
+                <span class="timeline-year">${item.month ? item.month + ' ' : ''}${item.year}</span>
+                ${isForecast ? '<span class="forecast-pill">Forecast</span>' : ''}
               </div>
-              <h3 style=\"font-size:1.1rem;\">${item.title}</h3>
+              <h3 style="font-size:1.1rem;">${item.title}</h3>
             </div>
           </div>
 
           <p>${item.summary}</p>
-          <button type=\"button\" class=\"analysis-btn\">📊 View market analysis</button>
+          <button type="button" class="analysis-btn">📊 View market analysis</button>
 
-          <div class=\"extended-content\">
-            <div style=\"padding-left:12px; border-left:2px solid var(--accent); margin-bottom:12px; color: var(--text);\">
-              <strong>Why it matters:</strong> ${item.why || \"Historical significance.\"}
+          <div class="extended-content">
+            <div style="padding-left:12px; border-left:2px solid var(--accent); margin-bottom:12px; color: var(--text);">
+              <strong>Why it matters:</strong> ${item.why || "Historical significance."}
             </div>
 
-            ${item.wiki_url ? `<a href=\"${item.wiki_url}\" target=\"_blank\" class=\"wiki-btn\">📖 Read on Wikipedia</a>` : ''}
+            ${item.wiki_url ? `<a href="${item.wiki_url}" target="_blank" class="wiki-btn">📖 Read on Wikipedia</a>` : ''}
+            ${item.news_url ? `<a href="${item.news_url}" target="_blank" rel="noopener" class="news-btn">📰 Read news report</a>` : ''}
           </div>
         `;
 
@@ -672,7 +753,7 @@
           card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
-        container.appendChild(card);
+      container.appendChild(card);
       });
 
       setupObserver(data);
