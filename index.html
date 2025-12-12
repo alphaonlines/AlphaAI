@@ -920,7 +920,14 @@
         CATEGORY_CONFIG.map((cfg) => {
           const start = new Date(now);
           start.setDate(start.getDate() - cfg.days);
-          return fetchGdeltForQuery(cfg.query, cfg.perCategory, now, start).catch(() => []);
+          return fetchGdeltForQuery(cfg.query, cfg.perCategory, now, start)
+            .then((items) =>
+              items.map((item) => ({
+                ...item,
+                tags: Array.from(new Set([cfg.name, ...(item.tags || [])]))
+              }))
+            )
+            .catch(() => []);
         })
       );
       const merged = dedupeByUrlAndTitle(results.flat());
