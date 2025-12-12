@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Tech Timeline | 1800 - 2025</title>
+  <title>Tech Timeline | -3500 - 2026</title>
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
@@ -308,7 +308,7 @@
     <div class="nav">
       <div class="brand">
         <span class="dot"></span>
-        <span id="titleText">AlphaAI v2 Timeline</span>
+        <span id="titleText">AlphaAI v2.1 Timeline</span>
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
@@ -321,7 +321,7 @@
 
   <div class="container">
     <section class="hero">
-      <div class="pill">1800 – 2025</div>
+      <div class="pill">-3500 – 2026</div>
       <h1>Innovation Timeline</h1>
       <p style="color: var(--muted); margin-top: 8px;">
         From the Voltaic Pile to Agentic AI.
@@ -463,26 +463,27 @@
 
     // --- FETCH DATA & INIT ---
     async function initTimeline() {
+      // Prefer local data (developer edits) and fallback to the live GitHub file to
+      // keep the timeline aligned with the checked-in JSON. This ensures recent local
+      // updates appear even when the hosted file is stale.
       try {
-        // Try fetching from the live repo first
-        const response = await fetch('https://raw.githubusercontent.com/alphaonlines/AlphaPulse/main/timeline.json');
-        if (!response.ok) throw new Error("Network response was not ok");
-        let timelineData = await response.json();
-        timelineData.sort((a, b) => b.year - a.year);
-        renderTimeline(timelineData);
-      } catch (error) {
-        console.warn("Live data failed, trying local fallback or mock data...", error);
+        const localResponse = await fetch('./timeline.json');
+        if (!localResponse.ok) throw new Error("Local timeline missing");
+        let localData = await localResponse.json();
+        localData.sort((a, b) => b.year - a.year);
+        renderTimeline(localData);
+      } catch (localError) {
+        console.warn("Local data missing, trying live remote...", localError);
 
-        // Fallback: Try a local file OR load the mock data directly here for testing
-        // You can point this to your local server file path
         try {
-            const localResponse = await fetch('./timeline.json');
-            let localData = await localResponse.json();
-            localData.sort((a, b) => b.year - a.year);
-            renderTimeline(localData);
-        } catch (localError) {
-            document.getElementById('timelineFeed').innerHTML =
-                '<div style="text-align:center; padding:40px;"><h3>Unable to load data.</h3><p>Ensure timeline.json exists locally or check internet connection.</p></div>';
+          const response = await fetch('https://raw.githubusercontent.com/alphaonlines/AlphaPulse/main/timeline.json');
+          if (!response.ok) throw new Error("Network response was not ok");
+          let timelineData = await response.json();
+          timelineData.sort((a, b) => b.year - a.year);
+          renderTimeline(timelineData);
+        } catch (error) {
+          document.getElementById('timelineFeed').innerHTML =
+            '<div style="text-align:center; padding:40px;"><h3>Unable to load data.</h3><p>Ensure timeline.json exists locally or check internet connection.</p></div>';
         }
       }
     }
@@ -591,7 +592,7 @@
       const cards = Array.from(document.querySelectorAll('.timeline-card'));
       
       // 2. The DOM is sorted Newest(top) -> Oldest(bottom).
-      //    Reverse it to get Chronological order (1800 -> 2025).
+      //    Reverse it to get Chronological order (-3500 -> 2026).
       const chronologicalCards = cards.reverse();
 
       // 3. Select only the first 10 events
