@@ -368,7 +368,7 @@
     }
   </style>
 </head>
-<body>
+<body data-timeline-path="https://github.com/alphaonlines/FDAlphaSocial/blob/main/timeline.json">
 
   <header>
     <div class="nav">
@@ -565,19 +565,70 @@
       });
     }
 
+    async function fetchTimelineData() {
+      const timelinePath = document.body.dataset.timelinePath || 'timeline.json';
+      const isHttpUrl = (path) => /^https?:\/\//i.test(path);
+
+      const toRawGitHub = (path) => {
+        try {
+          const url = new URL(path);
+          const match = url.pathname.match(/^\/(.+?)\/(.+?)\/blob\/(.+)$/);
+
+          if (url.hostname === 'github.com' && match) {
+            return `https://raw.githubusercontent.com/${match[1]}/${match[2]}/${match[3]}`;
+          }
+        } catch (_) {
+          return null;
+        }
+        return null;
+      };
+
+      const candidatePaths = [];
+      const rawGitHub = isHttpUrl(timelinePath) ? toRawGitHub(timelinePath) : null;
+
+      if (rawGitHub) candidatePaths.push(rawGitHub);
+      candidatePaths.push(timelinePath);
+
+      if (!isHttpUrl(timelinePath) && !timelinePath.includes('/')) {
+        candidatePaths.push(`data/${timelinePath}`);
+      }
+
+      const errors = [];
+
+      for (const path of candidatePaths) {
+        const isAbsolute = isHttpUrl(path);
+        const url = isAbsolute ? path : new URL(path, window.location.href).href;
+        const fetchOptions = { cache: 'no-store' };
+
+        if (isAbsolute) {
+          fetchOptions.mode = 'cors';
+          fetchOptions.credentials = 'omit';
+        } else {
+          fetchOptions.mode = window.location.protocol === 'file:' ? 'cors' : 'same-origin';
+        }
+
+        try {
+          const response = await fetch(url, fetchOptions);
+          if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+          return await response.json();
+        } catch (err) {
+          errors.push(`${path} (${err.message})`);
+        }
+      }
+
+      throw new Error(`Failed to load timeline data from: ${errors.join('; ')}`);
+    }
+
     async function initTimeline() {
       const container = document.getElementById('timelineFeed');
-      const localUrl = new URL('timeline.json', window.location.href).href;
 
       try {
-        const response = await fetch(localUrl, { cache: 'no-store', mode: 'same-origin' });
-        if (!response.ok) throw new Error(`timeline.json responded ${response.status}`);
-
-        const timeline = await response.json();
+        const timeline = await fetchTimelineData();
         const sortedTimeline = sortTimeline(timeline);
 
         if (!sortedTimeline.length) {
-          throw new Error('timeline.json loaded but contained no entries.');
+          throw new Error('Timeline data loaded but contained no entries.');
         }
 
         renderTimeline(sortedTimeline);
@@ -586,13 +637,11 @@
         container.innerHTML = `
           <div style="text-align:center; padding:40px;">
             <h3>Unable to load timeline data.</h3>
-            <p>Please ensure <code>timeline.json</code> is hosted in the same directory as <code>index.html</code> and served locally (e.g., <code>python -m http.server</code>).</p>
+            <p>You can set <code>data-timeline-path</code> on the <code>&lt;body&gt;</code> tag to point to a different JSON URL (same origin or a CORS-enabled absolute URL, e.g., <code>data/timeline.json</code> or a raw GitHub URL).</p>
             <p style="color:var(--muted); font-size:0.9rem;">Error: ${err.message}</p>
           </div>
         `;
       }
-
-      renderTimeline(mergedTimeline);
     }
 
     // --- RENDER TIMELINE (Modified to accept data argument) ---
