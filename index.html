@@ -374,7 +374,7 @@
     <div class="nav">
       <div class="brand">
         <span class="dot"></span>
-        <span id="titleText">AlphaAI v2.3 Timeline</span>
+        <span id="titleText">AlphaAI v2.4 Timeline</span>
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
@@ -566,22 +566,25 @@
     }
 
     async function initTimeline() {
-      // Prefer local data (developer edits), merge with live GitHub data if available
-      // so hosted environments never miss the newest milestones.
+      // Prefer the checked-in file, but harden for GitHub Pages and offline cases.
       let localData = [];
       let remoteData = [];
 
+      // Build an absolute URL to the timeline file so GitHub Pages subpaths work.
+      const currentDir = window.location.href.replace(/[^/]*$/, '');
+      const localUrl = `${currentDir}timeline.json`;
+
       try {
-        const localResponse = await fetch('./timeline.json');
-        if (!localResponse.ok) throw new Error("Local timeline missing");
+        const localResponse = await fetch(localUrl, { cache: 'no-cache' });
+        if (!localResponse.ok) throw new Error(`Local timeline missing: ${localResponse.status}`);
         localData = await localResponse.json();
       } catch (localError) {
         console.warn("Local data missing, continuing with remote...", localError);
       }
 
       try {
-        const response = await fetch('https://raw.githubusercontent.com/alphaonlines/AlphaPulse/main/timeline.json');
-        if (!response.ok) throw new Error("Network response was not ok");
+        const response = await fetch('https://raw.githubusercontent.com/alphaonlines/AlphaAI/main/timeline.json', { cache: 'no-cache' });
+        if (!response.ok) throw new Error(`Network response was not ok: ${response.status}`);
         remoteData = await response.json();
       } catch (remoteError) {
         console.warn("Remote data unavailable", remoteError);
