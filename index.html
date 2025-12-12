@@ -374,7 +374,7 @@
     <div class="nav">
       <div class="brand">
         <span class="dot"></span>
-        <span id="titleText">AlphaAI v2.5 Timeline</span>
+        <span id="titleText">AlphaAI v2.6 Timeline</span>
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
@@ -566,62 +566,30 @@
     }
 
     async function initTimeline() {
-      const errors = [];
-      const datasets = [];
+      const container = document.getElementById('timelineFeed');
+      const localUrl = new URL('timeline.json', window.location.href).href;
 
-      const sources = [
-        {
-          name: 'local',
-          url: new URL('timeline.json', window.location.href).href,
-          options: { cache: 'no-store', mode: 'same-origin' },
-        },
-        {
-          name: 'remote',
-          url: 'https://raw.githubusercontent.com/alphaonlines/AlphaAI/main/timeline.json',
-          options: { cache: 'no-store' },
+      try {
+        const response = await fetch(localUrl, { cache: 'no-store', mode: 'same-origin' });
+        if (!response.ok) throw new Error(`timeline.json responded ${response.status}`);
+
+        const timeline = await response.json();
+        const sortedTimeline = sortTimeline(timeline);
+
+        if (!sortedTimeline.length) {
+          throw new Error('timeline.json loaded but contained no entries.');
         }
-      ];
 
-      for (const source of sources) {
-        try {
-          const response = await fetch(source.url, source.options);
-          if (!response.ok) throw new Error(`${source.name} responded ${response.status}`);
-          const json = await response.json();
-          datasets.push(json);
-        } catch (err) {
-          const message = `${source.name} timeline failed: ${err.message}`;
-          console.warn(message);
-          errors.push(message);
-        }
-      });
-
-      const mergedTimeline = sortTimeline(Array.from(mergedMap.values()));
-
-      if (mergedTimeline.length === 0) {
-        document.getElementById('timelineFeed').innerHTML =
-          '<div style="text-align:center; padding:40px;"><h3>Unable to load data.</h3><p>Ensure timeline.json exists locally or check internet connection.</p></div>';
-        return;
-      }
-
-      const mergedMap = new Map();
-
-      datasets.flat().forEach(item => {
-        const key = `${item.year}-${item.title}`;
-        if (!mergedMap.has(key)) {
-          mergedMap.set(key, item);
-        }
-      });
-
-      const mergedTimeline = sortTimeline(Array.from(mergedMap.values()));
-
-      if (mergedTimeline.length === 0) {
-        document.getElementById('timelineFeed').innerHTML =
-          `<div style="text-align:center; padding:40px;">
-            <h3>Unable to load data.</h3>
-            <p>Make sure <code>timeline.json</code> is served from this directory or that the internet connection is available.</p>
-            ${errors.length ? `<p style="color:var(--muted); font-size:0.9rem;">${errors.join('<br>')}</p>` : ''}
-          </div>`;
-        return;
+        renderTimeline(sortedTimeline);
+      } catch (err) {
+        console.error('Timeline load failed:', err);
+        container.innerHTML = `
+          <div style="text-align:center; padding:40px;">
+            <h3>Unable to load timeline data.</h3>
+            <p>Please ensure <code>timeline.json</code> is hosted in the same directory as <code>index.html</code> and served locally (e.g., <code>python -m http.server</code>).</p>
+            <p style="color:var(--muted); font-size:0.9rem;">Error: ${err.message}</p>
+          </div>
+        `;
       }
 
       renderTimeline(mergedTimeline);
