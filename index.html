@@ -99,6 +99,15 @@
     /* Hero Section (Spans full width) */
     .hero { grid-column: 1 / -1; text-align: center; margin: 40px 0 20px; }
     .pill { background: var(--panel-strong); padding: 6px 14px; border-radius: 999px; font-size: 0.85rem; color: var(--muted); border: 1px solid var(--border); display: inline-block; margin-bottom: 12px;}
+    .hero-actions { display: flex; justify-content: center; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+    .cta-btn {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: #fff; border: none; border-radius: 999px; padding: 12px 18px;
+      font-weight: 700; cursor: pointer; box-shadow: var(--shadow);
+      letter-spacing: 0.01em; transition: var(--transition);
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.35); }
+    .cta-btn:active { transform: translateY(0); box-shadow: var(--shadow); }
 
     /* TIMELINE COLUMN */
     .timeline-column { position: relative; }
@@ -326,6 +335,9 @@
       <p style="color: var(--muted); margin-top: 8px;">
         From the Voltaic Pile to Agentic AI.
       </p>
+      <div class="hero-actions">
+        <button type="button" class="cta-btn" onclick="scrollToBeginning()">Start from the beginning</button>
+      </div>
     </section>
 
     <div class="timeline-column">
@@ -615,6 +627,23 @@
           targetCard.style.transition = 'var(--transition)';
         }, 400);
       }
+    }
+
+    // --- JUMP TO OLDEST ---
+    function scrollToBeginning() {
+      const cards = document.querySelectorAll('.timeline-card');
+      if (!cards.length) return;
+
+      const oldestCard = cards[cards.length - 1];
+      oldestCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (!oldestCard.classList.contains('expanded')) {
+        oldestCard.click();
+      }
+      oldestCard.style.transition = '0.3s';
+      oldestCard.style.borderColor = 'var(--accent)';
+      setTimeout(() => {
+        oldestCard.style.borderColor = '';
+      }, 1200);
     }
 
     // --- AUTOMATED TOUR ---
