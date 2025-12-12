@@ -22,6 +22,7 @@
       --border: rgba(255, 255, 255, 0.1);
       --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
       --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      --forecast: #ffb347;
     }
 
     body.light-theme {
@@ -89,11 +90,11 @@
     }
 
     /* MAIN LAYOUT GRID */
-    .container { 
-      width: min(1200px, 95vw); margin: 0 auto; padding: 20px; 
+    .container {
+      width: min(1180px, 96vw); margin: 0 auto; padding: 20px;
       display: grid;
-      grid-template-columns: 1fr 340px; /* Timeline | Sticky Sidebar */
-      gap: 40px;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.95fr); /* Timeline | Sticky Sidebar */
+      gap: 28px;
     }
     
     /* Hero Section (Spans full width) */
@@ -122,18 +123,38 @@
     }
 
     .timeline-card {
-      position: relative; width: 45%; margin-bottom: 50px;
+      position: relative; width: 48%; margin-bottom: 44px;
       background: var(--panel); border: 1px solid var(--border);
       border-radius: 16px; padding: 20px;
       cursor: pointer; transition: var(--transition);
       transform-origin: center;
+      opacity: 0.92;
     }
 
     /* Active State (Triggered by Scroll) */
     .timeline-card.active-card {
       border-color: var(--accent);
-      box-shadow: 0 0 25px rgba(79, 156, 255, 0.15);
+      box-shadow: 0 0 25px rgba(79, 156, 255, 0.2);
       background: var(--panel-strong);
+      transform: translateY(-2px);
+    }
+
+    .timeline-card.selected-badge::before {
+      content: 'Selected';
+      position: absolute;
+      top: 14px; right: 14px;
+      background: rgba(79, 156, 255, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(79, 156, 255, 0.35);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.7rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .timeline-card.dimmed { opacity: 0.55; filter: saturate(0.8); }
     }
 
     /* Alternating Sides */
@@ -166,17 +187,27 @@
     /* Content Styling */
     .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
     .timeline-card:nth-child(even) .card-header { flex-direction: row-reverse; }
-    
-    .timeline-year { 
-      font-weight: 700; color: var(--accent); text-transform: uppercase; 
+
+    .card-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .timeline-card:nth-child(even) .card-meta { justify-content: flex-end; }
+
+    .timeline-year {
+      font-weight: 700; color: var(--accent); text-transform: uppercase;
       font-size: 0.85rem; letter-spacing: 1px; flex-shrink: 0;
     }
     .visual-icon { font-size: 1.5rem; }
     
-    .expand-hint {
-      font-size: 0.75rem; color: var(--accent-3); margin-top: 8px;
-      display: block; opacity: 0.7; font-weight: 600;
+    .analysis-btn {
+      font-size: 0.85rem; color: #fff; margin-top: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 700; padding: 8px 14px;
+      border-radius: 999px; border: none; cursor: pointer;
+      background: linear-gradient(135deg, var(--accent-3) 0%, var(--accent) 100%);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
     }
+    .analysis-btn:hover { transform: translateY(-1px); }
+    .analysis-btn:active { transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,0.35); }
 
     /* Expanded Content */
     .extended-content {
@@ -238,6 +269,32 @@
       background: rgba(255,255,255,0.1); border-radius: 4px;
       font-size: 0.75rem; margin-right: 6px; margin-top: 6px;
       border: 1px solid var(--border);
+    }
+
+    .forecast-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(255, 179, 71, 0.14);
+      border: 1px solid rgba(255, 179, 71, 0.4);
+      color: var(--forecast);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .forecast-note {
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 179, 71, 0.12);
+      border: 1px solid rgba(255, 179, 71, 0.35);
+      color: var(--forecast);
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
 
     /* MOBILE RESPONSIVE */
@@ -317,7 +374,7 @@
     <div class="nav">
       <div class="brand">
         <span class="dot"></span>
-        <span id="titleText">AlphaAI v2.2 Timeline</span>
+        <span id="titleText">AlphaAI v2.3 Timeline</span>
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
@@ -357,6 +414,7 @@
           <p id="fpSummary" style="color: var(--muted); font-size: 0.95rem; margin-bottom: 16px;">
             Scroll through history to see market impacts.
           </p>
+          <div id="fpForecast" class="forecast-note" style="display:none;">Forecast / speculative entry. Details may evolve.</div>
 
           <div class="fp-stock-box">
             <span class="fp-stock-label">📈 Market Analysis</span>
@@ -406,6 +464,13 @@
       fpStock.textContent = data.market_analysis || data.stockReaction || data.summary || 'Waiting for data...';
       fpSummary.textContent = data.summary || 'Scroll through history to see market impacts.';
 
+      const forecastBanner = document.getElementById('fpForecast');
+      if (data.isForecast) {
+        forecastBanner.style.display = 'block';
+      } else {
+        forecastBanner.style.display = 'none';
+      }
+
       fpProducts.innerHTML = '';
       if (data.products && Array.isArray(data.products)) {
         data.products.forEach(prod => {
@@ -420,11 +485,21 @@
     function setActiveCard(card) {
       if (!card) return;
 
-      document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('active-card'));
-      card.classList.add('active-card');
+      document.querySelectorAll('.timeline-card').forEach(c => {
+        c.classList.remove('active-card', 'selected-badge');
+        c.classList.add('dimmed');
+      });
+      card.classList.add('active-card', 'selected-badge');
+      card.classList.remove('dimmed');
 
       const data = JSON.parse(card.dataset.info || '{}');
       populateFloatingPanel(data);
+    }
+
+    function toggleCardExpansion(card) {
+      const isExpanded = card.classList.contains('expanded');
+      document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('expanded'));
+      if(!isExpanded) card.classList.add('expanded');
     }
 
     // Drawer interactions for mobile
@@ -453,6 +528,7 @@
     // --- CONFIGURATION ---
     const lastUpdated = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('lastUpdatedDate').textContent = `Updated: ${lastUpdated}`;
+    const currentYear = new Date().getFullYear();
 
     // --- SEARCH FUNCTIONALITY ---
     const searchInput = document.querySelector('.search-input');
@@ -537,6 +613,8 @@
       container.innerHTML = ''; // Clear loading state
 
       data.forEach((item, index) => {
+        const isForecast = Number(item.year) > currentYear;
+        const cardPayload = { ...item, isForecast };
         const card = document.createElement('article');
         card.className = 'timeline-card';
         card.id = `card-${item.year}`;
@@ -544,37 +622,46 @@
         card.dataset.index = index;
 
         // Note: We use JSON.stringify for data passing to keep the logic clean
-        card.dataset.info = JSON.stringify(item); 
+        card.dataset.info = JSON.stringify(cardPayload);
 
         card.innerHTML = `
-          <div class="timeline-dot"></div>
-          <div class="card-header">
-            <span class="visual-icon">${item.visual}</span>
+          <div class=\"timeline-dot\"></div>
+          <div class=\"card-header\">
+            <span class=\"visual-icon\">${item.visual}</span>
             <div>
-              <div class="timeline-year">${item.month ? item.month + ' ' : ''}${item.year}</div>
-              <h3 style="font-size:1.1rem;">${item.title}</h3>
+              <div class=\"card-meta\">
+                <span class=\"timeline-year\">${item.month ? item.month + ' ' : ''}${item.year}</span>
+                ${isForecast ? '<span class=\"forecast-pill\">Forecast</span>' : ''}
+              </div>
+              <h3 style=\"font-size:1.1rem;\">${item.title}</h3>
             </div>
           </div>
 
           <p>${item.summary}</p>
-          <span class="expand-hint">Click for Market Analysis</span>
+          <button type=\"button\" class=\"analysis-btn\">📊 View market analysis</button>
 
-          <div class="extended-content">
-            <div style="padding-left:12px; border-left:2px solid var(--accent); margin-bottom:12px; color: var(--text);">
-              <strong>Why it matters:</strong> ${item.why || "Historical significance."}
+          <div class=\"extended-content\">
+            <div style=\"padding-left:12px; border-left:2px solid var(--accent); margin-bottom:12px; color: var(--text);\">
+              <strong>Why it matters:</strong> ${item.why || \"Historical significance.\"}
             </div>
 
-            ${item.wiki_url ? `<a href="${item.wiki_url}" target="_blank" class="wiki-btn">📖 Read on Wikipedia</a>` : ''}
+            ${item.wiki_url ? `<a href=\"${item.wiki_url}\" target=\"_blank\" class=\"wiki-btn\">📖 Read on Wikipedia</a>` : ''}
           </div>
         `;
 
         // Click to toggle expansion
         card.addEventListener('click', (e) => {
-          if(e.target.tagName === 'A') return;
+          if(e.target.tagName === 'A' || e.target.closest('.analysis-btn')) return;
           setActiveCard(card);
-          const isExpanded = card.classList.contains('expanded');
-          document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('expanded'));
-          if(!isExpanded) card.classList.add('expanded');
+          toggleCardExpansion(card);
+        });
+
+        const analysisButton = card.querySelector('.analysis-btn');
+        analysisButton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          setActiveCard(card);
+          toggleCardExpansion(card);
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
         container.appendChild(card);
