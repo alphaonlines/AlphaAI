@@ -593,6 +593,14 @@
           console.warn(message);
           errors.push(message);
         }
+      });
+
+      const mergedTimeline = sortTimeline(Array.from(mergedMap.values()));
+
+      if (mergedTimeline.length === 0) {
+        document.getElementById('timelineFeed').innerHTML =
+          '<div style="text-align:center; padding:40px;"><h3>Unable to load data.</h3><p>Ensure timeline.json exists locally or check internet connection.</p></div>';
+        return;
       }
 
       const mergedMap = new Map();
