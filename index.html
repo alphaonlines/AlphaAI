@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Tech Timeline | 1800 - 2025</title>
+  <title>Tech Timeline | -3500 - 2026</title>
   
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap');
@@ -22,6 +22,7 @@
       --border: rgba(255, 255, 255, 0.1);
       --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
       --transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+      --forecast: #ffb347;
     }
 
     body.light-theme {
@@ -89,16 +90,25 @@
     }
 
     /* MAIN LAYOUT GRID */
-    .container { 
-      width: min(1200px, 95vw); margin: 0 auto; padding: 20px; 
+    .container {
+      width: min(1180px, 96vw); margin: 0 auto; padding: 20px;
       display: grid;
-      grid-template-columns: 1fr 340px; /* Timeline | Sticky Sidebar */
-      gap: 40px;
+      grid-template-columns: minmax(0, 1.35fr) minmax(320px, 0.95fr); /* Timeline | Sticky Sidebar */
+      gap: 28px;
     }
     
     /* Hero Section (Spans full width) */
     .hero { grid-column: 1 / -1; text-align: center; margin: 40px 0 20px; }
     .pill { background: var(--panel-strong); padding: 6px 14px; border-radius: 999px; font-size: 0.85rem; color: var(--muted); border: 1px solid var(--border); display: inline-block; margin-bottom: 12px;}
+    .hero-actions { display: flex; justify-content: center; gap: 12px; margin-top: 12px; flex-wrap: wrap; }
+    .cta-btn {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: #fff; border: none; border-radius: 999px; padding: 12px 18px;
+      font-weight: 700; cursor: pointer; box-shadow: var(--shadow);
+      letter-spacing: 0.01em; transition: var(--transition);
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.35); }
+    .cta-btn:active { transform: translateY(0); box-shadow: var(--shadow); }
 
     /* TIMELINE COLUMN */
     .timeline-column { position: relative; }
@@ -113,18 +123,38 @@
     }
 
     .timeline-card {
-      position: relative; width: 45%; margin-bottom: 50px;
+      position: relative; width: 48%; margin-bottom: 44px;
       background: var(--panel); border: 1px solid var(--border);
       border-radius: 16px; padding: 20px;
       cursor: pointer; transition: var(--transition);
       transform-origin: center;
+      opacity: 0.92;
     }
 
     /* Active State (Triggered by Scroll) */
     .timeline-card.active-card {
       border-color: var(--accent);
-      box-shadow: 0 0 25px rgba(79, 156, 255, 0.15);
+      box-shadow: 0 0 25px rgba(79, 156, 255, 0.2);
       background: var(--panel-strong);
+      transform: translateY(-2px);
+    }
+
+    .timeline-card.selected-badge::before {
+      content: 'Selected';
+      position: absolute;
+      top: 14px; right: 14px;
+      background: rgba(79, 156, 255, 0.12);
+      color: var(--accent);
+      border: 1px solid rgba(79, 156, 255, 0.35);
+      border-radius: 999px;
+      padding: 4px 10px;
+      font-size: 0.7rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .timeline-card.dimmed { opacity: 0.55; filter: saturate(0.8); }
     }
 
     /* Alternating Sides */
@@ -157,17 +187,27 @@
     /* Content Styling */
     .card-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
     .timeline-card:nth-child(even) .card-header { flex-direction: row-reverse; }
-    
-    .timeline-year { 
-      font-weight: 700; color: var(--accent); text-transform: uppercase; 
+
+    .card-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .timeline-card:nth-child(even) .card-meta { justify-content: flex-end; }
+
+    .timeline-year {
+      font-weight: 700; color: var(--accent); text-transform: uppercase;
       font-size: 0.85rem; letter-spacing: 1px; flex-shrink: 0;
     }
     .visual-icon { font-size: 1.5rem; }
     
-    .expand-hint {
-      font-size: 0.75rem; color: var(--accent-3); margin-top: 8px;
-      display: block; opacity: 0.7; font-weight: 600;
+    .analysis-btn {
+      font-size: 0.85rem; color: #fff; margin-top: 10px;
+      display: inline-flex; align-items: center; gap: 8px;
+      font-weight: 700; padding: 8px 14px;
+      border-radius: 999px; border: none; cursor: pointer;
+      background: linear-gradient(135deg, var(--accent-3) 0%, var(--accent) 100%);
+      box-shadow: var(--shadow);
+      transition: var(--transition);
     }
+    .analysis-btn:hover { transform: translateY(-1px); }
+    .analysis-btn:active { transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,0.35); }
 
     /* Expanded Content */
     .extended-content {
@@ -229,6 +269,32 @@
       background: rgba(255,255,255,0.1); border-radius: 4px;
       font-size: 0.75rem; margin-right: 6px; margin-top: 6px;
       border: 1px solid var(--border);
+    }
+
+    .forecast-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 10px;
+      background: rgba(255, 179, 71, 0.14);
+      border: 1px solid rgba(255, 179, 71, 0.4);
+      color: var(--forecast);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .forecast-note {
+      margin: 12px 0 0;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: rgba(255, 179, 71, 0.12);
+      border: 1px solid rgba(255, 179, 71, 0.35);
+      color: var(--forecast);
+      font-size: 0.9rem;
+      line-height: 1.4;
     }
 
     /* MOBILE RESPONSIVE */
@@ -308,7 +374,7 @@
     <div class="nav">
       <div class="brand">
         <span class="dot"></span>
-        <span id="titleText">AlphaAI v2 Timeline</span>
+        <span id="titleText">AlphaAI v2.5 Timeline</span>
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
@@ -321,11 +387,14 @@
 
   <div class="container">
     <section class="hero">
-      <div class="pill">1800 – 2025</div>
+      <div class="pill">-3500 – 2026</div>
       <h1>Innovation Timeline</h1>
       <p style="color: var(--muted); margin-top: 8px;">
         From the Voltaic Pile to Agentic AI.
       </p>
+      <div class="hero-actions">
+        <button type="button" class="cta-btn" onclick="scrollToBeginning()">Start from the beginning</button>
+      </div>
     </section>
 
     <div class="timeline-column">
@@ -345,6 +414,7 @@
           <p id="fpSummary" style="color: var(--muted); font-size: 0.95rem; margin-bottom: 16px;">
             Scroll through history to see market impacts.
           </p>
+          <div id="fpForecast" class="forecast-note" style="display:none;">Forecast / speculative entry. Details may evolve.</div>
 
           <div class="fp-stock-box">
             <span class="fp-stock-label">📈 Market Analysis</span>
@@ -394,6 +464,13 @@
       fpStock.textContent = data.market_analysis || data.stockReaction || data.summary || 'Waiting for data...';
       fpSummary.textContent = data.summary || 'Scroll through history to see market impacts.';
 
+      const forecastBanner = document.getElementById('fpForecast');
+      if (data.isForecast) {
+        forecastBanner.style.display = 'block';
+      } else {
+        forecastBanner.style.display = 'none';
+      }
+
       fpProducts.innerHTML = '';
       if (data.products && Array.isArray(data.products)) {
         data.products.forEach(prod => {
@@ -408,11 +485,21 @@
     function setActiveCard(card) {
       if (!card) return;
 
-      document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('active-card'));
-      card.classList.add('active-card');
+      document.querySelectorAll('.timeline-card').forEach(c => {
+        c.classList.remove('active-card', 'selected-badge');
+        c.classList.add('dimmed');
+      });
+      card.classList.add('active-card', 'selected-badge');
+      card.classList.remove('dimmed');
 
       const data = JSON.parse(card.dataset.info || '{}');
       populateFloatingPanel(data);
+    }
+
+    function toggleCardExpansion(card) {
+      const isExpanded = card.classList.contains('expanded');
+      document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('expanded'));
+      if(!isExpanded) card.classList.add('expanded');
     }
 
     // Drawer interactions for mobile
@@ -441,6 +528,7 @@
     // --- CONFIGURATION ---
     const lastUpdated = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
     document.getElementById('lastUpdatedDate').textContent = `Updated: ${lastUpdated}`;
+    const currentYear = new Date().getFullYear();
 
     // --- SEARCH FUNCTIONALITY ---
     const searchInput = document.querySelector('.search-input');
@@ -462,29 +550,73 @@
     });
 
     // --- FETCH DATA & INIT ---
-    async function initTimeline() {
-      try {
-        // Try fetching from the live repo first
-        const response = await fetch('https://raw.githubusercontent.com/alphaonlines/AlphaPulse/main/timeline.json');
-        if (!response.ok) throw new Error("Network response was not ok");
-        let timelineData = await response.json();
-        timelineData.sort((a, b) => b.year - a.year);
-        renderTimeline(timelineData);
-      } catch (error) {
-        console.warn("Live data failed, trying local fallback or mock data...", error);
+    const monthOrder = {
+      'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6,
+      'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12,
+      'early': 3, 'mid': 6, 'late': 9
+    };
 
-        // Fallback: Try a local file OR load the mock data directly here for testing
-        // You can point this to your local server file path
+    function sortTimeline(data) {
+      return data.slice().sort((a, b) => {
+        if (b.year !== a.year) return b.year - a.year;
+        const aMonth = monthOrder[(a.month || '').toLowerCase()] || 0;
+        const bMonth = monthOrder[(b.month || '').toLowerCase()] || 0;
+        return bMonth - aMonth;
+      });
+    }
+
+    async function initTimeline() {
+      const errors = [];
+      const datasets = [];
+
+      const sources = [
+        {
+          name: 'local',
+          url: new URL('timeline.json', window.location.href).href,
+          options: { cache: 'no-store', mode: 'same-origin' },
+        },
+        {
+          name: 'remote',
+          url: 'https://raw.githubusercontent.com/alphaonlines/AlphaAI/main/timeline.json',
+          options: { cache: 'no-store' },
+        }
+      ];
+
+      for (const source of sources) {
         try {
-            const localResponse = await fetch('./timeline.json');
-            let localData = await localResponse.json();
-            localData.sort((a, b) => b.year - a.year);
-            renderTimeline(localData);
-        } catch (localError) {
-            document.getElementById('timelineFeed').innerHTML =
-                '<div style="text-align:center; padding:40px;"><h3>Unable to load data.</h3><p>Ensure timeline.json exists locally or check internet connection.</p></div>';
+          const response = await fetch(source.url, source.options);
+          if (!response.ok) throw new Error(`${source.name} responded ${response.status}`);
+          const json = await response.json();
+          datasets.push(json);
+        } catch (err) {
+          const message = `${source.name} timeline failed: ${err.message}`;
+          console.warn(message);
+          errors.push(message);
         }
       }
+
+      const mergedMap = new Map();
+
+      datasets.flat().forEach(item => {
+        const key = `${item.year}-${item.title}`;
+        if (!mergedMap.has(key)) {
+          mergedMap.set(key, item);
+        }
+      });
+
+      const mergedTimeline = sortTimeline(Array.from(mergedMap.values()));
+
+      if (mergedTimeline.length === 0) {
+        document.getElementById('timelineFeed').innerHTML =
+          `<div style="text-align:center; padding:40px;">
+            <h3>Unable to load data.</h3>
+            <p>Make sure <code>timeline.json</code> is served from this directory or that the internet connection is available.</p>
+            ${errors.length ? `<p style="color:var(--muted); font-size:0.9rem;">${errors.join('<br>')}</p>` : ''}
+          </div>`;
+        return;
+      }
+
+      renderTimeline(mergedTimeline);
     }
 
     // --- RENDER TIMELINE (Modified to accept data argument) ---
@@ -493,6 +625,8 @@
       container.innerHTML = ''; // Clear loading state
 
       data.forEach((item, index) => {
+        const isForecast = Number(item.year) > currentYear;
+        const cardPayload = { ...item, isForecast };
         const card = document.createElement('article');
         card.className = 'timeline-card';
         card.id = `card-${item.year}`;
@@ -500,37 +634,46 @@
         card.dataset.index = index;
 
         // Note: We use JSON.stringify for data passing to keep the logic clean
-        card.dataset.info = JSON.stringify(item); 
+        card.dataset.info = JSON.stringify(cardPayload);
 
         card.innerHTML = `
-          <div class="timeline-dot"></div>
-          <div class="card-header">
-            <span class="visual-icon">${item.visual}</span>
+          <div class=\"timeline-dot\"></div>
+          <div class=\"card-header\">
+            <span class=\"visual-icon\">${item.visual}</span>
             <div>
-              <div class="timeline-year">${item.month ? item.month + ' ' : ''}${item.year}</div>
-              <h3 style="font-size:1.1rem;">${item.title}</h3>
+              <div class=\"card-meta\">
+                <span class=\"timeline-year\">${item.month ? item.month + ' ' : ''}${item.year}</span>
+                ${isForecast ? '<span class=\"forecast-pill\">Forecast</span>' : ''}
+              </div>
+              <h3 style=\"font-size:1.1rem;\">${item.title}</h3>
             </div>
           </div>
 
           <p>${item.summary}</p>
-          <span class="expand-hint">Click for Market Analysis</span>
+          <button type=\"button\" class=\"analysis-btn\">📊 View market analysis</button>
 
-          <div class="extended-content">
-            <div style="padding-left:12px; border-left:2px solid var(--accent); margin-bottom:12px; color: var(--text);">
-              <strong>Why it matters:</strong> ${item.why || "Historical significance."}
+          <div class=\"extended-content\">
+            <div style=\"padding-left:12px; border-left:2px solid var(--accent); margin-bottom:12px; color: var(--text);\">
+              <strong>Why it matters:</strong> ${item.why || \"Historical significance.\"}
             </div>
 
-            ${item.wiki_url ? `<a href="${item.wiki_url}" target="_blank" class="wiki-btn">📖 Read on Wikipedia</a>` : ''}
+            ${item.wiki_url ? `<a href=\"${item.wiki_url}\" target=\"_blank\" class=\"wiki-btn\">📖 Read on Wikipedia</a>` : ''}
           </div>
         `;
 
         // Click to toggle expansion
         card.addEventListener('click', (e) => {
-          if(e.target.tagName === 'A') return;
+          if(e.target.tagName === 'A' || e.target.closest('.analysis-btn')) return;
           setActiveCard(card);
-          const isExpanded = card.classList.contains('expanded');
-          document.querySelectorAll('.timeline-card').forEach(c => c.classList.remove('expanded'));
-          if(!isExpanded) card.classList.add('expanded');
+          toggleCardExpansion(card);
+        });
+
+        const analysisButton = card.querySelector('.analysis-btn');
+        analysisButton.addEventListener('click', (event) => {
+          event.stopPropagation();
+          setActiveCard(card);
+          toggleCardExpansion(card);
+          card.scrollIntoView({ behavior: 'smooth', block: 'center' });
         });
 
         container.appendChild(card);
@@ -585,13 +728,30 @@
       }
     }
 
+    // --- JUMP TO OLDEST ---
+    function scrollToBeginning() {
+      const cards = document.querySelectorAll('.timeline-card');
+      if (!cards.length) return;
+
+      const oldestCard = cards[cards.length - 1];
+      oldestCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      if (!oldestCard.classList.contains('expanded')) {
+        oldestCard.click();
+      }
+      oldestCard.style.transition = '0.3s';
+      oldestCard.style.borderColor = 'var(--accent)';
+      setTimeout(() => {
+        oldestCard.style.borderColor = '';
+      }, 1200);
+    }
+
     // --- AUTOMATED TOUR ---
     function playHistory() {
       // 1. Get all timeline cards from the DOM
       const cards = Array.from(document.querySelectorAll('.timeline-card'));
       
       // 2. The DOM is sorted Newest(top) -> Oldest(bottom).
-      //    Reverse it to get Chronological order (1800 -> 2025).
+      //    Reverse it to get Chronological order (-3500 -> 2026).
       const chronologicalCards = cards.reverse();
 
       // 3. Select only the first 10 events
