@@ -375,6 +375,104 @@
     "wiki_url": "https://en.wikipedia.org/wiki/Linux"
   },
   {
+    "year": 2019,
+    "month": "Oct",
+    "title": "BERT Powers Google Search",
+    "visual": "🔍",
+    "summary": "Google deploys the BERT language model in search ranking to better understand natural language queries.",
+    "market_analysis": "Signals mainstream NLP adoption; SEO and ad-tech firms adapt content strategies around conversational search.",
+    "products": [
+      "Search ranking",
+      "Enterprise NLP",
+      "Voice assistants"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/BERT_(language_model)"
+  },
+  {
+    "year": 2017,
+    "month": "Jun",
+    "title": "Transformer Architecture Introduced",
+    "visual": "🧠",
+    "summary": "Vaswani et al. publish \"Attention Is All You Need,\" introducing the Transformer model architecture.",
+    "market_analysis": "Sets foundation for modern LLMs; drives GPU demand and a wave of startups building generative AI products.",
+    "products": [
+      "Large language models",
+      "Translation engines",
+      "AI developer platforms"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Transformer_(machine_learning_model)"
+  },
+  {
+    "year": 2016,
+    "month": "Mar",
+    "title": "AlphaGo Beats Lee Sedol",
+    "visual": "🥋",
+    "summary": "DeepMind's AlphaGo defeats Go champion Lee Sedol, showcasing deep reinforcement learning at scale.",
+    "market_analysis": "Catalyzes investment in deep learning; accelerates AI hiring and specialized chip roadmaps across Asia.",
+    "products": [
+      "Reinforcement learning platforms",
+      "AI accelerators",
+      "AI research services"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol"
+  },
+  {
+    "year": 2012,
+    "month": "Dec",
+    "title": "AlexNet Wins ImageNet",
+    "visual": "📸",
+    "summary": "AlexNet's CNN architecture wins ImageNet with a large margin using GPU acceleration.",
+    "market_analysis": "Triggers deep learning boom; GPU sales and cloud ML services grow as vision models enter commercial apps.",
+    "products": [
+      "Image recognition APIs",
+      "Autonomous vehicles",
+      "Retail vision systems"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/AlexNet"
+  },
+  {
+    "year": 2007,
+    "month": "Jun",
+    "title": "First iPhone Released",
+    "visual": "📱",
+    "summary": "Apple ships the original iPhone, popularizing the modern smartphone form factor and mobile apps.",
+    "market_analysis": "Creates trillion-dollar mobile ecosystem; carriers revamp data plans and app stores become core revenue streams.",
+    "products": [
+      "Smartphones",
+      "Mobile apps",
+      "Mobile broadband"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/IPhone_(1st_generation)"
+  },
+  {
+    "year": 1998,
+    "month": "Sep",
+    "title": "Google Founded",
+    "visual": "📈",
+    "summary": "Larry Page and Sergey Brin launch Google, introducing PageRank-driven web search.",
+    "market_analysis": "Kickstarts search advertising as a dominant online revenue model; venture funding flows into search and ad-tech.",
+    "products": [
+      "Search engines",
+      "Online advertising",
+      "Web analytics"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Google"
+  },
+  {
+    "year": 1991,
+    "month": "Aug",
+    "title": "Linux Kernel Announced",
+    "visual": "🐧",
+    "summary": "Linus Torvalds releases the Linux kernel, sparking the modern open-source operating system movement.",
+    "market_analysis": "Drives proliferation of open-source software; underpins enterprise servers, cloud infrastructure, and Android.",
+    "products": [
+      "Servers",
+      "Cloud platforms",
+      "Embedded systems"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Linux"
+  },
+  {
     "year": 1989,
     "month": "",
     "title": "World Wide Web",
