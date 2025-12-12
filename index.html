@@ -110,6 +110,187 @@
     .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(0,0,0,0.35); }
     .cta-btn:active { transform: translateY(0); box-shadow: var(--shadow); }
 
+    /* Current News Section */
+    .news-section {
+      width: min(1180px, 96vw);
+      margin: 14px auto 6px;
+      padding: 14px 16px 16px;
+      background: rgba(26, 29, 35, 0.92);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .news-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+    }
+    .news-header-row h2 {
+      font-size: 1.2rem;
+      margin: 0;
+      letter-spacing: 0.01em;
+      display: flex;
+      align-items: baseline;
+      gap: 8px;
+    }
+    .news-subtitle {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .news-controls {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    .news-refresh-btn {
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%);
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: var(--transition);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+    }
+    .news-refresh-btn:hover { transform: translateY(-1px); }
+    .news-filters {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    .news-checkboxes {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+    .news-checkboxes label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.04);
+      cursor: pointer;
+      user-select: none;
+      font-weight: 700;
+      transition: var(--transition);
+    }
+    .news-checkboxes label:hover {
+      border-color: var(--accent);
+      transform: translateY(-1px);
+    }
+    .news-search-input {
+      background: rgba(0,0,0,0.25);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 8px 12px;
+      color: var(--text);
+      font-size: 0.9rem;
+      min-width: 220px;
+      outline: none;
+    }
+    .news-search-input:focus { border-color: var(--accent); }
+    .news-status {
+      color: var(--muted);
+      font-size: 0.95rem;
+      padding: 6px 2px 10px;
+    }
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+      gap: 14px;
+    }
+    .news-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 14px 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      transition: var(--transition);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    }
+    .news-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 10px 26px rgba(0,0,0,0.38);
+    }
+    .news-title {
+      font-weight: 800;
+      font-size: 1.02rem;
+      line-height: 1.35;
+      color: var(--text);
+      text-decoration: none;
+    }
+    .news-title:hover { color: var(--accent); }
+    .news-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .news-source-pill {
+      padding: 2px 7px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      font-weight: 700;
+      color: var(--text);
+      font-size: 0.72rem;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+    .news-snippet {
+      font-size: 0.9rem;
+      color: var(--text);
+      opacity: 0.9;
+      line-height: 1.45;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .news-tags {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin-top: 2px;
+    }
+    .news-tag {
+      font-size: 0.7rem;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(79, 156, 255, 0.12);
+      color: var(--accent);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.02);
+    }
+    .news-tag.battery { background: rgba(0, 212, 170, 0.12); color: var(--accent-2); }
+    .news-tag.robotics { background: rgba(255, 107, 157, 0.12); color: var(--accent-3); }
+    .news-tag.bci { background: rgba(255, 179, 71, 0.14); color: var(--forecast); }
+
     /* TIMELINE COLUMN */
     .timeline-column { position: relative; }
 
@@ -402,6 +583,27 @@
     </div>
   </header>
 
+  <section class="news-section" id="currentNews">
+    <div class="news-header-row">
+      <h2>Today’s Tech News <span class="news-subtitle">Last 7 Days</span></h2>
+      <div class="news-controls">
+        <button type="button" class="news-refresh-btn" id="newsRefreshBtn">Refresh</button>
+        <span id="newsLastUpdated">Last updated: —</span>
+      </div>
+    </div>
+    <div class="news-filters">
+      <div class="news-checkboxes" id="newsCategoryFilters">
+        <label><input type="checkbox" value="AI"> AI</label>
+        <label><input type="checkbox" value="Batteries"> Batteries</label>
+        <label><input type="checkbox" value="Robotics"> Robotics</label>
+        <label><input type="checkbox" value="BCI"> BCI</label>
+      </div>
+      <input id="newsSearchInput" class="news-search-input" type="text" placeholder="Search news...">
+    </div>
+    <div id="newsStatus" class="news-status">Loading current tech news…</div>
+    <div id="newsGrid" class="news-grid"></div>
+  </section>
+
   <div class="container">
     <section class="hero">
       <div class="pill">-3500 – 2026</div>
@@ -586,6 +788,281 @@
       'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12,
       'early': 3, 'mid': 6, 'late': 9
     };
+
+    // --- CURRENT NEWS (GDELT Doc 2.0) ---
+    const NEWS_QUERY =
+      '(AI OR "artificial intelligence" OR LLM OR robotics OR humanoid OR "brain-computer interface" OR BCI OR Neuralink OR battery OR "energy storage" OR BESS OR "solid-state") sourcelang:English';
+
+    const CATEGORY_QUERIES = {
+      AI: '(AI OR "artificial intelligence" OR LLM OR GPT OR transformer OR "foundation model" OR "agentic AI") sourcelang:English',
+      Batteries: '(battery OR batteries OR BESS OR "energy storage" OR "solid-state" OR lithium OR LFP OR sodium-ion OR "grid storage" OR "battery energy storage system" OR cathode OR anode) sourcelang:English',
+      Robotics: '(robotics OR robot OR humanoid OR "humanoid robot" OR automation OR robotaxi OR "autonomous vehicle" OR drone OR eVTOL OR "air taxi" OR "delivery robot") sourcelang:English',
+      BCI: '("brain-computer interface" OR BCI OR Neuralink OR "neural link" OR "neuralink" OR "brain interface" OR "brain implant" OR "neural implant" OR stentrode OR Paradromics OR Synchron OR "Blackrock Neurotech" OR "Precision Neuroscience" OR BrainGate OR "MindMaze" OR Kernel OR Neurable OR NextMind OR Emotiv OR OpenBCI) sourcelang:English'
+    };
+
+    const CATEGORY_CONFIG = [
+      { name: 'AI', query: CATEGORY_QUERIES.AI, days: 7, perCategory: 10 },
+      { name: 'Batteries', query: CATEGORY_QUERIES.Batteries, days: 14, perCategory: 12 },
+      { name: 'Robotics', query: CATEGORY_QUERIES.Robotics, days: 14, perCategory: 12 },
+      { name: 'BCI', query: CATEGORY_QUERIES.BCI, days: 14, perCategory: 12 }
+    ];
+
+    const NEWS_CATEGORIES = {
+      AI: /\b(ai|artificial intelligence|llm|gpt|transformer|openai|anthropic|deepmind|agentic)\b/i,
+      Batteries: /\b(battery|bess|energy storage|solid-state|lithium|lfp|grid storage|megapack)\b/i,
+      Robotics: /\b(robot|robotics|humanoid|automation|robotaxi|drone|evtol|air taxi|autonomous vehicle)\b/i,
+      BCI: /\b(brain[-\s]?computer interface|bci|neural\s?link|neuralink|brain\s?interface|brain\s?implant|neurotech|neuroprosthetic|neural\s+implant|stentrode|paradromics|synchron|blackrock\s+neurotech|kernel|mind\s?control|eeg|ecog|neural\s+decoding)\b/i
+    };
+
+    let newsArticles = [];
+
+    function pad2(n) { return String(n).padStart(2, '0'); }
+    function toGdeltDatetime(d) {
+      return (
+        d.getUTCFullYear() +
+        pad2(d.getUTCMonth() + 1) +
+        pad2(d.getUTCDate()) +
+        pad2(d.getUTCHours()) +
+        pad2(d.getUTCMinutes()) +
+        pad2(d.getUTCSeconds())
+      );
+    }
+
+    function detectCategories(text) {
+      const tags = [];
+      const hay = (text || '').toLowerCase();
+      for (const [name, re] of Object.entries(NEWS_CATEGORIES)) {
+        if (re.test(hay)) tags.push(name);
+      }
+      return tags.length ? tags : ['AI']; // default to AI if unclear
+    }
+
+    function canonicalTitle(title) {
+      let t = (title || '').toLowerCase();
+      // Strip common source suffixes like " - Reuters" or "| The Verge"
+      t = t.replace(/\s+[-|]\s+[a-z0-9 .:&'-]{2,}$/i, '');
+      t = t.replace(/[^a-z0-9]+/g, ' ').trim();
+      // Remove very common filler words to improve cross-site matching
+      const stop = new Set(['the','a','an','and','or','of','to','in','for','on','with','as','at','by','from','new','report','reports']);
+      t = t.split(' ').filter(w => w && !stop.has(w)).join(' ');
+      return t;
+    }
+
+    function dedupeByUrlAndTitle(items) {
+      const seenUrl = new Set();
+      const seenTitle = new Set();
+      const out = [];
+      for (const item of items) {
+        const url = item.url;
+        const titleKey = canonicalTitle(item.title);
+        if (url && seenUrl.has(url)) continue;
+        if (titleKey && seenTitle.has(titleKey)) continue;
+        if (url) seenUrl.add(url);
+        if (titleKey) seenTitle.add(titleKey);
+        out.push(item);
+      }
+      return out;
+    }
+
+    function isLikelyEnglish(text) {
+      const s = (text || '').trim();
+      if (!s) return true;
+      // Quick reject for common non-Latin scripts
+      if (/[一-龯ぁ-ゟ゠-ヿㄱ-ㅎㅏ-ㅣ\u0600-\u06FF\u0750-\u077F\u08A0-\u08FF]/.test(s)) return false;
+      const letters = s.match(/\p{L}/gu) || [];
+      if (!letters.length) return true;
+      const latin = (s.match(/[A-Za-z]/g) || []).length;
+      return latin / letters.length > 0.6;
+    }
+
+    function normalizeGdeltArticle(a) {
+      const url = a.url || '';
+      let domain = a.sourceCommonName || a.domain || '';
+      if (!domain && url) {
+        try { domain = new URL(url).hostname.replace(/^www\./, ''); } catch {}
+      }
+      const dateStr = a.seendate || a.date || a.publishDate || '';
+      const date = dateStr ? new Date(dateStr) : null;
+      const snippet = (a.excerpt || a.snippet || a.summary || '').trim();
+      const title = (a.title || '').trim();
+      const tags = detectCategories(`${title} ${snippet}`);
+      const lang = (a.language || a.sourceLanguage || a.sourcelang || '').toString();
+      return { title, url, domain, date, snippet, tags, lang };
+    }
+
+    async function fetchGdeltForQuery(query, maxrecords, now, start) {
+      const params = new URLSearchParams({
+        query,
+        mode: 'ArtList',
+        format: 'json',
+        maxrecords: String(maxrecords),
+        sort: 'DateDesc',
+        startdatetime: toGdeltDatetime(start),
+        enddatetime: toGdeltDatetime(now)
+      });
+      const url = `https://api.gdeltproject.org/api/v2/doc/doc?${params.toString()}`;
+      const resp = await fetch(url, { cache: 'no-store' });
+      if (!resp.ok) throw new Error(`${resp.status} ${resp.statusText}`);
+      const data = await resp.json();
+      const raw = data.articles || [];
+      return raw
+        .map(normalizeGdeltArticle)
+        .filter((a) => {
+          const lang = (a.lang || '').toLowerCase();
+          if (lang && !lang.startsWith('en') && !lang.includes('english')) return false;
+          return isLikelyEnglish(`${a.title} ${a.snippet}`);
+        });
+    }
+
+    async function fetchGdeltNewsBalanced() {
+      const now = new Date();
+      const results = await Promise.all(
+        CATEGORY_CONFIG.map((cfg) => {
+          const start = new Date(now);
+          start.setDate(start.getDate() - cfg.days);
+          return fetchGdeltForQuery(cfg.query, cfg.perCategory, now, start).catch(() => []);
+        })
+      );
+      const merged = dedupeByUrlAndTitle(results.flat());
+      merged.sort((a, b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
+      return merged.slice(0, 25);
+    }
+
+    async function fetchNewsApiFallback() {
+      const key =
+        window.NEWSAPI_KEY ||
+        localStorage.getItem('NEWSAPI_KEY') ||
+        '';
+      if (!key) return [];
+      const now = new Date();
+      const from = new Date(now);
+      from.setDate(from.getDate() - 7);
+      const params = new URLSearchParams({
+        q: NEWS_QUERY,
+        from: from.toISOString(),
+        sortBy: 'publishedAt',
+        pageSize: '25',
+        language: 'en',
+        apiKey: key
+      });
+      const url = `https://newsapi.org/v2/everything?${params.toString()}`;
+      const resp = await fetch(url, { cache: 'no-store' });
+      if (!resp.ok) throw new Error(`${resp.status} ${resp.statusText}`);
+      const data = await resp.json();
+      const raw = data.articles || [];
+      return raw.map((a) => {
+        const title = (a.title || '').trim();
+        const url = a.url || '';
+        let domain = '';
+        if (a.source && a.source.name) domain = a.source.name;
+        if (!domain && url) {
+          try { domain = new URL(url).hostname.replace(/^www\./, ''); } catch {}
+        }
+        const date = a.publishedAt ? new Date(a.publishedAt) : null;
+        const snippet = (a.description || '').trim();
+        const tags = detectCategories(`${title} ${snippet}`);
+        return { title, url, domain, date, snippet, tags };
+      });
+    }
+
+    function renderNewsList(items) {
+      const grid = document.getElementById('newsGrid');
+      const status = document.getElementById('newsStatus');
+      if (!grid || !status) return;
+      if (!items.length) {
+        status.textContent = 'No matching articles found.';
+        grid.innerHTML = '';
+        return;
+      }
+      status.textContent = '';
+      grid.innerHTML = '';
+      items.forEach((item) => {
+        const card = document.createElement('article');
+        card.className = 'news-card';
+        const dateLabel = item.date
+          ? item.date.toLocaleString()
+          : '';
+        const tagHtml = item.tags.map((t) => {
+          const cls =
+            t === 'Batteries' ? 'battery' :
+            t === 'Robotics' ? 'robotics' :
+            t === 'BCI' ? 'bci' : '';
+          return `<span class="news-tag ${cls}">${t}</span>`;
+        }).join('');
+        card.innerHTML = `
+          <a class="news-title" href="${item.url}" target="_blank" rel="noopener">${item.title}</a>
+          <div class="news-meta">
+            <span class="news-source-pill">${item.domain || 'Unknown'}</span>
+            ${dateLabel ? `<span>• ${dateLabel}</span>` : ''}
+          </div>
+          ${item.snippet ? `<div class="news-snippet">${item.snippet}</div>` : ''}
+          <div class="news-tags">${tagHtml}</div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function applyNewsFilters() {
+      const searchVal = (document.getElementById('newsSearchInput')?.value || '').toLowerCase().trim();
+      const checked = Array.from(document.querySelectorAll('#newsCategoryFilters input[type="checkbox"]'))
+        .filter((c) => c.checked)
+        .map((c) => c.value);
+      const activeSet = new Set(checked);
+
+      if (!activeSet.size) {
+        renderNewsList([]);
+        const status = document.getElementById('newsStatus');
+        if (status) status.textContent = 'Select a category to see news.';
+        return;
+      }
+
+      const filtered = newsArticles.filter((a) => {
+        const matchText = !searchVal || `${a.title} ${a.snippet}`.toLowerCase().includes(searchVal);
+        const matchCat = a.tags.some((t) => activeSet.has(t));
+        return matchText && matchCat;
+      });
+      renderNewsList(filtered);
+    }
+
+    async function initNews() {
+      const status = document.getElementById('newsStatus');
+      const lastUpdated = document.getElementById('newsLastUpdated');
+      const refreshBtn = document.getElementById('newsRefreshBtn');
+      if (!status) return;
+
+      async function load() {
+        status.textContent = 'Loading current tech news…';
+        try {
+          let items = await fetchGdeltNewsBalanced();
+          // Newest first
+          items.sort((a, b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
+          newsArticles = items;
+        } catch (e) {
+          try {
+            let items = await fetchNewsApiFallback();
+            items = dedupeByUrlAndTitle(items);
+            items.sort((a, b) => (b.date?.getTime() || 0) - (a.date?.getTime() || 0));
+            newsArticles = items;
+          } catch (fallbackErr) {
+            newsArticles = [];
+            status.textContent = 'Unable to load current news. Please try Refresh later.';
+            console.error('News load failed:', e, fallbackErr);
+          }
+        }
+        if (lastUpdated) {
+          lastUpdated.textContent = `Last updated: ${new Date().toLocaleString()}`;
+        }
+        applyNewsFilters();
+      }
+
+      refreshBtn?.addEventListener('click', load);
+      document.getElementById('newsSearchInput')?.addEventListener('input', applyNewsFilters);
+      document.querySelectorAll('#newsCategoryFilters input[type="checkbox"]').forEach((c) => {
+        c.addEventListener('change', applyNewsFilters);
+      });
+
+      await load();
+    }
 
     function sortTimeline(data) {
       return data.slice().sort((a, b) => {
@@ -882,6 +1359,7 @@
         drawerOpen = true;
         drawerToggleBtn.textContent = 'Hide';
       }
+      initNews();
       initTimeline();
     });
 </script>
