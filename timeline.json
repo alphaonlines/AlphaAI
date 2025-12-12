@@ -1,5 +1,61 @@
 [
   {
+    "year": 2024,
+    "month": "Mar",
+    "title": "NVIDIA Blackwell GPUs",
+    "visual": "🟩",
+    "summary": "NVIDIA announces its Blackwell architecture (B100/B200) aimed at next-gen AI training and inference.",
+    "market_analysis": "Hyperscalers accelerate data-center CAPEX and pre-order Blackwell systems; NVIDIA's valuation tops $2T as AI server demand surges.",
+    "products": [
+      "AI accelerators",
+      "AI servers",
+      "Enterprise inference"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Nvidia_Blackwell"
+  },
+  {
+    "year": 2024,
+    "month": "Feb",
+    "title": "Apple Vision Pro Launch",
+    "visual": "🕶️",
+    "summary": "Apple ships its first spatial computing headset, Vision Pro, to consumers in the United States.",
+    "market_analysis": "Kickstarts premium AR/VR spending; catalyzes spatial app development and lifts suppliers of micro-OLED displays and 3D sensors.",
+    "products": [
+      "Spatial apps",
+      "3D collaboration tools",
+      "Immersive media"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Apple_Vision_Pro"
+  },
+  {
+    "year": 2024,
+    "month": "Feb",
+    "title": "OpenAI Sora Text-to-Video",
+    "visual": "🎥",
+    "summary": "OpenAI unveils Sora, generating high-fidelity videos directly from text prompts.",
+    "market_analysis": "AI video enters production pipelines; advertisers and studios pilot synthetic content while cloud GPU demand and copyright debates intensify.",
+    "products": [
+      "AI video ads",
+      "Virtual production",
+      "Synthetic datasets"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/OpenAI_Sora"
+  },
+  {
+    "year": 2024,
+    "month": "Feb",
+    "title": "Google Gemini Long-Context Release",
+    "visual": "🌟",
+    "summary": "Google rolls out Gemini 1.5 with million-token context and stronger multimodal reasoning across Workspace and Bard.",
+    "market_analysis": "Raises expectations for long-context AI; prompts enterprises to test Gemini Advanced and heats competition with OpenAI and Anthropic.",
+    "products": [
+      "AI copilots",
+      "Document analysis",
+      "Video question answering"
+    ],
+    "wiki_url": "https://en.wikipedia.org/wiki/Google_Gemini"
+  },
+  {
     "year": 2023,
     "title": "ChatGPT Launch",
     "visual": "🤖",
