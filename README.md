@@ -1,4 +1,4 @@
-# AlphaAI Market & Innovation Timeline (v2.1)
+# AlphaAI Market & Innovation Timeline (v2.2)
 
 ## 🎯 Project Goal
 To visualize the evolution of technology from raw metallurgy to AGI, focusing on the **market impact**, **related products**, and **industrial foundations** (batteries, robotics, AI).

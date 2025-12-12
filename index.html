@@ -308,7 +308,7 @@
     <div class="nav">
       <div class="brand">
         <span class="dot"></span>
-        <span id="titleText">AlphaAI v2.1 Timeline</span>
+        <span id="titleText">AlphaAI v2.2 Timeline</span>
         <span class="last-updated" id="lastUpdatedDate">Updated: Today</span>
       </div>
       
@@ -462,30 +462,61 @@
     });
 
     // --- FETCH DATA & INIT ---
+    const monthOrder = {
+      'jan': 1, 'feb': 2, 'mar': 3, 'apr': 4, 'may': 5, 'jun': 6,
+      'jul': 7, 'aug': 8, 'sep': 9, 'oct': 10, 'nov': 11, 'dec': 12,
+      'early': 3, 'mid': 6, 'late': 9
+    };
+
+    function sortTimeline(data) {
+      return data.slice().sort((a, b) => {
+        if (b.year !== a.year) return b.year - a.year;
+        const aMonth = monthOrder[(a.month || '').toLowerCase()] || 0;
+        const bMonth = monthOrder[(b.month || '').toLowerCase()] || 0;
+        return bMonth - aMonth;
+      });
+    }
+
     async function initTimeline() {
-      // Prefer local data (developer edits) and fallback to the live GitHub file to
-      // keep the timeline aligned with the checked-in JSON. This ensures recent local
-      // updates appear even when the hosted file is stale.
+      // Prefer local data (developer edits), merge with live GitHub data if available
+      // so hosted environments never miss the newest milestones.
+      let localData = [];
+      let remoteData = [];
+
       try {
         const localResponse = await fetch('./timeline.json');
         if (!localResponse.ok) throw new Error("Local timeline missing");
-        let localData = await localResponse.json();
-        localData.sort((a, b) => b.year - a.year);
-        renderTimeline(localData);
+        localData = await localResponse.json();
       } catch (localError) {
-        console.warn("Local data missing, trying live remote...", localError);
-
-        try {
-          const response = await fetch('https://raw.githubusercontent.com/alphaonlines/AlphaPulse/main/timeline.json');
-          if (!response.ok) throw new Error("Network response was not ok");
-          let timelineData = await response.json();
-          timelineData.sort((a, b) => b.year - a.year);
-          renderTimeline(timelineData);
-        } catch (error) {
-          document.getElementById('timelineFeed').innerHTML =
-            '<div style="text-align:center; padding:40px;"><h3>Unable to load data.</h3><p>Ensure timeline.json exists locally or check internet connection.</p></div>';
-        }
+        console.warn("Local data missing, continuing with remote...", localError);
       }
+
+      try {
+        const response = await fetch('https://raw.githubusercontent.com/alphaonlines/AlphaPulse/main/timeline.json');
+        if (!response.ok) throw new Error("Network response was not ok");
+        remoteData = await response.json();
+      } catch (remoteError) {
+        console.warn("Remote data unavailable", remoteError);
+      }
+
+      const mergedMap = new Map();
+
+      [...remoteData, ...localData].forEach(item => {
+        const key = `${item.year}-${item.title}`;
+        if (!mergedMap.has(key)) {
+          mergedMap.set(key, item);
+        }
+      });
+
+      const mergedTimeline = sortTimeline(Array.from(mergedMap.values()));
+
+      if (mergedTimeline.length === 0) {
+        document.getElementById('timelineFeed').innerHTML =
+          '<div style="text-align:center; padding:40px;"><h3>Unable to load data.</h3><p>Ensure timeline.json exists locally or check internet connection.</p></div>';
+        return;
+      }
+
+      renderTimeline(mergedTimeline);
     }
 
     // --- RENDER TIMELINE (Modified to accept data argument) ---
