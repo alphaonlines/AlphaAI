@@ -29,3 +29,15 @@ Every entry in `timeline.json` must follow this structure:
       - `python3 fetch_gdelt.py --as-timeline --max 10 > recent.json`
       - review/edit `recent.json`, then paste entries into `timeline.json`
 4.  Refresh `index.html` to test.
+
+## Swarm deploy on this host
+- This machine's Swarm currently errors on `docker stack deploy` when it tries to auto-create an overlay network.
+- Use the included service deploy helper instead:
+  - `chmod +x deploy-swarm-service.sh`
+  - `./deploy-swarm-service.sh`
+- Defaults:
+  - service name: `alphaai`
+  - published port: `8087`
+  - target node: `alphahs`
+- Override them if needed:
+  - `SERVICE_NAME=alphaai-alt PUBLISHED_PORT=8091 TARGET_NODE=alphahs ./deploy-swarm-service.sh`
